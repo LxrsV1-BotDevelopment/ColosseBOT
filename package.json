@@ -4,7 +4,7 @@
   "description": "ColosseBOT",
   "main": "bot.js",
   "engines": {
-    "node": "12.6.2",
+    "node": "10.x",
     "npm": "*"
   },
   "scripts": {
