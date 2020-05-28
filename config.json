@@ -1,0 +1,35 @@
+{
+  "prefix": "//",
+  "botThumbnail": "https://i.imgur.com/5vwdUAO.png",
+
+  "guildID": "706462612602486849",
+  "modLogsChannel": "707935249874550895",
+  "infractionsChannel": "707935280795090954",
+  "welcomeChannel": "",
+  "antiLangChannel": "",
+  "antiSpamChannel": "",
+  "statsChannel": "",
+
+  "staffRoles": ["TRIAL-STAFF", "VERIFIED STAFF", "SENIOR STAFF", "MANAGERS", "OWNERS"],
+
+  "antiSpamActive": false,
+  "antiLangActive": false,
+
+  "colorWhite": "#fffffe",
+  "colorYellow": "#ffff00",
+  "colorOrange": "#ff9900",
+  "colorPink": "#ff69fc",
+  "colorLightRed": "#ff4242",
+  "colorRed": "#ff0000",
+  "colorDarkRed": "#a10000",
+  "colorLightBlue": "#5cffff",
+  "colorBlue": "#1229fc",
+  "colorDarkBlue": "#09189c",
+  "colorLightGreen": "#00ff2f",
+  "colorGreen": "#1ac93a",
+  "colorDarkGreen": "#08731c",
+  "colorPurple": "#550a7d",
+  "colorBrown": "#634308",
+  "colorGrey": "#878684",
+  "colorBlack": "#000001"
+}
