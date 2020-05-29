@@ -10,6 +10,6 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const test = message.mentions.members.first();
-    message.channel.send(test);
+   	console.log(test);
 	},
 };
