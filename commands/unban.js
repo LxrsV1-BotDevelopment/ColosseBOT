@@ -27,8 +27,8 @@ module.exports = {
 				.addField("Unbanned Person: ", user.username, true)
 				.addField("Moderator: ", message.author.username, true)
 				.addField("Reason: ", reason)
-				.setFooter("ColosseBOT", botThumbnail);
-				client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: unbanReport});
+				.setFooter("ColosseBOT", botThumbnail)
+				client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: unbanReport})
 			);
 	},
 };
