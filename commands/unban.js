@@ -18,7 +18,7 @@ module.exports = {
 		const reason = args.slice(1).join(" ");
 
 		message.guild.members.unban(userID)
-			.then(user =>
+			.then(user => {
 				let unbanReport = new Discord.MessageEmbed()
 				.setTitle("ColosseBOT Mod-Logs")
 				.setDescription("Member unban report.")
@@ -29,6 +29,6 @@ module.exports = {
 				.addField("Reason: ", reason)
 				.setFooter("ColosseBOT", botThumbnail)
 				client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: unbanReport})
-			);
+			});
 	},
 };
