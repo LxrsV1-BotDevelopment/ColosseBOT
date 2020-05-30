@@ -34,7 +34,7 @@ module.exports = {
 			.addField("Moderator: ", message.author.username, true)
 			.addField("Role: ", role)
 			.setFooter("ColosseBOT", botThumbnail);
-			client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: banReport});
+			client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: giveRoleReport});
 		});
 	},
 };
