@@ -10,7 +10,7 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const chan = message.guild.systemChannelID;
-		message.channel.send(chan);
+		console.log(chan);
 	},
 };
 
