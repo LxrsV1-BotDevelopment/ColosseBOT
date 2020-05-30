@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { staffRoles, guildID, infractionsChannel, modLogsChannel, botThumbnail, colorRed } = require("../config.json");
+const { staffRoles, guildID, infractionsChannel, modLogsChannel, botThumbnail, colorRed, colorBlack } = require("../config.json");
 
 module.exports = {
 	name: 'ban',
@@ -40,14 +40,14 @@ module.exports = {
 		message.delete();
 
 		let banSuccessEmbed = new Discord.MessageEmbed()
-		.setColor(colorRed)
+		.setColor(colorBlack)
 		.setTitle(`${banee.user.username} has been banned for ${reason}.`);
 		message.channel.send({embed: banSuccessEmbed});
 
 		let banReport = new Discord.MessageEmbed()
 		.setTitle("ColosseBOT Mod-Logs")
 		.setDescription("Member ban report.")
-		.setColor(colorRed)
+		.setColor(colorBlack)
 		.setThumbnail(botThumbnail)
 		.addField("Banned Person: ", banee.user.username, true)
 		.addField("Moderator: ", message.author.username, true)
