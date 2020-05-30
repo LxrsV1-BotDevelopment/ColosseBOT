@@ -19,7 +19,7 @@ module.exports = {
 
 		const role = args.slice(1).join(" ");
 		let roleFind = message.guild.roles.cache.find(r => r.name === role);
-		if(!roleFind) return message.channel.send("Couldn't find role like that!");
+		if(!roleFind) return message.channel.send(`Couldn't find role like that!\nPlease try again, ${message.author}!`);
 
 		user.roles.add(roleFind.id).then(() => {
 			message.delete();
