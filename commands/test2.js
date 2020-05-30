@@ -9,7 +9,7 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		const chan = message.guild.systemChannelID;
+		const chan = message.guild.systemChannel;
 		console.log(chan);
 	},
 };
