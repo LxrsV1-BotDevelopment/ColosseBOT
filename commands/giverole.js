@@ -30,7 +30,7 @@ module.exports = {
 			.setDescription("GiveRole report.")
 			.setColor(colorWhite)
 			.setThumbnail(botThumbnail)
-			.addField("Role Assigned To: ", user.username, true)
+			.addField("Role Assigned To: ", user.user.username, true)
 			.addField("Moderator: ", message.author.username, true)
 			.addField("Role: ", role)
 			.setFooter("ColosseBOT", botThumbnail);
