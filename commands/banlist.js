@@ -11,7 +11,7 @@ module.exports = {
 	execute(client, message, args) {
 		message.channel.send("=====Banned Users List=====");
 		message.guild.fetchBans().then(bans => {
-			if(!bans) {
+			if(bans.length < 1) {
 				return message.channel.send(`There are no banned users in the guild.`);
 			} else {
 				bans.forEach(user => {
