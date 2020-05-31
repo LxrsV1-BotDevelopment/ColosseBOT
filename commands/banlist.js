@@ -9,9 +9,15 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		const bannedusers = message.guild.fetchBans();
-		if (bannedusers.length < 1) return message.channel.send(`There are no banned users in the guild.`);
+		message.channel.send("=====Banned Users List=====");
+		message.guild.fetchBans().then(bans => {
+			if(!bans) {
+				return message.channel.send(`There are no banned users in the guild.`);
+			} else {
+				bans.forEach(user => {
+					message.channel.send(user.tag + " " + user.id);
+				});
+			}
+		});
 	},
 };
-
-//Template for command.
