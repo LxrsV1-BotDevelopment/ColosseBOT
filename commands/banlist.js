@@ -10,7 +10,7 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const bannedusers = message.guild.fetchBans();
-		if (!bannedusers) return message.channel.send(`There are no banned users in the guild.`);
+		if (bannedusers.length < 1)) return message.channel.send(`There are no banned users in the guild.`);
 	},
 };
 
