@@ -4,7 +4,7 @@ const { staffRoles, guildID, modLogsChannel, botThumbnail, colorWhite} = require
 module.exports = {
 	name: 'giverole',
 	description: 'Gives role to specified user.',
-	usage: '//giverole <RoleName>',
+	usage: '//giverole <@user> <RoleName>',
 	args: true,
 	argsCount: 1,
 	guildOnly: true,
