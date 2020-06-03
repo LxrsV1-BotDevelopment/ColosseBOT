@@ -12,7 +12,6 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		message.channel.send("=====Banned Users List=====");
 		message.guild.fetchBans().then(banned => {
 			if(banned.size < 1) {
 				const noBansEmbed = new Discord.MessageEmbed()
@@ -20,10 +19,12 @@ module.exports = {
 				.setTitle("There are no banned users in the guild.")
 				return message.channel.send({embed: noBansEmbed});
 			} else {
+				message.channel.send("=====Banned Users List=====");
 				let list = banned.map(user => user.tag).join('\n');
 				if (list.length > 1950) list = `${list.slice(0, 1948)}...`;
 
-				message.channel.send(`**${banned.size} users are banned:**\n${list}`);
+				message.channel.send(`${banned.size} users are banned:\n${list}`);
+				console.log(list);
 			}
 		});
 	},
