@@ -21,9 +21,9 @@ module.exports = {
 			} else {
 				message.channel.send("=====Banned Users List=====");
 				message.channel.send(`${banned.size} users are banned:`);
-				banned.forEach(user => user.tag {
+				banned.forEach(user => user.tag) {
 					message.channel.send(`${user.tag} - ${user.id}`);
-				});
+				};
 			}
 		});
 	},
