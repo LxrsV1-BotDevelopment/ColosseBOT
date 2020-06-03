@@ -20,11 +20,10 @@ module.exports = {
 				return message.channel.send({embed: noBansEmbed});
 			} else {
 				message.channel.send("=====Banned Users List=====");
-				let list = banned.map(user => user.tag).join('\n');
-				if (list.length > 1950) list = `${list.slice(0, 1948)}...`;
-
-				message.channel.send(`${banned.size} users are banned:\n${list}`);
-				console.log(list);
+				message.channel.send(`${banned.size} users are banned:`);
+				banned.forEach(user => user.tag {
+					message.channel.send(`${user.tag} - ${user.id}`);
+				});
 			}
 		});
 	},
