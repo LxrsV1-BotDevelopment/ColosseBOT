@@ -10,13 +10,17 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		message.channel.send("=====Banned Users List=====");
-		message.guild.fetchBans().then(bans => {
-			if(bans.size < 1) {
-				return message.channel.send(`There are no banned users in the guild.`);
+		message.guild.fetchBans().then(banned => {
+			if(banned.size < 1) {
+				const noBansEmbed = new Discord.MessageEmbed()
+				.setColor(colorBlack)
+				.setTitle("There are no banned users in the guild.")
+				return message.channel.send({embed: noBansEmbed});
 			} else {
-				bans.forEach(user => {
-					message.channel.send(user.tag + " " + user.id);
-				});
+				let list = banned.map(user => user.tag).join('\n');
+				if (list.length > 1950) list = `${list.slice(0, 1948)}...`;
+
+				message.channel.send(`**${banned.size} users are banned:**\n${list}`);
 			}
 		});
 	},
