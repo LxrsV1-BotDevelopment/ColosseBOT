@@ -1,3 +1,6 @@
+const Discord = require("discord.js");
+const { colorBlack } = require("../config.json");
+
 module.exports = {
 	name: 'banlist',
 	description: 'Get list of banned users.',
