@@ -23,7 +23,7 @@ module.exports = {
 				message.channel.send(`${bans.size} users are banned:`);
 				const bansArray = bans.array();
 				for (var i = 0; i < bansArray.length; i++) {
-					message.channel.send(`${bansArray[i].user.username} - ${bansArray[i].user.id}`);
+					message.channel.send(`${bansArray[i].user.tag} - _${bansArray[i].user.id}_`);
 				}
 			}
 		});
