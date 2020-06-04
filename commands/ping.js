@@ -9,9 +9,11 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
+		const apiPing = client.ws.ping;
 		message.channel.send("Pinging...").then(m => {
-	    let ping = m.createdTimestamp - message.createdTimestamp
-	    m.edit(`Bot Latency: ${ping}ms`);
+	    const botPing = m.createdTimestamp - message.createdTimestamp;
+	    m.edit(`Bot Latency: ${botPing}ms, API Latency: ${apiPing}ms.`);
 	  });
 	},
 };
+
