@@ -13,5 +13,3 @@ module.exports = {
 		message.channel.send(newText);
 	},
 };
-
-//Template for command.
