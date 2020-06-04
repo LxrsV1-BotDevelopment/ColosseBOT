@@ -22,10 +22,11 @@ module.exports = {
 				message.channel.send("=====Banned Users List=====");
 				message.channel.send(`${bans.size} users are banned:`);
 				for(var i = 0; i < bans.size; i++){
-					message.channel.send(`${user.tag} - ${user.id}`);
+					message.channel.send(`${bans[i].user.tag} - ${bans[i].user.id}`);
 				}
 			}
 		});
 	},
 };
+
 
