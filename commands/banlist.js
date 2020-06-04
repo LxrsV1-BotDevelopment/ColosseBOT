@@ -13,9 +13,19 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		message.guild.fetchBans().then(bans => {
-          bans.forEach(user => {
-            message.channel.send(user.tag + " " + user.id);
-          })
-      })
+			if(bans.size < 1) {
+				const noBansEmbed = new Discord.MessageEmbed()
+				.setColor(colorBlack)
+				.setTitle("There are no banned users in the guild!")
+				return message.channel.send({embed: noBansEmbed});
+			} else {
+				message.channel.send("=====Banned Users List=====");
+				message.channel.send(`${bans.size} users are banned:`);
+				for(var i = 0; i < bans.size; i++){
+					message.channel.send(`${user.tag} - ${user.id}`);
+				}
+			}
+		});
 	},
 };
+
