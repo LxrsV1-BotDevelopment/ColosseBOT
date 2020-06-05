@@ -4,9 +4,9 @@ const { guildID, modLogsChannel, botThumbnail, colorWhite } = require("../config
 module.exports = {
 	name: 'purge',
 	description: 'Purges specified amount of messages. (Min: 2, Max: 100)',
-	usage: '//purge <2-100>',
+	usage: '//purge <2-100> <Reason>',
 	args: true,
-	argsCount: 1,
+	argsCount: 2,
 	guildOnly: true,
 	directOnly: false,
 	roleCheck: true,
