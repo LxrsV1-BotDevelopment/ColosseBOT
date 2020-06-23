@@ -17,7 +17,7 @@ module.exports = {
 		const amount = args[0];
 		if (amount < 2 || amount > 100) return message.channel.send("Min Messages: 2 / Max Messages: 100!");
 		const reason = args.slice(1).join(" ");
-		message.channel.bulkDelete(amount).catch(error => message.channel.send(error.stack));
+		message.channel.bulkDelete(amount).catch(error => message.channel.send(error));
 
 		const purgeEmbed = new Discord.MessageEmbed()
 		.setTitle("ColosseBOT Mod-Logs")
