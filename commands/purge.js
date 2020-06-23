@@ -20,8 +20,10 @@ module.exports = {
 		try {
 			message.channel.bulkDelete(amount)
 		} catch (error) {
+			message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages were over 14 days old.");
 			console.log(error.stack);
-			return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages were over 14 days old.");
+			return;
+		
 		}
 
 		const purgeEmbed = new Discord.MessageEmbed()
