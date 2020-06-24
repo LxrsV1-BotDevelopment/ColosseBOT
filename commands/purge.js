@@ -20,9 +20,7 @@ module.exports = {
 
 		message.channel.bulkDelete(amount).catch(error => {
 			console.log(error.stack);
-			message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
-			return;
-			return;
+			if(error.name == "DiscordAPIError") return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
 		});
 			const purgeEmbed = new Discord.MessageEmbed()
 			.setTitle("ColosseBOT Mod-Logs")
