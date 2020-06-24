@@ -14,6 +14,7 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
+		const a = true;
 		const amount = args[0];
 		if (amount < 2 || amount > 100) return message.channel.send("Min Messages: 2 / Max Messages: 100!");
 		const reason = args.slice(1).join(" ");
@@ -21,19 +22,22 @@ module.exports = {
 		message.channel.bulkDelete(amount).catch(error => {
 			console.log(error.stack);
 			message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
-			return;
+			return a = false;
 		});
+		if (a == false){
+			return;
+		} else if (a == true){
+			const purgeEmbed = new Discord.MessageEmbed()
+			.setTitle("ColosseBOT Mod-Logs")
+			.setDescription("Channel purge report.")
+			.setColor(colorWhite)
+			.setThumbnail(botThumbnail)
+			.addField("Messages Purged:", amount, true)
+			.addField("Moderator:", message.author.username, true)
+			.addField("Reason:", reason)
+			.setFooter("ColosseBOT", botThumbnail);
 
-		const purgeEmbed = new Discord.MessageEmbed()
-		.setTitle("ColosseBOT Mod-Logs")
-		.setDescription("Channel purge report.")
-		.setColor(colorWhite)
-		.setThumbnail(botThumbnail)
-		.addField("Messages Purged:", amount, true)
-		.addField("Moderator:", message.author.username, true)
-		.addField("Reason:", reason)
-		.setFooter("ColosseBOT", botThumbnail);
-
-		client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
+			client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
+		}
 	},
 };
