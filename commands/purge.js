@@ -17,12 +17,11 @@ module.exports = {
 		const amount = args[0];
 		const amountCheck = /^\d+$/.test(amount);
 		if (amount < 2 || amount > 100) return message.channel.send("Min Messages: 2 / Max Messages: 100!");
-		console.log(amountCheck);
+		if (amountCheck == false) return message.channel.send("Amount must be a number!");
 		const reason = args.slice(1).join(" ");
 
 		message.channel.bulkDelete(amount).catch(error => {
-			console.log(error.stack);
-			message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
+			if(error) return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
 		});
 			const purgeEmbed = new Discord.MessageEmbed()
 			.setTitle("ColosseBOT Mod-Logs")
