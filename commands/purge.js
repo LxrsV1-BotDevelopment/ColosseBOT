@@ -15,8 +15,9 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const amount = args[0];
+		const amountCheck = /^\d+$/.test(amount);
 		if (amount < 2 || amount > 100) return message.channel.send("Min Messages: 2 / Max Messages: 100!");
-		console.log(typeof amount);
+		console.log(amountCheck);
 		const reason = args.slice(1).join(" ");
 
 		message.channel.bulkDelete(amount).catch(error => {
