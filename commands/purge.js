@@ -21,18 +21,21 @@ module.exports = {
 		const reason = args.slice(1).join(" ");
 
 		message.channel.bulkDelete(amount).catch(error => {
-			if(error) return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
-		});
-			const purgeEmbed = new Discord.MessageEmbed()
-			.setTitle("ColosseBOT Mod-Logs")
-			.setDescription("Channel purge report.")
-			.setColor(colorWhite)
-			.setThumbnail(botThumbnail)
-			.addField("Messages Purged:", amount, true)
-			.addField("Moderator:", message.author.username, true)
-			.addField("Reason:", reason)
-			.setFooter("ColosseBOT", botThumbnail);
+			if(error) {
+				return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.")
+			} else {
+				const purgeEmbed = new Discord.MessageEmbed()
+				.setTitle("ColosseBOT Mod-Logs")
+				.setDescription("Channel purge report.")
+				.setColor(colorWhite)
+				.setThumbnail(botThumbnail)
+				.addField("Messages Purged:", amount, true)
+				.addField("Moderator:", message.author.username, true)
+				.addField("Reason:", reason)
+				.setFooter("ColosseBOT", botThumbnail);
 
-			client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
+				client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
+			}
+		});
 	},
 };
