@@ -22,7 +22,7 @@ module.exports = {
 
 		message.channel.bulkDelete(amount).catch(error => {
 			if(error) {
-				return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.")
+				return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
 			}
 		});
 		const purgeEmbed = new Discord.MessageEmbed()
