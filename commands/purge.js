@@ -22,7 +22,8 @@ module.exports = {
 
 		message.channel.bulkDelete(amount).catch(error => {
 			if(error) {
-				return message.channel.send("Some of the messages are more than 14 days old.\nOperation was cancelled.")
+				console.log(error.stack);
+				return message.channel.send("Some of the messages are more than 14 days old.\nOperation was cancelled.");
 			} else {
 				const purgeEmbed = new Discord.MessageEmbed()
 				.setTitle("ColosseBOT Mod-Logs")
