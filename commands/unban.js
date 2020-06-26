@@ -15,6 +15,8 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const userID = args[0];
+		const userNumb = /^\d+$/.test(userID);
+		if (userNumb == false) return message.channel.send(`This ID is invalid, ${message.author}!\nID's must contain only numbers!`);
 		if (userID.length != 18) return message.channel.send(`This ID is invalid, ${message.author}!\nID's must be 18 digits long!`);
 		const reason = args.slice(1).join(" ");
 
