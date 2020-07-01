@@ -9,19 +9,6 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		const text = args.join(" ");
-		function flipString(text)	{
-			var last = text.length - 1;
-			var result = new Array(text.length)
-			for (var i = last; i >= 0; --i)
-			{
-				var c = text.charAt(i)
-				var r = flipTable[c]
-				result[last - i] = r != undefined ? r : c
-			}
-			return result.join('')
-		}
-
 		var flipTable = {
 		'\u0020' : '\u0020',
 		'\u0021' : '\u00A1',
@@ -82,13 +69,21 @@ module.exports = {
 		'\u2045' : '\u2046',
 		'\u2234' : '\u2235'
 		}
+		const text = args.join(" ");
 
-		for (i in flipTable)
-{
-	flipTable[flipTable[i]] = i
+		function flipString(text)	{
+			var last = text.length - 1;
+			var result = new Array(text.length)
+			for (var i = last; i >= 0; --i)	{
+				var c = text.charAt(i)
+				var r = flipTable[c]
+				result[last - i] = r != undefined ? r : c
+			}
+			return message.channel.send(result.join(''));
+		}
+		for (i in flipTable) {
+			flipTable[flipTable[i]] = i
 }
-
 		flipString(text);
-		message.channel.send(result);
 	},
 };
