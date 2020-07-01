@@ -12,7 +12,7 @@ module.exports = {
 		const text = args.join(" ");
 
 		function reverseString(text)	{
-			var splitString = str.split("");
+			var splitString = text.split("");
 			var reverseArray = splitString.reverse();
 			var joinArray = reverseArray.join("");
 
