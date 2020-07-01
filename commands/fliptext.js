@@ -88,7 +88,7 @@ module.exports = {
 	flipTable[flipTable[i]] = i
 }
 
-
+		flipString(text);
 		message.channel.send(result);
 	},
 };
