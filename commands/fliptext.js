@@ -3,8 +3,8 @@ const flipTable = JSON.parse(fs.readFileSync("./wordbanks/fliptext.json", "utf8"
 
 module.exports = {
 	name: 'fliptext',
-	description: 'Convert text to upside down.',
-	usage: '//upsidetext <text>',
+	description: 'Convert text to upside down & reversed.',
+	usage: '//fliptext <text>',
 	args: true,
 	argsCount: 1,
 	guildOnly: false,
