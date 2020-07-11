@@ -15,7 +15,7 @@ module.exports = {
 	execute(client, message, args) {
     try {
 			get('https://aws.random.cat/meow').then(result => {
-				return message.channel.send({files: [{attachment: result.body.file, name: `cat.${result.body.file.split('.')[2]}`}]});
+				return message.channel.send({files: [{attachment: result.body.file, name: `cat.${result.body.file.split('.')[3]}`}]});
 			});
 		} catch(err) {
 			return console.log(err.stack);
