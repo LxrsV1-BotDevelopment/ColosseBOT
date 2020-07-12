@@ -15,7 +15,7 @@ module.exports = {
 	execute(client, message, args) {
     try {
 			get('https://random.dog/woof').then(result => {
-				console.log(result.body);
+				console.log(decodeURIComponent(result.body));
 				//return message.channel.send({files: [{attachment: result.body.file, name: `dog.${result.body.file.split('.')[1]}`}]});
 			});
 		} catch(err) {
