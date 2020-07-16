@@ -17,9 +17,11 @@ module.exports = {
 			get('https://aws.random.cat/meow').then(result => {
 				return message.channel.send({files: [{attachment: result.body.file, name: `cat.${result.body.file.split('.')[4]}`}]});
 			});
-		} catch(err) {
-			message.channel.send("Something went wrong. The server is probably overloaded. :(");
-			return console.log(err.stack);
+		} catch(error) {
+			if(error){
+				message.channel.send("Something went wrong. The server is probably overloaded. :(");
+				return console.log(err.stack);
+			}
 		  }  
     }
   }
