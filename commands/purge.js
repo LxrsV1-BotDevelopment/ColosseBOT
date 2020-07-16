@@ -37,7 +37,8 @@ module.exports = {
 		.addField("Moderator:", message.author.username, true)
 		.addField("Reason:", reason)
 		.setFooter("ColosseBOT", botThumbnail);
-
-		if(embedTestVar == true) return client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
+		
+		console.log(embedTestVar);
+		//if(embedTestVar == true) return client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
 	},
 };
