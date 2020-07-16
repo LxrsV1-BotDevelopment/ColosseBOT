@@ -19,6 +19,7 @@ module.exports = {
 				return message.channel.send({files: [{attachment: `https://random.dog/${link}`, name: `dog.${link.split('.')[1]}`}]});
 			});
 		} catch(err) {
+			message.channel.send("Something went wrong. The server is probably overloaded. :(");
 			return console.log(err.stack);
 		  }  
     }
