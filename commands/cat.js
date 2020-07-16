@@ -18,6 +18,7 @@ module.exports = {
 				return message.channel.send({files: [{attachment: result.body.file, name: `cat.${result.body.file.split('.')[4]}`}]});
 			});
 		} catch(err) {
+			message.channel.send("Something went wrong. The server is probably overloaded. :(");
 			return console.log(err.stack);
 		  }  
     }
