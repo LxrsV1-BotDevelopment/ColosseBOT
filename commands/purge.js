@@ -23,7 +23,7 @@ module.exports = {
 
 		message.channel.bulkDelete(amount).catch(error => {
 			if(error) {
-				embedTestVar = false;
+				var embedTestVar = false;
 				console.log(error.stack);
 				return message.channel.send("There was an error trying to execute that command!\nMost probably some of the messages are more than 14 days old.");
 			}
