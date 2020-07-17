@@ -14,7 +14,7 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		var embedTestVar = true;
+		let embedTestVar = true;
 		const amount = args[0];
 		const amountCheck = /^\d+$/.test(amount);
 		if (amount < 2 || amount > 100) return message.channel.send("Min Messages: 2 / Max Messages: 100!");
