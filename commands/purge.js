@@ -24,7 +24,7 @@ module.exports = {
 			if(error) {
 				console.log(error.stack);
 				return message.channel.send("Couldn't execute command!\nSome of the messages are more than 14 days old!");
-			} else {
+			} else if(!error) {
 				const purgeEmbed = new Discord.MessageEmbed()
 				.setTitle("ColosseBOT Mod-Logs")
 				.setDescription("Channel purge report.")
