@@ -1,3 +1,4 @@
+
 const Discord = require("discord.js");
 const { guildID, modLogsChannel, botThumbnail, colorWhite } = require("../config.json");
 
@@ -24,7 +25,7 @@ module.exports = {
 			if(error) {
 				console.log(error.stack);
 				return message.channel.send("Couldn't execute command!\nSome of the messages are more than 14 days old!");
-			} else if(!error) {
+			}
 				const purgeEmbed = new Discord.MessageEmbed()
 				.setTitle("ColosseBOT Mod-Logs")
 				.setDescription("Channel purge report.")
@@ -34,9 +35,8 @@ module.exports = {
 				.addField("Moderator:", message.author.username, true)
 				.addField("Reason:", reason)
 				.setFooter("ColosseBOT", botThumbnail);
-				
+
 				return client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: purgeEmbed});
-			}
 		});
 	},
 };
