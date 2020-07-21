@@ -1,5 +1,6 @@
-const discord = require("discord.js");
-const { get } = require("snekfetch");
+const Discord = require("discord.js");
+const fetch = require("node-fetch");
+const { colorWhite } = require("../config.json");
 
 module.exports = {
 	name: 'cat',
@@ -13,15 +14,15 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-    try {
-			get('https://aws.random.cat/meow').then(result => {
-				return message.channel.send({files: [{attachment: result.body.file, name: `cat.${result.body.file.split('.')[4]}`}]});
-			});
-		} catch(error) {
-			if(error){
-				message.channel.send("Something went wrong. The server is probably overloaded. :(");
-				return console.log(err.stack);
-			}
-		  }  
-    }
-  }
+		fetch("https://some-random-api.ml/img/cat")
+        .then(result => result.json()).then(body => {
+            if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
+            let catEmbed = new Discord.MessageEmbed()
+						.setTitle("Cat")
+            .setColor(colorWhite)
+            .setImage(body.link)
+
+            message.channel.send({embed: catEmbed});
+        })
+  },
+};
