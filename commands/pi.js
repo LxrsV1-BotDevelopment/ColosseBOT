@@ -22,7 +22,7 @@ module.exports = {
 		if(userNumber.endsWith("3")) var suffix = "rd";
 		if(userNumber.endsWith("4") || userNumber.endsWith("5") || userNumber.endsWith("6") || userNumber.endsWith("7") || userNumber.endsWith("8") || userNumber.endsWith("9") || userNumber.endsWith("0") || userNumber.endsWith("11") || userNumber.endsWith("12") || userNumber.endsWith("13")) var suffix = "th";
 
-		const returnNumber = piNumber.substring(userNumber-1,userNumber);
-		message.channel.send(`The ${userNumber}${suffix} number of PI is ${returnNumber}`);
+		const returnNumber = piNumber.substring(userNumber - 1,userNumber);
+		message.channel.send(`The ${userNumber}${suffix} number of PI after comma is ${returnNumber}!`);
 	},
 };
