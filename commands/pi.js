@@ -12,7 +12,7 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		const userNumber = parseInt(args[0], 10);
+		const userNumber = parseInt(args[0], 10).toString();
 		if(userNumber > 50000000000000 || userNumber < 0) return message.channel.send("Min Number: 0 / Max Number 50000000000000");
 		const link = `https://api.pi.delivery/v1/pi?start=${userNumber}&numberOfDigits=1`;
 
