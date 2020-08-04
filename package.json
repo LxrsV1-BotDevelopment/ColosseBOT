@@ -16,7 +16,8 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "node-fetch": "^2.0.6",
-    "random-puppy": "1.1.0",
-    "mathjs": "^7.1.0"
+    "random-puppy": "^1.1.0",
+    "mathjs": "^7.1.0",
+    "unsplash-js": "^6.0.0"
   }
 }
