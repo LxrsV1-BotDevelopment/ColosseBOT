@@ -6,9 +6,9 @@ const Unsplash = require('unsplash-js').default;
 
 
 module.exports = {
-	name: 'deer',
-	description: 'Sends a random deer image.',
-	usage: '//deer',
+	name: 'sheep',
+	description: 'Sends a random sheep image.',
+	usage: '//sheep',
 	args: false,
 	argsCount: 0,
 	guildOnly: false,
@@ -23,18 +23,18 @@ module.exports = {
 			secret: process.env.UNSPLASH_SECRET
 	 	});
 			try {
-				unsplash.photos.getRandomPhoto({ query: "deer" })
+				unsplash.photos.getRandomPhoto({ query: "sheep" })
 					.then(result => result.json()).then(body => {
 							if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
 
-							const deerEmbed = new Discord.MessageEmbed()
+							const sheepEmbed = new Discord.MessageEmbed()
 							.setDescription(`Photo by [${body.user.name}](${body.user.links.html}) on [Unsplash](https://unsplash.com/?utm_source=ColosseBOT&utm_medium=referral)`)
 							.setColor(colorWhite)
 							.setImage(body.urls.raw)
 
 							unsplash.photos.downloadPhoto(body);
 
-							return message.channel.send({embed: deerEmbed});
+							return message.channel.send({embed: sheepEmbed});
 					});
 			} catch(error) {
 				console.log(error.stack);

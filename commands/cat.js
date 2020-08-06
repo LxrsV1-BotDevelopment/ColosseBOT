@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
 const { colorWhite } = require("../config.json");
+const fetch = require("node-fetch");
+global.fetch = fetch;
+const Unsplash = require('unsplash-js').default;
+
 
 module.exports = {
 	name: 'cat',
@@ -14,15 +17,28 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		fetch("https://some-random-api.ml/img/cat")
-        .then(result => result.json()).then(body => {
-            if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
-            let catEmbed = new Discord.MessageEmbed()
-						.setTitle("Cat")
-            .setColor(colorWhite)
-            .setImage(body.link)
 
-            message.channel.send({embed: catEmbed});
-        })
+		const unsplash = new Unsplash({
+			accessKey: process.env.UNSPLASH_ACCESS,
+			secret: process.env.UNSPLASH_SECRET
+	 	});
+			try {
+				unsplash.photos.getRandomPhoto({ query: "cat" })
+					.then(result => result.json()).then(body => {
+							if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
+
+							const catEmbed = new Discord.MessageEmbed()
+							.setDescription(`Photo by [${body.user.name}](${body.user.links.html}) on [Unsplash](https://unsplash.com/?utm_source=ColosseBOT&utm_medium=referral)`)
+							.setColor(colorWhite)
+							.setImage(body.urls.raw)
+
+							unsplash.photos.downloadPhoto(body);
+
+							return message.channel.send({embed: catEmbed});
+					});
+			} catch(error) {
+				console.log(error.stack);
+				return message.channel.send("Sorry, I couldn't get the image. Try again later.");
+			}
   },
 };
