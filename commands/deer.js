@@ -18,18 +18,24 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 
-		const unsplash = new Unsplash({ accessKey: process.env.UNSPLASH_TOKEN });
+		const unsplash = new Unsplash({
+			accessKey: process.env.UNSPLASH_TOKEN,
+			secret: process.env.UNSPLASH_SECRET
+	 	});
 
 		unsplash.photos.getRandomPhoto({ query: "deer" })
   		.then(result => result.json()).then(body => {
 					if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
 
 					const deerEmbed = new Discord.MessageEmbed()
-					.setTitle("Deer")
+					.setDescription(`Photo by [${body.user.name}](${body.user.links.html}) on [Unsplash](https://unsplash.com/?utm_source=ColosseBOT&utm_medium=referral)`)
 					.setColor(colorWhite)
-					.setImage(body.urls.raw);
+					.setImage(body.urls.raw)
+
+					unsplash.photos.downloadPhoto(body);
 
 					return message.channel.send({embed: deerEmbed});
   		});
   },
 };
+
