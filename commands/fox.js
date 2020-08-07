@@ -22,7 +22,6 @@ module.exports = {
 			accessKey: process.env.UNSPLASH_ACCESS,
 			secret: process.env.UNSPLASH_SECRET
 	 	});
-			try {
 				unsplash.photos.getRandomPhoto({ query: "fox" })
 					.then(result => result.json()).then(body => {
 							if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
@@ -35,10 +34,9 @@ module.exports = {
 							unsplash.photos.downloadPhoto(body);
 
 							return message.channel.send({embed: foxEmbed});
-					});
-			} catch(error) {
+					}).catch(error => {
 				console.log(error.stack);
 				return message.channel.send("Sorry, I couldn't get the image. Try again later.");
-			}
+			});
   },
 };
