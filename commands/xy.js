@@ -4,7 +4,7 @@ const { colorWhite } = require("../config.json");
 module.exports = {
 	name: 'xy',
 	aka: 'xyproblem',
-	description: 'Returns website of about XY problem.',
+	description: 'Returns link to website about XY problem.',
 	usage: '//xy',
 	args: false,
 	argsCount: 0,
