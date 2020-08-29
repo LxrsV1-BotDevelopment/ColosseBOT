@@ -9,7 +9,8 @@ module.exports = {
 	cooldown: 3,
 	disabled: false,
 	execute(client, message, args) {
-		const searchTerm = args.join(" ").replace(/\u0020/g, "+");
+		const input = args.join(" ");
+		const searchTerm = encodeURI(input);
 
 		return message.channel.send(`https://www.google.com/search?q=${searchTerm}`);
 	},
