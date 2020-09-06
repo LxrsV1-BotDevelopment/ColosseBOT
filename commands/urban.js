@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const ud = require("urban-dictionary");
+const urban = require("urban-dictionary");
 const { colorWhite } = require("../config.json");
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
 	execute(client, message, args) {
 		const searchTerm = args.join(" ");
 
-		ud.term(searchTerm).then((result) => {
+		urban.term(searchTerm).then((result) => {
   			const entries = result.entries
 				const urbanEmbed = new Discord.MessageEmbed()
 				.setTitle(`Definition of ${searchTerm} from Urban Dictionary`)
@@ -27,7 +27,12 @@ module.exports = {
 
 				message.channel.send({embed: urbanEmbed});
 		}).catch(error => {
-  			console.log(error.stack)
+			if(error.message == `${searchTerm} is undefined.`) {
+				return message.channel.send(`Sorry, I couldn't find definition for ${searchTerm}.`);
+			} else {
+				console.log(error.stack);
+				return message.channel.send("There was an error trying to execute that command!");
+			}
 		});
 	},
 };
