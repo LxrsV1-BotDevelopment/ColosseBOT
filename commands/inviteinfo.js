@@ -13,7 +13,6 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const inviteCode = args[0];
-		var timestamp = "N/A"
 		client.fetchInvite(inviteCode)
 			.then(invite => {
 				if(invite.createdAt != null) timestamp = invite.createdAt;
@@ -24,7 +23,7 @@ module.exports = {
 					.addField("Inviter", `\`\`\`${invite.inviter.username}\`\`\``, true)
 					.addField("Guild", `\`\`\`${invite.guild}\`\`\``, true)
 					.addField("Member Count", `\`\`\`${invite.presenceCount}/${invite.memberCount}\`\`\``)
-					.addField("Time Created", `\`\`\`${timestamp}\`\`\``);
+					.addField("Time Created", `\`\`\`${invite.guild.createdAt}\`\`\``);
 
 					message.channel.send({embed: inviteInfoEmbed});
 
