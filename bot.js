@@ -22,7 +22,7 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aka && cmd.aka.includes(commandName));
-    if (!command) return;
+    if (!command) return message.channel.send("There is no command with this name!"); 
 
     if(command.disabled){
       return message.channel.send('Sorry, but his command is currently disabled!');
