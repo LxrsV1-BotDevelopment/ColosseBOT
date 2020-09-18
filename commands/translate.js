@@ -29,8 +29,7 @@ module.exports = {
 				"x-rapidapi-host": "systran-systran-platform-for-language-processing-v1.p.rapidapi.com",
 				"x-rapidapi-key": process.env.RAPIDAPI_KEY
 			}
-		})
-		.then(result => result.json()).then(body => {
+		}).then(result => result.json()).then(body => {
 			if(!body) return message.channel.send("Sorry, I couldn't get the translation. Try again later.");
 
 			const translationEmbed = new Discord.MessageEmbed()
