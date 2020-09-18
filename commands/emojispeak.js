@@ -13,6 +13,8 @@ module.exports = {
 	disabled: false,
 	execute(client, message, args) {
 		const text = args.join(" ").toUpperCase();
+		const regTest = /^[0-9A-Z\u0020]*$/gm.test(text);
+		if (regTest != true) return message.channel.send("Input can only contain letters and numbers.");
 
 		function emojiString(text) {
 			var result = new Array(text.length)
