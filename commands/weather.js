@@ -23,14 +23,16 @@ module.exports = {
 				}
 			}).then(response => response.json()).then(body => {
 				if(!body) return message.channel.send("Sorry, I couldn't get the weather information. Try again later.");
-
+				
+				var pressure = Math.floor(body.main.pressure / 1.3332239);
+			
 				const weatherEmbed = new Discord.MessageEmbed()
 				.setColor(colorWhite)
 				.setTitle("Weather | Success")
 				.setThumbnail(botThumbnail)
 				.addField("Location:", `\`\`\`${body.name}, ${body.sys.country}\`\`\``)
 				.addField("Current Wind:", `\`\`\`Direction: ${body.wind.deg}°; Speed: ${body.wind.speed}m/s\`\`\``)
-				.addField("Current Atmosphere:", `\`\`\`Humidity: ${body.main.humidity}%; Visibility: ${body.visibility}m;\nPressure: ${body.main.pressure}mmHg\`\`\``)
+				.addField("Current Atmosphere:", `\`\`\`Humidity: ${body.main.humidity}%; Visibility: ${body.visibility}m;\nPressure: ${pressure}mmHg\`\`\``)
 				.addField("Current Condition:", `\`\`\`Temperature: ${body.main.temp}°C; Weather: ${body.weather[0].main}\`\`\``)
 				.setFooter("Weather data is relative and can differ from other sources.");
 
