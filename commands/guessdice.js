@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'guessdice',
-	description: 'Guess value of dice.',
+	description: 'Guess value of die.',
 	usage: '//guessdice <1-6>',
 	args: true,
 	argsCount: 1,
