@@ -2,9 +2,9 @@ module.exports = {
 	name: 'tableflip',
 	aka: 'fliptable',
 	description: 'Appends tableflip emoji to message.',
-	usage: '//tableflip <Direction> <Text>',
+	usage: '//tableflip [Direction] <Text>',
 	args: true,
-	argsCount: 2,
+	argsCount: 1,
 	guildOnly: false,
 	directOnly: false,
 	cooldown: 3,
@@ -22,7 +22,10 @@ module.exports = {
 
 				return message.channel.send(emoji + " " + text);
 		} else {
-			message.channel.send("I won't flip tables in that direction!");
+				let text = args.join(" ");
+				let emoji = "(╯°□°）╯︵ ┻━┻";
+
+				return message.channel.send(emoji + " " + text);
 		}
 	},
 };

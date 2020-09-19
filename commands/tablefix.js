@@ -2,9 +2,9 @@ module.exports = {
 	name: 'tablefix',
 	aka: 'fixtable',
 	description: 'Appends tablefix emoji to message.',
-	usage: '//tableflip <Direction> <Text>',
+	usage: '//tableflip [Direction] <Text>',
 	args: true,
-	argsCount: 2,
+	argsCount: 1,
 	guildOnly: false,
 	directOnly: false,
 	cooldown: 3,
@@ -22,7 +22,10 @@ module.exports = {
 
 				return message.channel.send(emoji + " " + text);
 		} else {
-			message.channel.send("I won't put tables in that direction!");
+				let text = args.join(" ");
+				let emoji = "(㇏ಠ_ಠ)㇏┬─┬";
+
+				return message.channel.send(emoji + " " + text);
 		}
 	},
 };
