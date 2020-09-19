@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'rolldice',
-	description: 'Roll a dice.',
+	description: 'Roll a die or multiple dice.',
 	usage: '//rolldice [1-20]',
 	args: true,
 	argsCount: 0,
