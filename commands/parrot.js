@@ -19,8 +19,8 @@ module.exports = {
 	execute(client, message, args) {
 
 		const unsplash = new Unsplash({
-			accessKey: "NZt1CoteZLqpqhh1Va0bUEWvnCpm7AMCL_sDguu6sCE",
-			secret: "jmbiGER9KonlAni4NSS0eV8fBnaxkjNbfGMyfTL6kVY"
+			accessKey: process.env.UNSPLASH_ACCESS,
+			secret: process.env.UNSPLASH_SECRET
 	 	});
 				unsplash.photos.getRandomPhoto({ query: "parrot" })
 					.then(result => result.json()).then(body => {
