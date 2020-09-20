@@ -26,14 +26,14 @@ module.exports = {
 					.then(result => result.json()).then(body => {
 							if(!body) return message.channel.send("Sorry, I couldn't get the image. Try again later.");
 
-							const catEmbed = new Discord.MessageEmbed()
+							const spiderEmbed = new Discord.MessageEmbed()
 							.setDescription(`Photo by [${body.user.name}](${body.user.links.html}) on [Unsplash](https://unsplash.com/?utm_source=ColosseBOT&utm_medium=referral)`)
 							.setColor(colorWhite)
 							.setImage(body.urls.raw)
 
 							unsplash.photos.downloadPhoto(body);
 
-							return message.channel.send({embed: catEmbed});
+							return message.channel.send({embed: spiderEmbed});
 					}).catch(error => {
 				console.log(error.stack);
 				return message.channel.send("Sorry, I couldn't get the image. Try again later.");
