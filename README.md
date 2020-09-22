@@ -4,6 +4,10 @@
 Discord bot running on Discord.js v12.\
 Currently under construction.
 
+You can join the test server to test some of the commands,\
+or if you're interested in helping.\
+[Invite Link](https://discord.gg/GRkjJAg)
+
 ## Tasks to-do till invite link will be posted.
 - [ ] All Embed Responses
 - [ ] Music System
@@ -12,7 +16,3 @@ Currently under construction.
 - [ ] Antispam module
 - [ ] Antiraid module
 - [ ] Economy System
-\
-\
-You can join the test server to test some of the commands,\
-or if you're interested in helping.
