@@ -1,6 +1,17 @@
 const Discord = require('discord.js');
 const { prefix, token, ownerID } = require('./config.json');
+const { PythonShell } = require("python-shell");
 const fs = require('fs');
+
+const options = {
+    args : ['sympy','chempy']
+}
+
+PythonShell.run('./modules/install_package.py', options,
+    function(error, results) {
+        if (error) throw error;
+        else console.log(results);
+    });
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
