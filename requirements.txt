@@ -1,2 +1,2 @@
-chempy >= 0.7.12
+chempy >= 0.7.10
 sympy >= 1.6.2
