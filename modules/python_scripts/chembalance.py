@@ -9,4 +9,3 @@ autoprot = Equilibrium({'H2O': 1}, {'H+': 1, 'OH-': 1}, Kw)
 n = redox.cancel(autoprot)
 redox2 = redox + n*autoprot
 print(redox2)
-return redox2
