@@ -12,7 +12,7 @@ module.exports = {
   disabled: false,
   execute(client, message, args) {
     const options = {
-      mode: text,
+      mode: 'text',
       args: [args]
     }
 
