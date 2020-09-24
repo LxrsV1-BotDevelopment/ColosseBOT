@@ -1,5 +1,5 @@
 const { PythonShell } = require("python-shell");
-const pyShell = new PythonShell("../modules/python_scripts/chembalance.py");
+const pyShell = new PythonShell("./modules/python_scripts/chembalance.py");
 
 module.exports = {
   name: 'chembalance',
