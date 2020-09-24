@@ -13,7 +13,7 @@ module.exports = {
   execute(client, message, args) {
     const options = {
       mode: 'text',
-      args: [args]
+      args: args
     }
 
 
