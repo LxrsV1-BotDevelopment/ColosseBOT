@@ -21,7 +21,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-            const reaction = returnedData.split(";");
+            const reaction = results.split(";");
             message.channel.send(reaction[0]);
       }
     });
