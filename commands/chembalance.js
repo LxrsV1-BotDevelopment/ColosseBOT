@@ -1,5 +1,4 @@
 const { PythonShell } = require("python-shell");
-const pyShell = new PythonShell("./modules/python_scripts/chembalance.py");
 
 module.exports = {
   name: 'chembalance',
@@ -17,15 +16,12 @@ module.exports = {
       args: args
     }
 
-
     PythonShell.run('./modules/python_scripts/chembalance.py', options,
       function(error, results) {
         if (error) {
           throw error;
         } else {
-          pyShell.on('message', function(returnedData) {
-            message.channel.send(returnedData);
-          });
+          message.channel.send(results)
       }
     });
   },
