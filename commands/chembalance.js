@@ -17,7 +17,7 @@ module.exports = {
     }
 
 
-    PythonShell.run('../modules/python_scripts/chembalance.py', options,
+    PythonShell.run('./modules/python_scripts/chembalance.py', options,
       function(error, results) {
         if (error) {
           throw error;
