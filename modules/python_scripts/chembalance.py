@@ -1,3 +1,6 @@
+#Original Code By: SquirrelOfDooom [ Published: Monday 19/10/2015 14:12:22 GMT ]
+#Source: https://www.reddit.com/r/dailyprogrammer/comments/3oz82g/20151016_challenge_236_hard_balancing_chemical/cw55840/?utm_source=share&utm_medium=web2x&context=3
+
 from math import gcd
 import re
 import sys
