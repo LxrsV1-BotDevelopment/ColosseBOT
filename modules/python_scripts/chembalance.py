@@ -93,6 +93,6 @@ def balance_equation(skeleton):
     molstrs = [''.join(t) for t in zip(coeffstrs, molecules)]
     return ' -> '.join([' + '.join(molstrs[:NR]), ' + '.join(molstrs[NR:])])
 
-input = 'CH3COOH + O2 -> CO2 + H2O'
+input = sys.argv
 
 print(balance_equation(input))
