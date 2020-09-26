@@ -11,9 +11,13 @@ module.exports = {
   cooldown: 3,
   disabled: false,
   execute(client, message, args) {
+    const formulaStr = args.join(" ");
+    const formulaCheck = /=/.test(formulaStr);
+    if(formulaCheck == true) return message.channel.send("Please use \"->\" instead of \"=\".");
+    
     const options = {
       mode: 'text',
-      args: args
+      args: formulaStr
     }
 
     PythonShell.run('./modules/python_scripts/chembalance.py', options,
@@ -21,8 +25,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-            const reaction = results.toString().split(";");
-            message.channel.send(reaction[0]);
+            message.channel.send(results);
       }
     });
   },
