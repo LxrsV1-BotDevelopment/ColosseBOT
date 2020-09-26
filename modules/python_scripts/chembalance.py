@@ -93,6 +93,6 @@ def balance_equation(skeleton):
     molstrs = [''.join(t) for t in zip(coeffstrs, molecules)]
     return ' -> '.join([' + '.join(molstrs[:NR]), ' + '.join(molstrs[NR:])])
 
-input = sys.argv
+input = sys.argv[0]
 
 print(balance_equation(input))
