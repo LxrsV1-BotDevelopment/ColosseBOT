@@ -24,7 +24,7 @@ module.exports = {
       function(error, results) {
         if (error) {
           message.channel.send("Something went wrong while getting the result.");
-          throw error;
+          //throw error;
         } else {
             message.channel.send(results);
       }
