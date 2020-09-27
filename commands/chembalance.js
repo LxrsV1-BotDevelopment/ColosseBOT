@@ -20,7 +20,7 @@ module.exports = {
     .setColor(colorWhite)
     .setTitle("Chembalance | Error")
     .setThumbnail(botThumbnail)
-    .setDescription("\`\`\`An error occurred while running the command.\`\`\`");
+    .setDescription("\`\`\`An error occurred while running the command.\`\`\`")
     .addField("Error: ", "\`\`\`Please use \"->\" instead of \"=\".\`\`\`")
     .setFooter("Error Code: 0");
 
