@@ -23,7 +23,8 @@ module.exports = {
     PythonShell.run('./modules/python_scripts/chembalance.py', options,
       function(error, results) {
         if (error) {
-          throw error;
+          message.channel.send(error);
+          //throw error;
         } else {
             message.channel.send(results);
       }
