@@ -16,7 +16,7 @@
   "antiSpamActive": false,
   "antiLangActive": false,
 
-  "colorWhite": "#fffffe",
+  "colorWhite": "#ffffff",
   "colorYellow": "#ffff00",
   "colorOrange": "#ff9900",
   "colorPink": "#ff69fc",
@@ -32,5 +32,5 @@
   "colorPurple": "#550a7d",
   "colorBrown": "#634308",
   "colorGrey": "#878684",
-  "colorBlack": "#000001"
+  "colorBlack": "#000000"
 }
