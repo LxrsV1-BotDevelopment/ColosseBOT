@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const convert = require("color-convert");
-const { colorWhite } = require("../config.json");
 
 module.exports = {
 	name: 'colors',
