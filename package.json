@@ -25,6 +25,7 @@
     "unsplash-js": "^6.0.0",
     "urban-dictionary": "^2.2.1",
     "jshashes": "^1.0.8",
+    "color-convert": "^2.0.1",
     "python-shell": "^2.0.2"
   }
 }
