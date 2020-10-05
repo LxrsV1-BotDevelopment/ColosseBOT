@@ -1,28 +1,25 @@
 {
   "prefix": "//",
+  "ownerID": "500582432064667670",
+
   "botThumbnail": "https://i.imgur.com/5vwdUAO.png",
   "discordThumbnail": "https://imgur.com/6LfetXU.png",
 
-  "guildID": "706462612602486849",
-  "modLogsChannel": "707935249874550895",
-  "infractionsChannel": "707935280795090954",
-  "welcomeChannel": "",
-  "antiLangChannel": "",
-  "antiSpamChannel": "",
-  "statsChannel": "",
-
-  "staffRoles": ["TRIAL-STAFF", "VERIFIED STAFF", "SENIOR STAFF", "MANAGERS", "OWNERS"],
+  "mainGuild": "713150802247811254",
+  "modLogsChannel": "734192931421945856",
+  "errorLogsChannel" : "756809628863430746",
 
   "antiSpamActive": false,
   "antiLangActive": false,
+  "antiRaidActive": false,
 
-  "colorWhite": "#ffffff",
+  "colorWhite": "#fffffe",
   "colorYellow": "#ffff00",
   "colorOrange": "#ff9900",
   "colorPink": "#ff69fc",
   "colorLightRed": "#ff4242",
   "colorRed": "#ff0000",
-  "colorDarkRed": "#a10000",
+  "colorDarkRed": "#a50000",
   "colorLightBlue": "#5cffff",
   "colorBlue": "#1229fc",
   "colorDarkBlue": "#09189c",
@@ -30,7 +27,8 @@
   "colorGreen": "#1ac93a",
   "colorDarkGreen": "#08731c",
   "colorPurple": "#550a7d",
+  "colorLightBrown" : "#725d38",
   "colorBrown": "#634308",
   "colorGrey": "#878684",
-  "colorBlack": "#000000"
+  "colorBlack": "#000001"
 }
