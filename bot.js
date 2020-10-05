@@ -1,67 +1,41 @@
-const Discord = require('discord.js');
-const { prefix, token, ownerID } = require('./config.json');
-const fs = require('fs');
+const Discord = require("discord.js");
+const { prefix, ownerID } = require("./config.json");
+const embeds = require("./modules/embeds.js");
+const fs = require("fs");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
 
-client.once('ready', () => {
-    console.log("ColosseBOT Is Ready! >:3");
+client.once("ready", () => {
+    console.log("\n ██████╗ ██████╗ ██╗      ██████╗ ███████╗███████╗███████╗██████╗  ██████╗ ████████╗\n██╔════╝██╔═══██╗██║     ██╔═══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝\n██║     ██║   ██║██║     ██║   ██║███████╗███████╗█████╗  ██████╔╝██║   ██║   ██║   \n██║     ██║   ██║██║     ██║   ██║╚════██║╚════██║██╔══╝  ██╔══██╗██║   ██║   ██║   \n╚██████╗╚██████╔╝███████╗╚██████╔╝███████║███████║███████╗██████╔╝╚██████╔╝   ██║   \n ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝╚═════╝  ╚═════╝    ╚═╝   \n\t\t\t=The Ultimate Human Assistant Chatbot=\n");
 });
 
-client.on('message', message => {
+client.on("message", message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aka && cmd.aka.includes(commandName));
-    if (!command) return message.channel.send("There is no command with this name!"); 
+    if (!command) return embeds.noCommand(message, commandName);
 
-    if(command.disabled){
-      return message.channel.send('Sorry, but his command is currently disabled!');
-    } if (command.guildOnly && message.channel.type !== 'text') {
-        return message.channel.send('I can\'t execute that command inside DMs!');
-    } if (command.directOnly && message.channel.type !== 'dm') {
-        return message.channel.send('I can\'t execute that command inside guilds!');
-    } if (command.roleCheck && !message.member.roles.cache.some(role => command.allowedRoles.includes(role.name))) {
-        return message.channel.send('You don\'t have permission to execute this command!');
-    } if (command.args) {
-        if (!args.length) {
-            let reply = `You didn't provide any arguments, ${message.author}!`;
-
-            if (command.usage) {
-                reply += `\nThe proper usage would be: \`${command.usage}\``;
-            }
-
-            return message.channel.send(reply);
-        } else if (args.length < command.argsCount) {
-            let reply = `You didn't provide enough arguments, ${message.author}!`;
-
-            if (command.usage) {
-                reply += `\nThe proper usage would be: \`${command.usage}\``;
-            }
-
-            return message.channel.send(reply);
-        }
-    } if (!command.args && args.length > 0){
-        let reply = `This command doesn't require any arguments, ${message.author}!`;
-
-        if (command.usage){
-          reply += `\nThe proper usage would be: \`${command.usage}\``;
-        }
-
-        return message.channel.send(reply);
-    } if (!cooldowns.has(command.name)) {
-        cooldowns.set(command.name, new Discord.Collection());
+    if(command.disabled) return embeds.disabledCommand(message, commandName);
+    if (command.ownerOnly && message.author.id != ownerID) return embeds.ownerCommand(message, commandName);
+    if (command.guildOnly && message.channel.type !== "text") return embeds.guildOnly(message, commandName);
+    if (command.directOnly && message.channel.type !== "dm") return embeds.directOnly(message, commandName);
+    if (command.permsCheck && !message.member.hasPermission(command.neededPerms, { checkAdmin: true, checkOwner: true })) return embeds.noPerms(message, commandName);
+    if (command.args) {
+        if (!args.length && command.argsCount >= 1) return embeds.noArgsProvided(message, commandName, command);
+        if (args.length < command.argsCount) return embeds.notEnoughArgs(message, commandName, command);
     }
 
+    if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection());
     const now = Date.now();
     const timestamps = cooldowns.get(command.name);
     const cooldownAmount = (command.cooldown) * 1000;
@@ -71,21 +45,18 @@ client.on('message', message => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
-            return message.channel.send(`${message.author}, please wait ${timeLeft.toFixed(1)} more seconds before reusing the \`${command.name}\` command.`);
+            return embeds.cooldownActive(message, commandName, timeLeft)
         }
-    } if (message.mentions.has(client.user)){
-        return message.channel.send(`${message.author}, please don't tag me in your messages.`)
     }
-
     timestamps.set(message.author.id, now);
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     try {
         command.execute(client, message, args);
     } catch (error) {
-        console.error(error);
-        return message.channel.send(`There was an error trying to execute that command!`);
+        console.log(error);
+        return embeds.unknownError(client, message, commandName, error)
     }
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.DISCORD_TOKEN);
