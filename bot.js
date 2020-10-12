@@ -7,6 +7,8 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 
+console.log("\n _______  _______  ___      _______  _______  _______  _______  _______  _______  _______ \n|   ____||       ||   |    |       ||       ||       ||       ||  _    ||       ||       |\n|  |     |   _   ||   |    |   _   ||  _____||  _____||    ___|| |_|   ||   _   ||_     _|\n|  |     |  | |  ||   |    |  | |  || |_____ | |_____ |   |___ |      _||  | |  |  |   |  \n|  |     |  |_|  ||   |___ |  |_|  ||_____  ||_____  ||    ___||  _  |_ |  |_|  |  |   |  \n|  |____ |       ||       ||       | _____| | _____| ||   |___ | |_|   ||       |  |   |  \n|_______||_______||_______||_______||_______||_______||_______||_______||_______|  |___|  \n\t\t\t  =The Ultimate Human Assistant Chatbot=\n\t\t\t\t      Starting Up...")
+
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles) {
@@ -15,7 +17,7 @@ for (const file of commandFiles) {
 }
 
 client.once("ready", () => {
-    console.log("\n ██████╗ ██████╗ ██╗      ██████╗ ███████╗███████╗███████╗██████╗  ██████╗ ████████╗\n██╔════╝██╔═══██╗██║     ██╔═══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝\n██║     ██║   ██║██║     ██║   ██║███████╗███████╗█████╗  ██████╔╝██║   ██║   ██║   \n██║     ██║   ██║██║     ██║   ██║╚════██║╚════██║██╔══╝  ██╔══██╗██║   ██║   ██║   \n╚██████╗╚██████╔╝███████╗╚██████╔╝███████║███████║███████╗██████╔╝╚██████╔╝   ██║   \n ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝╚═════╝  ╚═════╝    ╚═╝   \n\t\t\t=The Ultimate Human Assistant Chatbot=\n");
+    console.log("\t\t\t      Bot Is Ready! - Version: 0.0.1");
 });
 
 client.on("message", message => {
