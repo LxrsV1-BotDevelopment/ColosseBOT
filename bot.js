@@ -47,7 +47,7 @@ client.on("message", message => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
-            return embeds.cooldownActive(message, commandName, timeLeft)
+            return embeds.cooldownActive(message, timeLeft)
         }
     }
     timestamps.set(message.author.id, now);
