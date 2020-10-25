@@ -27,14 +27,14 @@ client.on("message", message => {
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aka && cmd.aka.includes(commandName));
     if (!command) return embeds.noCommand(message, commandName);
 
-    if(command.disabled) return embeds.disabledCommand(message, commandName);
-    if (command.ownerOnly && message.author.id != ownerID) return embeds.ownerCommand(message, commandName);
-    if (command.guildOnly && message.channel.type !== "text") return embeds.guildOnly(message, commandName);
-    if (command.directOnly && message.channel.type !== "dm") return embeds.directOnly(message, commandName);
+    if(command.disabled) return embeds.disabledCommand(message);
+    if (command.ownerOnly && message.author.id != ownerID) return embeds.ownerCommand(message);
+    if (command.guildOnly && message.channel.type !== "text") return embeds.guildOnly(message);
+    if (command.directOnly && message.channel.type !== "dm") return embeds.directOnly(message);
     if (command.permsCheck && !message.member.hasPermission(command.neededPerms, { checkAdmin: true, checkOwner: true })) return embeds.noPerms(message, commandName);
     if (command.args) {
-        if (!args.length && command.argsCount >= 1) return embeds.noArgsProvided(message, commandName, command);
-        if (args.length < command.argsCount) return embeds.notEnoughArgs(message, commandName, command);
+        if (!args.length && command.argsCount >= 1) return embeds.noArgsProvided(message, command);
+        if (args.length < command.argsCount) return embeds.notEnoughArgs(message, command);
     }
 
     if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection());

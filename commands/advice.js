@@ -17,7 +17,7 @@ module.exports = {
 					.setURL("https://colossebot.app")
 					.setColor(colorDarkRed)
 					.setDescription("Sorry, I couldn't get the advice. Please try again later.")
-					.setFooter("Error Code: 11", botThumbnail)
+					.setFooter("Error Code: 9", botThumbnail)
 					.setTimestamp();
 
 					return message.channel.send({embed: noAdviceEmbed}).then(m => {

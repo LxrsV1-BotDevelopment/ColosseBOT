@@ -20,7 +20,7 @@ module.exports = {
 			.setURL("https://colossebot.app")
 			.setColor(colorDarkRed)
 			.setDescription("The input text cannot exceed 10 characters.")
-			.setFooter("Error Code: 12", botThumbnail)
+			.setFooter("Error Code: 10", botThumbnail)
 			.setTimestamp();
 
 			return message.channel.send({embed: inputTooLongEmbed}).then(m => {
@@ -39,7 +39,7 @@ module.exports = {
 						.setURL("https://colossebot.app")
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the ascii text. Please try again later.")
-						.setFooter("Error Code: 13", botThumbnail)
+						.setFooter("Error Code: 11", botThumbnail)
 						.setTimestamp();
 
 						return message.channel.send({embed: noAsciiEmbed}).then(m => {

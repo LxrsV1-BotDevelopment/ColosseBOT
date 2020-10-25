@@ -151,7 +151,7 @@ module.exports.notEnoughArgs = function(message, command) {
     .setTitle(`⋙ ColosseBOT || Error ⋘`)
     .setURL("https://colossebot.app")
     .setColor(colorDarkRed)
-    .setDescription(`You didn't provide enough arguments, ${message.author.username}!\nThe proper usage would be: \`${command.usage}\``)
+    .setDescription(`You didn't provide enough arguments, ${message.author.username}!\nThe proper usage would be:\n\`${command.usage}\``)
     .setFooter("Error Code: 8", botThumbnail)
     .setTimestamp();
 
@@ -183,7 +183,7 @@ module.exports.banNoMember = function(message) {
     .setURL("https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find user to ban!\nPlease try again, ${message.author.username}!`)
-    .setFooter("Error Code: 9", botThumbnail)
+    .setFooter("Error Code: 13", botThumbnail)
     .setTimestamp();
 
     message.channel.send({embed: banNoMemberEmbed}).then(m => {
@@ -230,7 +230,7 @@ module.exports.banImpossibleBot = function(message) {
     .setURL("https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Ban is not possible, that may be because:\n• Insufficent Bot Permissions;\n• Bannable Member Is Higher In Role Hierarchy Than Bot;\n• Bannable Member Is Guild Owner or Administrator.`)
-    .setFooter("Error Code: 10", botThumbnail)
+    .setFooter("Error Code: 14", botThumbnail)
     .setTimestamp();
 
     message.channel.send({embed: banImpossibleBotEmbed}).then(m => {
