@@ -20,8 +20,8 @@ module.exports = {
 					.setFooter("Error Code: 11", botThumbnail)
 					.setTimestamp();
 
-					message.channel.send({embed: noAdviceEmbed}).then(m => {
-						setTimeout(() => {m.delete(); return;}, 7000);
+					return message.channel.send({embed: noAdviceEmbed}).then(m => {
+						setTimeout(() => {m.delete();}, 7000);
 					});
 				}
 
@@ -30,11 +30,10 @@ module.exports = {
 				.setURL("https://colossebot.app")
 				.setColor(colorGreen)
 				.setDescription(`\`${body.slip.advice}\``)
-				.setFooter(`Advice Nr.${body.slip.id} • Provided by adviceslip.com`, adviceslipThumbnail);
+				.setFooter(`Provided by adviceslip.com`, adviceslipThumbnail);
 
 				return message.channel.send({embed: adviceEmbed});
 			}).catch(error => {
-				console.log(error.stack);
 				return embeds.unknownError(client, message, module.exports.name, error);
 		});
   },
