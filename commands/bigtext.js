@@ -1,15 +1,21 @@
+const Discord = require("discord.js");
+const { colorGreen } = require("../config.json");
+
 module.exports = {
 	name: 'bigtext',
 	description: 'Convert text to uppercase.',
 	usage: '//bigtext <text>',
 	args: true,
 	argsCount: 1,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
 	execute(client, message, args) {
-		const newText = args.join(" ").toUpperCase();
-		message.channel.send(newText);
+		const bigText = args.join(" ").toUpperCase();
+		const bigTextEmbed = new Discord.MessageEmbed()
+		.setTitle("⋙ ColosseBOT || Big Text ⋘")
+		.setURL("https://colossebot.app")
+		.setColor(colorGreen)
+		.setDescription(`\`bigtext\``)
+		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+
+		message.channel.send({embed: bigTextEmbed})
 	},
 };

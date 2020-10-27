@@ -12,7 +12,7 @@ module.exports = {
 		const question = args.join(" ");
 
 		const voteEmbed = new Discord.MessageEmbed()
-		.setTitle("ColosseBOT ⋙ 10poll")
+		.setTitle("ColosseBOT ⋙ 10 Poll")
 		.setURL("https://colossebot.app")
 		.setColor(colorGreen)
 		.setDescription("On a scale from 1-10 please vote on the question below.")

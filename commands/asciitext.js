@@ -16,7 +16,7 @@ module.exports = {
 			message.delete();
 
 			const inputTooLongEmbed = new Discord.MessageEmbed()
-			.setTitle(`⋙ ColosseBOT || Error ⋘`)
+			.setTitle(`⋙ ColosseBOT || Input Error ⋘`)
 			.setURL("https://colossebot.app")
 			.setColor(colorDarkRed)
 			.setDescription("The input text cannot exceed 10 characters.")
@@ -35,7 +35,7 @@ module.exports = {
 						message.delete();
 
 						const noAsciiEmbed = new Discord.MessageEmbed()
-						.setTitle("⋙ ColosseBOT || Missing AsciiText ⋘")
+						.setTitle("⋙ ColosseBOT || Missing Ascii Text ⋘")
 						.setURL("https://colossebot.app")
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the ascii text. Please try again later.")
@@ -48,7 +48,7 @@ module.exports = {
 					}
 
 				const asciiEmbed = new Discord.MessageEmbed()
-  			.setTitle("⋙ ColosseBOT || AsciiText ⋘")
+  			.setTitle("⋙ ColosseBOT || Ascii Text ⋘")
 				.setURL("https://colossebot.app")
 				.setColor(colorGreen)
 				.setDescription(`\`\`\`${body}\`\`\``)

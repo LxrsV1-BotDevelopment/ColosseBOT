@@ -7,7 +7,7 @@ module.exports = {
 	usage: '//argshelp',
 	execute(client, message, args) {
 			const argsInfoEmbed = new Discord.MessageEmbed()
-					.setTitle("ColosseBOT ⋙ argsHelp")
+					.setTitle("ColosseBOT ⋙ Args Help")
 					.setURL("https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription("This will explain how to use arguments in commands.")
