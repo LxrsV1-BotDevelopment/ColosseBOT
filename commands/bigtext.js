@@ -13,7 +13,7 @@ module.exports = {
 		.setTitle("⋙ ColosseBOT || Big Text ⋘")
 		.setURL("https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription(`\`${bigText}\``)
+		.setDescription(`\`\`\`${bigText}\`\`\``)
 		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
 		message.channel.send({embed: bigTextEmbed})
