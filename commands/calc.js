@@ -1,35 +1,39 @@
 const Discord = require("discord.js");
-const { colorWhite } = require("../config.json");
+const { colorGreen, colorDarkRed, botThumbnail } = require("../config.json");
 const math = require("mathjs");
 
 module.exports = {
-	name: 'calc',
-	description: 'Basic Math Functions Calculator',
-	usage: '//calc <Expression>',
+	name: "calc",
+	description: "Basic Math Functions Calculator",
+	usage: "//calc <Expression>",
 	args: true,
 	argsCount: 1,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
 	execute(client, message, args) {
 		const expression = args.join(" ");
-    var result = "N/A"
 		message.delete();
 
-		const calcEmbed = new Discord.MessageEmbed()
-		.setTitle("Basic Calculator")
-		.setColor(colorWhite)
-
-    try{
+    try {
       result = math.evaluate(expression);
+
+			const calcEmbed = new Discord.MessageEmbed()
+			.setTitle("⋙ ColosseBOT || Calculator ⋘")
+			.setURL("https://colossebot.app")
+			.setColor(colorGreen)
+			.addField("Expression:", `\`\`\`${expression}\`\`\``)
+			.addField("Result:", `\`\`\`${result}\`\`\``)
+			.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+
+			return message.channel.send({embed: calcEmbed});
     } catch (error) {
-      calcEmbed.addField("Error:", "```Sorry I couldn't calculate that. :(```")
-    } finally {
-			calcEmbed.addField("Expression:", `\`\`\`${expression}\`\`\``)
-			calcEmbed.addField("Result:", `\`\`\`${result}\`\`\``);
-			
-      message.channel.send({embed: calcEmbed});
+			const calcErrorEmbed = new Discord.MessageEmbed()
+			.setTitle("⋙ ColosseBOT || Calculator Error ⋘")
+			.setURL("https://colossebot.app")
+			.setColor(colorDarkRed)
+			.setDescription("Sorry I couldn't calculate that.")
+			.setFooter("Error Code: 20", botThumbnail)
+			.setTimestamp();
+
+			return message.channel.send({embed: calcErrorEmbed});
     }
 	},
 };
