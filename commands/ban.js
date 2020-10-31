@@ -2,15 +2,15 @@ const Discord = require("discord.js");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'ban',
-	description: 'Bans specified user for specified reason.',
-	usage: '//ban <@User> <Reason>',
+	name: "ban",
+	description: "Bans specified user for specified reason.",
+	usage: "//ban <@User> <Reason>",
 	args: true,
 	argsCount: 2,
 	guildOnly: true,
 	cooldown: 3,
 	permsCheck: true,
-	neededPerms: 'BAN_MEMBERS',
+	neededPerms: "BAN_MEMBERS",
 	execute(client, message, args) {
 		const banee = message.mentions.members.first() || message.guild.member(args[0]);
 		if (!banee) return embeds.banNoMember(message);
@@ -20,7 +20,7 @@ module.exports = {
 			embeds.banHigherMember(client, message);
 			return embeds.banInfraction(client, message);
 		}
-		if (banee.roles.highest.position > message.guild.me.roles.highest.position || banee.bannable != true || banee.hasPermission('ADMINISTRATOR')) {
+		if (banee.roles.highest.position > message.guild.me.roles.highest.position || banee.bannable != true || banee.hasPermission("ADMINISTRATOR")) {
 			return embeds.banImpossibleBot(message);
 		} else {
 			banee.ban({days: 7, reason: reason}).catch(error => {

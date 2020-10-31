@@ -1,10 +1,10 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const { colorGreen } = require("../config.json");
 
 module.exports = {
-	name: 'argshelp',
-	description: 'Displays info about the arguments for commands.',
-	usage: '//argshelp',
+	name: "argshelp",
+	description: "Displays info about the arguments for commands.",
+	usage: "//argshelp",
 	execute(client, message, args) {
 			const argsInfoEmbed = new Discord.MessageEmbed()
 					.setTitle("ColosseBOT ⋙ Args Help")

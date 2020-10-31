@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorGreen } = require("../config.json");
 
 module.exports = {
-	name: 'bigtext',
-	description: 'Convert text to uppercase.',
-	usage: '//bigtext <text>',
+	name: "bigtext",
+	description: "Convert text to uppercase.",
+	usage: "//bigtext <text>",
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {

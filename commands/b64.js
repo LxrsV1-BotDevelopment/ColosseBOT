@@ -7,8 +7,6 @@ module.exports = {
 	usage: '//b64 <Encode/Decode> <Text/B64 String>',
 	args: true,
 	argsCount: 2,
-	guildOnly: false,
-	directOnly: false,
 	execute(client, message, args) {
 		const choice = args[0].toLowerCase();
 		const input = args.slice(1).join(" ");

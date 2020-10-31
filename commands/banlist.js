@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorBlack, colorDarkRed, botThumbnail } = require("../config.json");
 
 module.exports = {
-	name: 'banlist',
-	description: 'Get list of banned users.',
-	usage: '//banlist',
+	name: "banlist",
+	description: "Get list of banned users.",
+	usage: "//banlist",
 	guildOnly: true,
 	permsCheck: true,
 	neededPerms: "MANAGE_MEMBERS",

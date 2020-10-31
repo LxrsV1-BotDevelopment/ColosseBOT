@@ -4,10 +4,10 @@ const embeds = require("../modules/embeds.js");
 const { colorGreen, colorDarkRed, asciiartThumbnail, botThumbnail } = require("../config.json");
 
 module.exports = {
-	name: 'ascii',
-	aka: 'asciiart',
-	description: 'Sends a ascii art for specified text.',
-	usage: '//ascii <Text>',
+	name: "ascii",
+	aka: "asciiart",
+	description: "Sends a ascii art for specified text.",
+	usage: "//ascii <Text>",
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {

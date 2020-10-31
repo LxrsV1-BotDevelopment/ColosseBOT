@@ -4,9 +4,9 @@ const { colorDarkRed, colorGreen, botThumbnail, adviceslipThumbnail } = require(
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'advice',
-	description: 'Sends a random advice slip.',
-	usage: '//advice',
+	name: "advice",
+	description: "Sends a random advice slip.",
+	usage: "//advice",
 	args: false,
 	execute(client, message, args) {
 		fetch("https://api.adviceslip.com/advice")
