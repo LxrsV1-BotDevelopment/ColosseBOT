@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorDarkRed, colorLightBrown, colorBlack, devGuild, primaryLogs, botThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, colorLightBrown, colorBlack, devGuild, primaryLogs, botThumbnail } = require("../config.json");
 
 module.exports.unknownError = function(client, message, commandName, error) {
     const commandN = commandName.charAt(0).toUpperCase() + commandName.slice(1);
@@ -270,4 +270,96 @@ module.exports.banReport = function(client, message, banee, reason) {
     .setTimestamp();
 
     client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: banReportEmbed});
+}
+
+module.exports.falseChoice = function(message, usage) {
+    message.delete();
+
+    const falseChoiceEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Incorrect Choice ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${usage}\``)
+    .setFooter("Error Code: 16", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: falseChoiceEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.regexOnly01 = function(message) {
+    message.delete();
+
+    const regexOnly01Embed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("The input can only contain ones and zeros.")
+    .setFooter("Error Code: 17", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: regexOnly01Embed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.incorrectBinary = function(message) {
+    message.delete();
+
+    const incorrectBinaryEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Incorrect binary input. Binary numbers are 8 digits long.")
+    .setFooter("Error Code: 18", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: incorrectBinaryEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.binaryAscii = function(message, input, result) {
+    message.delete();
+
+    const binaryAsciiEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Binary Decode ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorGreen)
+    .addField("Input:", input)
+    .addField("Result:", result)
+    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+
+    message.channel.send({embed: binaryAsciiEmbed});
+}
+
+module.exports.regexOnlyLetters = function(message) {
+    message.delete();
+
+    const regexOnlyLettersEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Input can only contain letters and numbers.")
+    .setFooter("Error Code: 19", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: regexOnlyLettersEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.asciiBinary = function(message, input, result) {
+    message.delete();
+
+    const asciiBinaryEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Binary Encode ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorGreen)
+    .addField("Input:", input)
+    .addField("Result:", result)
+    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+
+    message.channel.send({embed: asciiBinaryEmbed});
 }

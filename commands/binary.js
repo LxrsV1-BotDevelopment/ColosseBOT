@@ -4,9 +4,9 @@ const asciiBinaryTable = require("../wordbanks/asciiBinary.json");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'binary',
-	description: 'Decode/Encode from/to Binary.',
-	usage: '//binary <Decode/Encode> <Text>',
+	name: "binary",
+	description: "Decode/Encode from/to Binary.",
+	usage: "//binary <Decode/Encode> <Text>",
 	args: true,
 	argsCount: 2,
 	execute(client, message, args) {
