@@ -1,7 +1,7 @@
 {
   "name": "colossebot",
   "version": "0.0.1",
-  "description": "ColosseBOT",
+  "description": "ColosseBOT - The Ultimate Human Assistant Chatbot",
   "main": "bot.js",
   "engines": {
     "node": "^12.16.2",
@@ -26,6 +26,5 @@
     "urban-dictionary": "^2.2.1",
     "jshashes": "^1.0.8",
     "color-convert": "^2.0.1",
-    "python-shell": "^2.0.2"
   }
 }
