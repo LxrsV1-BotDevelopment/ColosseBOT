@@ -1,26 +1,39 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
+const { colorGreen, colorDarkRed, botThumbnail, chuckThumbnail } = require("../config.json");
+const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'chuck',
-	aka: ['chuckjoke', 'chucknorris'],
-	description: 'Sends a Chuck Norris joke.',
-	usage: '//chuck',
-	args: false,
-	argsCount: 0,
-	guildOnly: false,
-	directOnly: false,
-	roleCheck: false,
-	cooldown: 3,
-	disabled: false,
+	name: "chuck",
+	description: "Sends a Chuck Norris joke.",
+	usage: "//chuck",
 	execute(client, message, args) {
 				fetch(`https://api.chucknorris.io/jokes/random`)
 					.then(result => result.json()).then(body => {
-							if(!body) return message.channel.send("Sorry, I couldn't get the joke. Try again later.");
-							message.channel.send(body.value);
+						if(!body) {
+							const noChuckEmbed = new Discord.MessageEmbed()
+							.setTitle("⋙ ColosseBOT || Chuck Missing ⋘")
+							.setURL("https://colossebot.app")
+							.setColor(colorDarkRed)
+							.setDescription("Sorry, but I couldn't find Mr. Norris. Please try again later.")
+							.setFooter("Error Code: 22", botThumbnail)
+							.setTimestamp();
+
+							return message.channel.send({embed: noChuckEmbed}).then(m => {
+								setTimeout(() => {m.delete();}, 7000);
+							});
+						}
+						const chuckEmbed = new Discord.MessageEmbed()
+						.setTitle("⋙ ColosseBOT || Chuck Norris Joke ⋘")
+						.setURL("https://colossebot.app")
+						.setColor(colorGreen)
+						.setDescription(`${body.value}`)
+						.setFooter(`Provided by api.chucknorris.io`, chuckThumbnail);
+
+						return message.channel.send({embed: chuckEmbed});
 					}).catch(error => {
 				console.log(error.stack);
-				return message.channel.send("Sorry, I couldn't get the joke. Try again later.");
+				return embeds.unknownError(client, message, module.exports.name, error)
 			});
   },
 };
