@@ -27,7 +27,7 @@ module.exports = {
 		.setTitle("⋙ ColosseBOT || Channel Id ⋘")
 		.setURL("https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription(`ID of specified channel is \`${id}\`.`)
+		.setDescription(`ID of specified channel is ${id}.`)
 		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
 		message.channel.send({embed: channelIdEmbed});

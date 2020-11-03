@@ -8,7 +8,6 @@ module.exports = {
 	args: true,
 	argsCount: 2,
 	guildOnly: true,
-	cooldown: 3,
 	permsCheck: true,
 	neededPerms: "BAN_MEMBERS",
 	execute(client, message, args) {

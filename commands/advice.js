@@ -28,7 +28,7 @@ module.exports = {
 				.setTitle("⋙ ColosseBOT || Advice Slip ⋘")
 				.setURL("https://colossebot.app")
 				.setColor(colorGreen)
-				.setDescription(`\`${body.slip.advice}\``)
+				.setDescription(`${body.slip.advice}`)
 				.setFooter(`Provided by adviceslip.com`, adviceslipThumbnail);
 
 				return message.channel.send({embed: adviceEmbed});
