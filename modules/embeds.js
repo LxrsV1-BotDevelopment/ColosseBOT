@@ -363,3 +363,19 @@ module.exports.asciiBinary = function(message, input, result) {
 
     message.channel.send({embed: asciiBinaryEmbed});
 }
+
+module.exports.notHexColor = function(message) {
+    message.delete();
+
+    const notHexColorEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Not HEX Color ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Sorry, but I don't understand this color format.\nI only accept colors in HEX format.")
+    .setFooter("Error Code: 23", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: notHexColorEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}

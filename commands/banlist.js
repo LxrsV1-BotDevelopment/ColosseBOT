@@ -19,7 +19,9 @@ module.exports = {
 				 .setFooter("Error Code: 15", botThumbnail)
 				 .setTimestamp();
 
-				return message.channel.send({embed: noBansEmbed});
+				return message.channel.send({embed: noBansEmbed}).then(m => {
+		      setTimeout(() => {m.delete()}, 7000);
+		    });
 			} else {
 					const bansArray = bans.array();
 					let bansList = `${bans.size} users are banned in this guild:\n`;

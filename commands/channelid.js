@@ -19,7 +19,9 @@ module.exports = {
 			.setFooter("Error Code: 21", botThumbnail)
 			.setTimestamp();
 
-			return message.channel.send({embed: noChannelEmbed});
+			return message.channel.send({embed: noChannelEmbed}).then(m => {
+	      setTimeout(() => {m.delete()}, 7000);
+	    });
 		}
 		const id = channel.id;
 
