@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorGreen} = require("../config.json");
 
 module.exports = {
-	name: 'botinfo',
-	description: 'Sends Embed with Bot Information',
-	usage: '//colossebot',
+	name: "botinfo",
+	description: "Sends Embed with Bot Information",
+	usage: "//botinfo",
 	execute(client, message, args) {
 		const botInfoEmbed = new Discord.MessageEmbed()
 		.setTitle("⋙ ColosseBOT || Bot Information ⋘")

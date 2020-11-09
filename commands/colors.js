@@ -3,9 +3,9 @@ const convert = require("color-convert");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'colors',
-	description: 'Outputs colors in various formats.',
-	usage: '//colors <HEX Color>',
+	name: "colors",
+	description: "Outputs colors in various formats.",
+	usage: "//colors <HEX Color>",
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {

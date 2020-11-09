@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorDiscord, discordThumbnail } = require("../config.json");
 
 module.exports = {
-	name: 'discord',
-	description: 'Sends Embed with Discord Links',
-	usage: '//discord',
+	name: "discord",
+	description: "Sends Embed with Discord Links",
+	usage: "//discord",
 	execute(client, message, args) {
 		const discordEmbed = new Discord.MessageEmbed()
 		.setTitle("⋙ ColosseBOT || Discord Links ⋘")

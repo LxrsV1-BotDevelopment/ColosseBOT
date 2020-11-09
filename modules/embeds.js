@@ -379,3 +379,35 @@ module.exports.notHexColor = function(message) {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
+
+module.exports.aCantBeZero = function(message) {
+    message.delete();
+
+    const aCantBeZeroEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || A ≠ 0 ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Coefficient A cannot be zero.")
+    .setFooter("Error Code: 24", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: aCantBeZeroEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.inputOnlyNumbers = function(message) {
+    message.delete();
+
+    const inputOnlyNumbersEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Input can only contain numbers.")
+    .setFooter("Error Code: 25", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: inputOnlyNumbersEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
