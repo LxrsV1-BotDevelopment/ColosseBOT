@@ -1,33 +1,29 @@
-const fs = require("fs");
-const emojiTable = JSON.parse(fs.readFileSync("./wordbanks/emojispeak.json", "utf8"));
+const emojiTable = require("../wordbanks/emojispeak.json");
+const embeds = require("../modules/embeds.js");
 
 module.exports = {
 	name: 'emojispeak',
 	description: 'Converts text to emojis.',
-	usage: '//emojispeak <text>',
+	usage: '//emojispeak <Text>',
 	args: true,
 	argsCount: 1,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
 	execute(client, message, args) {
-		const text = args.join(" ").toUpperCase();
-		const regTest = /^[0-9A-Z\u0020]*$/gm.test(text);
-		if (regTest != true) return message.channel.send("Input can only contain letters and numbers.");
+		const input = args.join(" ").toUpperCase();
+		const regTest = /^[0-9A-Z\u0020]*$/gm.test(input);
+		if (regTest != true) return embeds.regexOnlyLetters(message);
 
-		function emojiString(text) {
-			var result = new Array(text.length)
-			for (var i = 0; i <= text.length; i++) {
-				var c = text.charAt(i)
+		function emojiString(input) {
+			var result = new Array(input.length)
+			for (var i = 0; i <= input.length; i++) {
+				var c = input.charAt(i)
 				var r = emojiTable[c]
 				result[i] = r != undefined ? r : c
 			}
-			return message.channel.send(result.join(""));
+			return embeds.emojiSpeak(message, input, result.join(""));
 		}
 		for (i in emojiTable) {
 			emojiTable[emojiTable[i]] = i
 		}
-		emojiString(text);
+		emojiString(input);
 	},
 };

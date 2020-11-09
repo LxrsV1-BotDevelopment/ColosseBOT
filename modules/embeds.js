@@ -411,3 +411,17 @@ module.exports.inputOnlyNumbers = function(message) {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
+
+module.exports.emojiSpeak = function(message, input, result) {
+    message.delete();
+
+    const emojiSpeakEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || EmojiSpeak ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorGreen)
+    .addField("Input:", input)
+    .addField("Result:", result)
+    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+
+    message.channel.send({embed: emojiSpeakEmbed});
+}
