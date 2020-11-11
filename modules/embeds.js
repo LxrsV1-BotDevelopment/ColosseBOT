@@ -213,7 +213,7 @@ module.exports.banInfraction = function(client, message) {
     .setURL("https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Automatic server protection was trigered.")
-    .addField("Trigered By:", message.author.username)
+    .addField("Trigered By:", message.author.tag)
     .addField("Reason:", "Tried to ban higher standing member.")
     .addField("Message:", message.content)
     .setFooter("ColosseBOT", botThumbnail)
@@ -259,15 +259,11 @@ module.exports.banReport = function(client, message, banee, reason) {
     .setTitle(`⋙ ColosseBOT || Ban Report ⋘`)
     .setURL("https://colossebot.app")
     .setColor(colorBlack)
-    .setDescription("GuildMember ban report.")
-    .addField("Banned Membed:", banee.user.tag, true)
-    .addField("Banned Member ID:", banee.user.id, true)
-    .addField("\u200B", "\u200B", true)
-    .addField("Moderator:", message.author.tag, true)
-    .addField("Reason:", reason, true)
-    .addField("\u200B", "\u200B", true)
-    .setFooter("ColosseBOT", botThumbnail)
-    .setTimestamp();
+    .addField("Banned Membed:", banee.user.tag)
+    .addField("Banned Member ID:", banee.user.id)
+    .addField("Moderator:", message.author.tag)
+    .addField("Reason:", reason)
+    .setFooter("ColosseBOT", botThumbnail);
 
     client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: banReportEmbed});
 }
@@ -329,7 +325,7 @@ module.exports.binaryAscii = function(message, input, result) {
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
-    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
     message.channel.send({embed: binaryAsciiEmbed});
 }
@@ -359,7 +355,7 @@ module.exports.asciiBinary = function(message, input, result) {
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
-    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
     message.channel.send({embed: asciiBinaryEmbed});
 }
@@ -421,7 +417,7 @@ module.exports.emojiSpeak = function(message, input, result) {
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
-    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
     message.channel.send({embed: emojiSpeakEmbed});
 }
@@ -435,7 +431,55 @@ module.exports.flipText = function(message, input, result) {
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
-    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
     message.channel.send({embed: flipTextEmbed});
+}
+
+module.exports.roleNoMember = function(message) {
+    message.delete();
+
+    const roleNoMemberEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Member Not Found ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`Couldn't find user!\nPlease try again, ${message.author.username}!`)
+    .setFooter("Error Code: 29", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: roleNoMemberEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.roleNotFound = function(message) {
+    message.delete();
+
+    const roleNotFoundEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || Role Not Found ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`Couldn't find role!\nPlease try again, ${message.author.username}!`)
+    .setFooter("Error Code: 30", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: roleNotFoundEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.roleGiveImpossibleBot = function(message) {
+    message.delete();
+
+    const roleGiveImpossibleBotEmbed = new Discord.MessageEmbed()
+    .setTitle(`⋙ ColosseBOT || GiveRole Impossible ⋘`)
+    .setURL("https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`Giving role to this user isn't possible, that may be because:\n• Insufficent Bot Permissions;\n• Mentioned Member Is Higher In Role Hierarchy Than Bot;\n• Mentioned Role Is Higher In Role Hierarchy Than Bot.`)
+    .setFooter("Error Code: 31", botThumbnail)
+    .setTimestamp();
+
+    message.channel.send({embed: roleGiveImpossibleBotEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 13000);
+    });
 }

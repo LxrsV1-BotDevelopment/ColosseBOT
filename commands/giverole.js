@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const { staffRoles, guildID, modLogsChannel, botThumbnail, colorWhite} = require("../config.json");
+const { devGuild, primaryLogs, colorGreen, botThumbnail } = require("../config.json");
+const embeds = require("../modules/embeds.js");
 
 module.exports = {
 	name: 'giverole',
@@ -8,33 +9,45 @@ module.exports = {
 	args: true,
 	argsCount: 1,
 	guildOnly: true,
-	directOnly: false,
-	cooldown: 3,
-	roleCheck: true,
-	allowedRoles: ["MANAGERS", "OWNERS"],
-	disabled: false,
+	permsCheck: true,
+	neededPerms: ['MANAGE_GUILD'],
 	execute(client, message, args) {
-		const user = message.mentions.members.first();
-		if (!user) return message.channel.send(`Couldn't find user to give role!\nPlease try again, ${message.author}!`);
+		const user = message.mentions.members.first() || message.guild.member(args[0]);
+		if (!user) return embeds.roleNoMember(message);
 
-		const role = args.slice(1).join(" ");
-		let roleFind = message.guild.roles.cache.find(r => r.name === role);
-		if(!roleFind) return message.channel.send(`Couldn't find role like that!\nPlease try again, ${message.author}!`);
+		let role = message.mentions.roles.first() || message.guild.roles.cache.find(r => r.name === args.slice(1).join(" "));
+		if(!role) return embeds.roleNotFound(message);
 
-		user.roles.add(roleFind.id).then(() => {
-			message.delete();
-			message.channel.send(`${user.user.username} Has Been Given ${role} Role!`);
+		if (user.roles.highest.position > message.guild.me.roles.highest.position || role.position > message.guild.me.roles.highest.position) {
+			return embeds.roleGiveImpossibleBot(message);
+		}
 
-			let giveRoleReport = new Discord.MessageEmbed()
-			.setTitle("ColosseBOT Mod-Logs")
-			.setDescription("GiveRole report.")
-			.setColor(colorWhite)
-			.setThumbnail(botThumbnail)
-			.addField("Role Assigned To: ", user.user.username, true)
-			.addField("Moderator: ", message.author.username, true)
-			.addField("Role: ", role)
+		user.roles.add(role.id).then(() => {
+			const giveRoleSuccessEmbed = new Discord.MessageEmbed()
+	    .setTitle("⋙ ColosseBOT || GiveRole Successful ⋘")
+	    .setURL("https://colossebot.app")
+	    .setColor(colorGreen)
+	    .setDescription(`**${user.user.tag} Has Been Given ${role.name} Role!**`)
+	    .setFooter("ColosseBOT", botThumbnail)
+	    .setTimestamp();
+
+	    message.channel.send({embed: giveRoleSuccessEmbed}).then(m => {
+	      setTimeout(() => {m.delete()}, 7000);
+	    });
+
+			const giveRoleReport = new Discord.MessageEmbed()
+			.setTitle("⋙ ColosseBOT || GiveRole Report ⋘")
+			.setURL("https://colossebot.app")
+			.setColor(colorGreen)
+			.addField("Role Assigned To:", user.user.tag)
+			.addField("Moderator:", message.author.tag)
+			.addField("Role:", role.name)
 			.setFooter("ColosseBOT", botThumbnail);
-			client.guilds.resolve(guildID).channels.resolve(modLogsChannel).send({embed: giveRoleReport});
+
+			client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: giveRoleReport});
+			message.delete();
+		}).catch(error => {
+				return embeds.unknownError(client, message, module.exports.name, error);
 		});
 	},
 };
