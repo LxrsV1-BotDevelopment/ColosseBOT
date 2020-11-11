@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, botThumbnail, jsphThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, botThumbnail, numberFactsThumbnail } = require("../config.json");
 
 module.exports = {
-	name: "fact",
-	description: "Sends a random fact.",
-	usage: "//fact",
+	name: "numberfact",
+	description: "Sends a random number fact.",
+	usage: "//numberfact",
 	execute(client, message, args) {
-			fetch("https://uselessfacts.jsph.pl/random.json?language=en")
+			fetch("http://numbersapi.com/random?json")
 				.then(result => result.json()).then(body => {
 					if(!body) {
 						const noFactEmbed = new Discord.MessageEmbed()
@@ -23,14 +23,14 @@ module.exports = {
 						});
 					}
 
-					const factEmbed = new Discord.MessageEmbed()
-					.setTitle("⋙ ColosseBOT || Useless Fact ⋘")
+					const numberFactEmbed = new Discord.MessageEmbed()
+					.setTitle("⋙ ColosseBOT || Number Fact ⋘")
 					.setURL("https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription(body.text)
-					.setFooter(`Provided by jsph.pl`, jsphThumbnail);
+					.setFooter(`Provided by numbersapi.com`, numberFactsThumbnail);
 
-					return message.channel.send({embed: factEmbed});
+					return message.channel.send({embed: numberFactEmbed});
 				}).catch(error => {
 					return embeds.unknownError(client, message, module.exports.name, error);
 			});

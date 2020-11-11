@@ -2,9 +2,9 @@ const emojiTable = require("../wordbanks/emojispeak.json");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'emojispeak',
-	description: 'Converts text to emojis.',
-	usage: '//emojispeak <Text>',
+	name: "emojispeak",
+	description: "Converts text to emojis.",
+	usage: "//emojispeak <Text>",
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {

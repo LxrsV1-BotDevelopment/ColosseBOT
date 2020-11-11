@@ -4,9 +4,9 @@ const embeds = require("../modules/embeds.js");
 const { colorGreen, colorDarkRed, botThumbnail } = require("../config.json");
 
 module.exports = {
-	name: 'discriminant',
-	description: 'Calculates discriminant for quadratic equation',
-	usage: '//discriminant <A = Any Number Except 0> <B = Any Number> <C = Any Number>',
+	name: "discriminant",
+	description: "Calculates discriminant for quadratic equation",
+	usage: "//discriminant <A = Any Number Except 0> <B = Any Number> <C = Any Number>",
 	args: true,
 	argsCount: 3,
 	execute(client, message, args) {

@@ -425,3 +425,17 @@ module.exports.emojiSpeak = function(message, input, result) {
 
     message.channel.send({embed: emojiSpeakEmbed});
 }
+
+module.exports.flipText = function(message, input, result) {
+    message.delete();
+
+    const flipTextEmbed = new Discord.MessageEmbed()
+    .setTitle("⋙ ColosseBOT || FlipText ⋘")
+    .setURL("https://colossebot.app")
+    .setColor(colorGreen)
+    .addField("Input:", input)
+    .addField("Result:", result)
+    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());
+
+    message.channel.send({embed: flipTextEmbed});
+}

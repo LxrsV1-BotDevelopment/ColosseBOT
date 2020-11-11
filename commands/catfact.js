@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, botThumbnail, jsphThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, botThumbnail, catFactsThumbnail } = require("../config.json");
 
 module.exports = {
-	name: "fact",
-	description: "Sends a random fact.",
-	usage: "//fact",
+	name: "catfact",
+	description: "Sends a random cat fact.",
+	usage: "//catfact",
 	execute(client, message, args) {
-			fetch("https://uselessfacts.jsph.pl/random.json?language=en")
+			fetch("https://cat-fact.herokuapp.com/facts/random")
 				.then(result => result.json()).then(body => {
 					if(!body) {
 						const noFactEmbed = new Discord.MessageEmbed()
@@ -23,14 +23,14 @@ module.exports = {
 						});
 					}
 
-					const factEmbed = new Discord.MessageEmbed()
-					.setTitle("⋙ ColosseBOT || Useless Fact ⋘")
+					const catFactEmbed = new Discord.MessageEmbed()
+					.setTitle("⋙ ColosseBOT || Cat Fact ⋘")
 					.setURL("https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription(body.text)
-					.setFooter(`Provided by jsph.pl`, jsphThumbnail);
+					.setFooter(`Provided by cat-fact.herokuapp.com`, catFactsThumbnail);
 
-					return message.channel.send({embed: factEmbed});
+					return message.channel.send({embed: catFactEmbed});
 				}).catch(error => {
 					return embeds.unknownError(client, message, module.exports.name, error);
 			});

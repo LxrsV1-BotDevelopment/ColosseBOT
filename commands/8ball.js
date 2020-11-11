@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ballBank = require("../wordbanks/8ball.json");
-const { colorGreen } = require("../config.json");
+const { colorGreen, eightBallThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "8ball",
@@ -18,7 +18,7 @@ module.exports = {
 		.setColor(colorGreen)
     .addField("Question:", question)
     .addField("Answer:", ballBank.ballreplies[index])
-		.setFooter(`Answer Nr.${index} • Asked by ${message.author.tag}`, message.author.displayAvatarURL());
+		.setFooter(`Provided by ColosseBOT`, eightBallThumbnail);
 
     return message.channel.send({embed: ballEmbed});
 	},
