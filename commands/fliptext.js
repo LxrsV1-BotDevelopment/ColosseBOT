@@ -1,33 +1,27 @@
-const fs = require("fs");
-const flipTable = JSON.parse(fs.readFileSync("./wordbanks/fliptext.json", "utf8"));
+const flipTable = require("../wordbanks/fliptext.json");
+const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'fliptext',
-	description: 'Convert text to upside down & reversed.',
-	usage: '//fliptext <text>',
+	name: "fliptext",
+	description: "Turns text upside down.",
+	usage: "//fliptext <text>",
 	args: true,
 	argsCount: 1,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
 	execute(client, message, args) {
-		const text = args.join(" ");
+		const input = args.join(" ");
 
 		function flipString(text)	{
-			var last = text.length - 1;
-			var result = new Array(text.length)
-			for (var i = last; i >= 0; --i)	{
+			var result = new Array(input.length)
+			for (var i = 0; i <= input.length; i++)	{
 				var c = text.charAt(i)
 				var r = flipTable[c]
-				result[last - i] = r != undefined ? r : c
+				result[i] = r != undefined ? r : c
 			}
-			return message.channel.send(result.join(''));
+			return embeds.flipText(message, input, result.join(""));
 		}
 		for (i in flipTable) {
 			flipTable[flipTable[i]] = i
 }
-		flipString(text);
+		flipString(input);
 	},
 };
-
