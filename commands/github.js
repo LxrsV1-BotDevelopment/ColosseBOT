@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorGreen, botThumbnail } = require("../config.json");
 
 module.exports = {
-	name: 'github',
-	description: 'Gives link to github repository',
-	usage: '//github',
+	name: "github",
+	description: "Gives link to github repository",
+	usage: "//github",
 	execute(client, message, args) {
 		const githubEmbed = new Discord.MessageEmbed()
 		.setTitle("⋙ ColosseBOT || Github ⋘")

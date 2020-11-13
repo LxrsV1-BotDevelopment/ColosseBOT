@@ -3,14 +3,14 @@ const { devGuild, primaryLogs, colorGreen, botThumbnail } = require("../config.j
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'giverole',
-	description: 'Gives role to specified user.',
-	usage: '//giverole <@user> <RoleName>',
+	name: "giverole",
+	description: "Gives role to specified user.",
+	usage: "//giverole <@user> <RoleName>",
 	args: true,
 	argsCount: 1,
 	guildOnly: true,
 	permsCheck: true,
-	neededPerms: ['MANAGE_GUILD'],
+	neededPerms: ["MANAGE_GUILD"],
 	execute(client, message, args) {
 		const user = message.mentions.members.first() || message.guild.member(args[0]);
 		if (!user) return embeds.roleNoMember(message);

@@ -425,15 +425,20 @@ module.exports.emojiSpeak = function(message, input, result) {
 module.exports.flipText = function(message, input, result) {
     message.delete();
 
+    const splitString = result.split("");
+    const reverseArray = splitString.reverse();
+    const joinArray = reverseArray.join("");
+
     const flipTextEmbed = new Discord.MessageEmbed()
     .setTitle("⋙ ColosseBOT || FlipText ⋘")
     .setURL("https://colossebot.app")
     .setColor(colorGreen)
     .addField("Input:", input)
-    .addField("Result:", result)
+    .addField("Result:", joinArray)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
     message.channel.send({embed: flipTextEmbed});
+
 }
 
 module.exports.roleNoMember = function(message) {
