@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorDarkRed, colorGreen, botThumbnail } = require("../config.json");
 
 module.exports = {
-	name: 'b64',
-	description: 'Encode/Decode to/from Base64.',
-	usage: '//b64 <Encode/Decode> <Text/B64 String>',
+	name: "b64",
+	description: "Encode/Decode to/from Base64.",
+	usage: "//b64 <Encode/Decode> <Text/B64 String>",
 	args: true,
 	argsCount: 2,
 	execute(client, message, args) {
@@ -15,8 +15,7 @@ module.exports = {
 				const b64result =  buff.toString("base64");
 
 				const b64Embed = new Discord.MessageEmbed()
-				.setTitle("⋙ ColosseBOT || Base64 ⋘")
-				.setURL("https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Base64 ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.addField("Input:", input)
 				.addField("Result:", b64result)
@@ -28,8 +27,7 @@ module.exports = {
 				const b64result = buff.toString("ascii");
 
 				const b64Embed = new Discord.MessageEmbed()
-				.setTitle("⋙ ColosseBOT || Base64 ⋘")
-				.setURL("https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Base64 ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.addField("Input:", input)
 				.addField("Result:", b64result)
@@ -38,8 +36,7 @@ module.exports = {
 				return message.channel.send({embed: b64Embed});
 		} else {
 				const falseChoice = new Discord.MessageEmbed()
-				.setTitle("⋙ ColosseBOT || Incorrect Choice ⋘")
-				.setURL("https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Incorrect Choice ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
 				.setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${module.exports.usage}\``)
 				.setFooter("Error Code: 12", botThumbnail)

@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorDarkRed, colorGreen, colorLightBrown, colorBlack, devGuild, primaryLogs, botThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, colorLightBrown, colorLightRed, colorBlack, devGuild, primaryLogs, botThumbnail } = require("../config.json");
 
 module.exports.unknownError = function(client, message, commandName, error) {
     const commandN = commandName.charAt(0).toUpperCase() + commandName.slice(1);
@@ -7,10 +7,9 @@ module.exports.unknownError = function(client, message, commandName, error) {
     message.delete();
 
     const unknownErrorEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || ${commandN} Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor(`⋙ ColosseBOT || ${commandN} Error ⋘`, "", "https://colossebot.app")
     .setColor(colorDarkRed)
-    .setDescription(`An unknown error occured while running command.\nDeveloper has been informed, sorry for the inconvenience.`)
+    .setDescription("An unknown error occured while running command.\nDeveloper has been informed, sorry for the inconvenience.")
     .setFooter("Error Code: 0x", botThumbnail)
     .setTimestamp();
 
@@ -19,10 +18,9 @@ module.exports.unknownError = function(client, message, commandName, error) {
     });
 
     const unknownErrorDevEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || ${commandN} Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor(`⋙ ColosseBOT || ${commandN} Error ⋘`, "", "https://colossebot.app")
     .setColor(colorDarkRed)
-    .setDescription(`An error occured while running command.`)
+    .setDescription("An error occured while running command.")
     .addField("Guild: ", message.guild.id)
     .addField("Channel: ", message.channel.id)
     .addField("Error: ", `\`\`\`${error}\`\`\``)
@@ -36,8 +34,7 @@ module.exports.noCommand = function(message, commandName) {
     message.delete();
 
     const noCommandEmbed = new Discord.MessageEmbed()
-      .setTitle(`⋙ ColosseBOT || Error ⋘`)
-      .setURL("https://colossebot.app")
+      .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
       .setColor(colorDarkRed)
       .setDescription(`There is no command with name ${commandName}!`)
       .setFooter("Error Code: 1", botThumbnail)
@@ -52,8 +49,7 @@ module.exports.disabledCommand = function(message) {
     message.delete();
 
     const disabledCommandEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Sorry, but this command is currently disabled!")
     .setFooter("Error Code: 2", botThumbnail)
@@ -68,8 +64,7 @@ module.exports.ownerCommand = function(message) {
     message.delete();
 
     const ownerOnlyEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("This command is intended only for bot owner.")
     .setFooter("Error Code: 3", botThumbnail)
@@ -84,8 +79,7 @@ module.exports.guildOnly = function(message) {
     message.delete();
 
     const guildOnlyEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("I can\'t execute this command inside DMs!")
     .setFooter("Error Code: 4", botThumbnail)
@@ -100,8 +94,7 @@ module.exports.directOnly = function(message) {
     message.delete();
 
     const directOnlyEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("I can\'t execute this command inside guilds!")
     .setFooter("Error Code: 5", botThumbnail)
@@ -116,8 +109,7 @@ module.exports.noPerms = function(message) {
     message.delete();
 
     const noPermsEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`You don\'t have required permissions, ${message.author.username}!\nCheck \`//perms\` for more info.`)
     .setFooter("Error Code: 6", botThumbnail)
@@ -132,8 +124,7 @@ module.exports.noArgsProvided = function(message, command) {
     message.delete();
 
     const noArgsProvidedEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`You didn't provide any arguments, ${message.author.username}!\nThe proper usage would be: \`${command.usage}\``)
     .setFooter("Error Code: 7", botThumbnail)
@@ -148,8 +139,7 @@ module.exports.notEnoughArgs = function(message, command) {
     message.delete();
 
     const notEnoughArgsEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Error ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`You didn't provide enough arguments, ${message.author.username}!\nThe proper usage would be:\n\`${command.usage}\``)
     .setFooter("Error Code: 8", botThumbnail)
@@ -164,8 +154,7 @@ module.exports.cooldownActive = function(message, timeLeft) {
     message.delete();
 
     const cooldownActiveEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Command Cooldown ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Command Cooldown ⋘", "", "https://colossebot.app")
     .setColor(colorLightBrown)
     .setDescription(`${message.author.username}, please wait ${timeLeft.toFixed(1)} seconds before reusing this command.\nThis message will disappear when the cooldown is over.`);
 
@@ -179,8 +168,7 @@ module.exports.banNoMember = function(message) {
     message.delete();
 
     const banNoMemberEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Member Not Found ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Member Not Found ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find user to ban!\nPlease try again, ${message.author.username}!`)
     .setFooter("Error Code: 13", botThumbnail)
@@ -195,8 +183,7 @@ module.exports.banHigherMember = function(client, message) {
     message.delete();
 
     const banHigherMemberEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Infraction Protect ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Infraction Protect ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Don't try to ban members higher than you, ${message.author.username}!\nThis action was recorded to system!`)
     .setFooter("ColosseBOT", botThumbnail)
@@ -209,8 +196,7 @@ module.exports.banHigherMember = function(client, message) {
 
 module.exports.banInfraction = function(client, message) {
     const banInfractionEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Infraction Report ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Infraction Report ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Automatic server protection was trigered.")
     .addField("Trigered By:", message.author.tag)
@@ -226,10 +212,9 @@ module.exports.banImpossibleBot = function(message) {
     message.delete();
 
     const banImpossibleBotEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Ban Impossible ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Ban Impossible ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
-    .setDescription(`Ban is not possible, that may be because:\n• Insufficent Bot Permissions;\n• Bannable Member Is Higher In Role Hierarchy Than Bot;\n• Bannable Member Is Guild Owner or Administrator.`)
+    .setDescription("Ban is not possible, that may be because:\n• Insufficent Bot Permissions;\n• Bannable Member Is Higher In Role Hierarchy Than Bot;\n• Bannable Member Is Guild Owner or Administrator.")
     .setFooter("Error Code: 14", botThumbnail)
     .setTimestamp();
 
@@ -242,8 +227,7 @@ module.exports.banSuccess = function(message, banee, reason) {
     message.delete();
 
     const banSuccessEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Ban Successful ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Ban Successful ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`**${banee.user.tag} was banned from this guild!\nReason:** \`${reason}\``)
     .setFooter("ColosseBOT", botThumbnail)
@@ -256,8 +240,7 @@ module.exports.banSuccess = function(message, banee, reason) {
 
 module.exports.banReport = function(client, message, banee, reason) {
     const banReportEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || Ban Report ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Ban Report ⋘", "", "https://colossebot.app")
     .setColor(colorBlack)
     .addField("Banned Membed:", banee.user.tag)
     .addField("Banned Member ID:", banee.user.id)
@@ -272,8 +255,7 @@ module.exports.falseChoice = function(message, usage) {
     message.delete();
 
     const falseChoiceEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Incorrect Choice ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Incorrect Choice ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${usage}\``)
     .setFooter("Error Code: 16", botThumbnail)
@@ -288,8 +270,7 @@ module.exports.regexOnly01 = function(message) {
     message.delete();
 
     const regexOnly01Embed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Incorrect Format ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("The input can only contain ones and zeros.")
     .setFooter("Error Code: 17", botThumbnail)
@@ -304,8 +285,7 @@ module.exports.incorrectBinary = function(message) {
     message.delete();
 
     const incorrectBinaryEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Incorrect Format ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Incorrect binary input. Binary numbers are 8 digits long.")
     .setFooter("Error Code: 18", botThumbnail)
@@ -320,8 +300,7 @@ module.exports.binaryAscii = function(message, input, result) {
     message.delete();
 
     const binaryAsciiEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Binary Decode ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Binary Decode ⋘", "", "https://colossebot.app")
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
@@ -334,8 +313,7 @@ module.exports.regexOnlyLetters = function(message) {
     message.delete();
 
     const regexOnlyLettersEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Incorrect Format ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Input can only contain letters and numbers.")
     .setFooter("Error Code: 19", botThumbnail)
@@ -350,8 +328,7 @@ module.exports.asciiBinary = function(message, input, result) {
     message.delete();
 
     const asciiBinaryEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Binary Encode ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Binary Encode ⋘", "", "https://colossebot.app")
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
@@ -364,8 +341,7 @@ module.exports.notHexColor = function(message) {
     message.delete();
 
     const notHexColorEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Not HEX Color ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Not HEX Color ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Sorry, but I don't understand this color format.\nI only accept colors in HEX format.")
     .setFooter("Error Code: 23", botThumbnail)
@@ -380,8 +356,7 @@ module.exports.aCantBeZero = function(message) {
     message.delete();
 
     const aCantBeZeroEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || A ≠ 0 ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || A ≠ 0 ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Coefficient A cannot be zero.")
     .setFooter("Error Code: 24", botThumbnail)
@@ -396,8 +371,7 @@ module.exports.inputOnlyNumbers = function(message) {
     message.delete();
 
     const inputOnlyNumbersEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Incorrect Format ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Incorrect Format ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription("Input can only contain numbers.")
     .setFooter("Error Code: 25", botThumbnail)
@@ -412,8 +386,7 @@ module.exports.emojiSpeak = function(message, input, result) {
     message.delete();
 
     const emojiSpeakEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || EmojiSpeak ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || EmojiSpeak ⋘", "", "https://colossebot.app")
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", result)
@@ -430,8 +403,7 @@ module.exports.flipText = function(message, input, result) {
     const joinArray = reverseArray.join("");
 
     const flipTextEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || FlipText ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || FlipText ⋘", "", "https://colossebot.app")
     .setColor(colorGreen)
     .addField("Input:", input)
     .addField("Result:", joinArray)
@@ -445,8 +417,7 @@ module.exports.roleNoMember = function(message) {
     message.delete();
 
     const roleNoMemberEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Member Not Found ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Member Not Found ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find user!\nPlease try again, ${message.author.username}!`)
     .setFooter("Error Code: 29", botThumbnail)
@@ -461,8 +432,7 @@ module.exports.roleNotFound = function(message) {
     message.delete();
 
     const roleNotFoundEmbed = new Discord.MessageEmbed()
-    .setTitle("⋙ ColosseBOT || Role Not Found ⋘")
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || Role Not Found ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find role!\nPlease try again, ${message.author.username}!`)
     .setFooter("Error Code: 30", botThumbnail)
@@ -477,14 +447,40 @@ module.exports.roleGiveImpossibleBot = function(message) {
     message.delete();
 
     const roleGiveImpossibleBotEmbed = new Discord.MessageEmbed()
-    .setTitle(`⋙ ColosseBOT || GiveRole Impossible ⋘`)
-    .setURL("https://colossebot.app")
+    .setAuthor("⋙ ColosseBOT || GiveRole Impossible ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
-    .setDescription(`Giving role to this user isn't possible, that may be because:\n• Insufficent Bot Permissions;\n• Mentioned Member Is Higher In Role Hierarchy Than Bot;\n• Mentioned Role Is Higher In Role Hierarchy Than Bot.`)
+    .setDescription("Giving role to this user isn't possible, that may be because:\n• Insufficent Bot Permissions;\n• Mentioned Member Is Higher In Role Hierarchy Than Bot;\n• Mentioned Role Is Higher In Role Hierarchy Than Bot.")
     .setFooter("Error Code: 31", botThumbnail)
     .setTimestamp();
 
     message.channel.send({embed: roleGiveImpossibleBotEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 13000);
     });
+}
+
+module.exports.guessDiceWin = function(message, diceGuess, diceValue) {
+    const guessDiceWinEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Guess Dice ⋘", "", "https://colossebot.app")
+    .setColor(colorGreen)
+    .setDescription(`You picked ${diceGuess} and I rolled ${diceValue}. You won!`);
+
+    return message.channel.send({embed: guessDiceWinEmbed});
+}
+
+module.exports.guessDiceLose = function(message, diceGuess, diceValue) {
+    const guessDiceLoseEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Guess Dice ⋘", "", "https://colossebot.app")
+    .setColor(colorLightRed)
+    .setDescription(`You picked ${diceGuess}, but I rolled ${diceValue}. You lost!`);
+
+    return message.channel.send({embed: guessDiceLoseEmbed});
+}
+
+module.exports.guessDice1to6 = function(message) {
+    const guessDiceLoseEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Incorrect Format ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Min Dice Value: 1 / Max Dice Value: 6");
+
+    return message.channel.send({embed: guessDiceLoseEmbed});
 }

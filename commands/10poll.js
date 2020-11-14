@@ -12,13 +12,13 @@ module.exports = {
 		const question = args.join(" ");
 
 		const voteEmbed = new Discord.MessageEmbed()
-		.setTitle("⋙ ColosseBOT || 10 Poll ⋘")
-		.setURL("https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || 10 Poll ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription("On a scale from 1-10 please vote on the question below.")
+		.setDescription("Using provided reactions, please vote on the question below.")
 		.addField("Question:", question)
 		.setFooter(`Asked by ${message.author.tag}`, message.author.displayAvatarURL());
-		message.channel.send({embed: voteEmbed}).then(embedMessage => {
+
+		return message.channel.send({embed: voteEmbed}).then(embedMessage => {
 				embedMessage.react("1️⃣").then(() => embedMessage.react("2️⃣")).then(() => embedMessage.react("3️⃣")).then(() => embedMessage.react("4️⃣")).then(() => embedMessage.react("5️⃣")).then(() => embedMessage.react("6️⃣")).then(() => embedMessage.react("7️⃣")).then(() => embedMessage.react("8️⃣")).then(() => embedMessage.react("9️⃣")).then(() => embedMessage.react("🔟"))
 		});
 	},

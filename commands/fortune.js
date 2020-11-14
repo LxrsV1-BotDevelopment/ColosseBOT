@@ -1,27 +1,39 @@
+const Discord = require("discord.js");
 const fetch = require("node-fetch");
+const { colorDarkRed, colorGreen, botThumbnail, fortuneCookieThumbnail } = require("../config.json");
+const embeds = require("../modules/embeds.js");
 
 module.exports = {
-	name: 'fortune',
-	aka: 'fortunecookie',
-	description: 'Returns fortune from fortune cookie.',
-	usage: '//fortune',
-	args: false,
-	argsCount: 0,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
+	name: "fortune",
+	description: "Returns fortune from fortune cookie.",
+	usage: "//fortune",
 	execute(client, message, args) {
 		const number = Math.floor(Math.random() * 544);
 
 		fetch(`http://fortunecookieapi.herokuapp.com/v1/fortunes?skip=${number}&limit=1`)
 		.then(result => result.json()).then(body => {
-			if(!body) return message.channel.send("Sorry I couldn't get the fortune. Try again later.");
+			if(!body) {
+				const noFortuneEmbed = new Discord.MessageEmbed()
+				.setAuthor("⋙ ColosseBOT || Missing Fortune ⋘", "", "https://colossebot.app")
+				.setColor(colorDarkRed)
+				.setDescription("Sorry, I couldn't get the fortune. Please try again later.")
+				.setFooter("Error Code: 28", botThumbnail)
+				.setTimestamp();
 
-			return message.channel.send(body[0].message);
+				return message.channel.send({embed: noFortuneEmbed}).then(m => {
+					setTimeout(() => {m.delete();}, 7000);
+				});
+			}
+
+			const fortuneEmbed = new Discord.MessageEmbed()
+			.setAuthor("⋙ ColosseBOT || Fortune Cookie ⋘", "", "https://colossebot.app")
+			.setColor(colorGreen)
+			.setDescription(body[0].message)
+			.setFooter("Provided by fortunecookieapi.herokuapp.com", fortuneCookieThumbnail);
+
+			return message.channel.send({embed: fortuneEmbed});
 		}).catch(error => {
-			console.log(error.stack);
-			return message.channel.send("Sorry, I couldn't get the fortune. Try again later.");
+			return embeds.unknownError(client, message, module.exports.name, error);
 		});
 	},
 };

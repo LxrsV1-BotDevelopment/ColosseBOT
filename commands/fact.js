@@ -11,8 +11,7 @@ module.exports = {
 				.then(result => result.json()).then(body => {
 					if(!body) {
 						const noFactEmbed = new Discord.MessageEmbed()
-						.setTitle("⋙ ColosseBOT || Missing Fact ⋘")
-						.setURL("https://colossebot.app")
+						.setAuthor("⋙ ColosseBOT || Missing Fact ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the fact. Please try again later.")
 						.setFooter("Error Code: 27", botThumbnail)
@@ -24,11 +23,10 @@ module.exports = {
 					}
 
 					const factEmbed = new Discord.MessageEmbed()
-					.setTitle("⋙ ColosseBOT || Useless Fact ⋘")
-					.setURL("https://colossebot.app")
+					.setAuthor("⋙ ColosseBOT || Useless Fact ⋘", "", "https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription(body.text)
-					.setFooter(`Provided by jsph.pl`, jsphThumbnail);
+					.setFooter("Provided by uselessfacts.jsph.pl", jsphThumbnail);
 
 					return message.channel.send({embed: factEmbed});
 				}).catch(error => {

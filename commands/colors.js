@@ -15,15 +15,13 @@ module.exports = {
 		if (colorCheck != true) return embeds.notHexColor(message);
 
 		const colorsEmbed = new Discord.MessageEmbed()
-		.setTitle("⋙ ColosseBOT || Colors ⋘")
-		.setURL("https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || Colors ⋘", "", "https://colossebot.app")
 		.setColor(`#${colorCode}`)
-		.addField("HEX: ", `#${colorCode}`, true)
-		.addField("RGB: ", `${convert.hex.rgb(colorCode)[0]}, ${convert.hex.rgb(colorCode)[1]}, ${convert.hex.rgb(colorCode)[2]}`, true)
-		.addField("CMYK: ", `${convert.hex.cmyk(colorCode)[0]}%, ${convert.hex.cmyk(colorCode)[1]}%, ${convert.hex.cmyk(colorCode)[2]}%, ${convert.hex.cmyk(colorCode)[3]}%`, true)
-		.addField("HSV/HSB: ", `${convert.hex.hsv(colorCode)[0]}, ${convert.hex.hsv(colorCode)[1]}%, ${convert.hex.hsv(colorCode)[2]}%`, true)
-		.addField("HSL: ", `${convert.hex.hsl(colorCode)[0]}, ${convert.hex.hsl(colorCode)[1]}%, ${convert.hex.hsl(colorCode)[2]}%`, true)
-		.addField("CIELAB: ", `${convert.hex.lab(colorCode)[0]}, ${convert.hex.lab(colorCode)[1]}, ${convert.hex.lab(colorCode)[2]}`, true)
+		.addField("HEX: ", `#${colorCode}`)
+		.addField("RGB: ", `${convert.hex.rgb(colorCode)[0]}, ${convert.hex.rgb(colorCode)[1]}, ${convert.hex.rgb(colorCode)[2]}`)
+		.addField("CMYK: ", `${convert.hex.cmyk(colorCode)[0]}%, ${convert.hex.cmyk(colorCode)[1]}%, ${convert.hex.cmyk(colorCode)[2]}%, ${convert.hex.cmyk(colorCode)[3]}%`)
+		.addField("HSV/HSB: ", `${convert.hex.hsv(colorCode)[0]}°, ${convert.hex.hsv(colorCode)[1]}%, ${convert.hex.hsv(colorCode)[2]}%`)
+		.addField("HSL: ", `${convert.hex.hsl(colorCode)[0]}°, ${convert.hex.hsl(colorCode)[1]}%, ${convert.hex.hsl(colorCode)[2]}%`)
 		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
 		return message.channel.send({embed: colorsEmbed});

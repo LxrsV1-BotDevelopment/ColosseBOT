@@ -9,11 +9,12 @@ module.exports = {
 	argsCount: 1,
 	execute(client, message, args) {
 		const bigText = args.join(" ").toUpperCase();
+
 		const bigTextEmbed = new Discord.MessageEmbed()
-		.setTitle("⋙ ColosseBOT || Big Text ⋘")
-		.setURL("https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || Big Text ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription(`${bigText}`)
+		.addField("Input:", args.join(" "))
+		.addField("Output:", bigText)
 		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
 		message.channel.send({embed: bigTextEmbed})

@@ -11,24 +11,22 @@ module.exports = {
 				.then(result => result.json()).then(body => {
 					if(!body) {
 						const noFactEmbed = new Discord.MessageEmbed()
-						.setTitle("⋙ ColosseBOT || Missing Fact ⋘")
-						.setURL("https://colossebot.app")
+						.setAuthor("⋙ ColosseBOT || Missing Fact ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the fact. Please try again later.")
 						.setFooter("Error Code: 27", botThumbnail)
 						.setTimestamp();
 
 						return message.channel.send({embed: noFactEmbed}).then(m => {
-							setTimeout(() => {m.delete();}, 7000);
+							setTimeout(() => {m.delete()}, 7000);
 						});
 					}
 
 					const catFactEmbed = new Discord.MessageEmbed()
-					.setTitle("⋙ ColosseBOT || Cat Fact ⋘")
-					.setURL("https://colossebot.app")
+					.setAuthor("⋙ ColosseBOT || Cat Fact ⋘", "", "https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription(body.text)
-					.setFooter(`Provided by cat-fact.herokuapp.com`, catFactsThumbnail);
+					.setFooter("Provided by cat-fact.herokuapp.com", catFactsThumbnail);
 
 					return message.channel.send({embed: catFactEmbed});
 				}).catch(error => {

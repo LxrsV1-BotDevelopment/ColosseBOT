@@ -25,8 +25,7 @@ module.exports = {
 				result = math.evaluate(b2 - ac);
 
 				const dCalcEmbed = new Discord.MessageEmbed()
-				.setTitle("⋙ ColosseBOT || Discriminant ⋘")
-				.setURL("https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Discriminant ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.addField("Expression:", "b^2 - 4ac")
 				.addField("Result:", `${result}`)
@@ -35,8 +34,7 @@ module.exports = {
 				return message.channel.send({embed: dCalcEmbed});
 			} catch (error) {
 				const dCalcErrorEmbed = new Discord.MessageEmbed()
-				.setTitle("⋙ ColosseBOT || Discriminant Error ⋘")
-				.setURL("https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Discriminant Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
 				.setDescription("Sorry I couldn't calculate that.")
 				.setFooter("Error Code: 26", botThumbnail)

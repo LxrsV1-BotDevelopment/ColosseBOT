@@ -4,8 +4,7 @@ const embeds = require("../modules/embeds.js");
 const { colorGreen, colorDarkRed, asciiartThumbnail, botThumbnail } = require("../config.json");
 
 module.exports = {
-	name: "ascii",
-	aka: "asciiart",
+	name: "asciitext",
 	description: "Sends a ascii art for specified text.",
 	usage: "//ascii <Text>",
 	args: true,
@@ -16,15 +15,14 @@ module.exports = {
 			message.delete();
 
 			const inputTooLongEmbed = new Discord.MessageEmbed()
-			.setTitle(`⋙ ColosseBOT || Input Error ⋘`)
-			.setURL("https://colossebot.app")
+			.setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
 			.setColor(colorDarkRed)
 			.setDescription("The input text cannot exceed 10 characters.")
 			.setFooter("Error Code: 10", botThumbnail)
 			.setTimestamp();
 
 			return message.channel.send({embed: inputTooLongEmbed}).then(m => {
-				setTimeout(() => {m.delete();}, 7000);
+				setTimeout(() => {m.delete()}, 7000);
 			});
 		}
 		const text = encodeURI(input);
@@ -35,24 +33,22 @@ module.exports = {
 						message.delete();
 
 						const noAsciiEmbed = new Discord.MessageEmbed()
-						.setTitle("⋙ ColosseBOT || Missing Ascii Text ⋘")
-						.setURL("https://colossebot.app")
+						.setAuthor("⋙ ColosseBOT || Missing Ascii Text ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the ascii text. Please try again later.")
 						.setFooter("Error Code: 11", botThumbnail)
 						.setTimestamp();
 
 						return message.channel.send({embed: noAsciiEmbed}).then(m => {
-							setTimeout(() => {m.delete();}, 7000);
+							setTimeout(() => {m.delete()}, 7000);
 						});
 					}
 
 				const asciiEmbed = new Discord.MessageEmbed()
-  			.setTitle("⋙ ColosseBOT || Ascii Text ⋘")
-				.setURL("https://colossebot.app")
+  			.setAuthor("⋙ ColosseBOT || Ascii Text ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.setDescription(`\`\`\`${body}\`\`\``)
-				.setFooter(`Provided by artii.herokuapp.com`, asciiartThumbnail);
+				.setFooter("Provided by artii.herokuapp.com", asciiartThumbnail);
 
 				return message.channel.send({embed: asciiEmbed});
 			}).catch(error => {

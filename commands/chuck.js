@@ -12,23 +12,21 @@ module.exports = {
 					.then(result => result.json()).then(body => {
 						if(!body) {
 							const noChuckEmbed = new Discord.MessageEmbed()
-							.setTitle("⋙ ColosseBOT || Chuck Missing ⋘")
-							.setURL("https://colossebot.app")
+							.setAuthor("⋙ ColosseBOT || Chuck Missing ⋘", "", "https://colossebot.app")
 							.setColor(colorDarkRed)
 							.setDescription("Sorry, but I couldn't find Mr. Norris. Please try again later.")
 							.setFooter("Error Code: 22", botThumbnail)
 							.setTimestamp();
 
 							return message.channel.send({embed: noChuckEmbed}).then(m => {
-								setTimeout(() => {m.delete();}, 7000);
+								setTimeout(() => {m.delete()}, 7000);
 							});
 						}
 						const chuckEmbed = new Discord.MessageEmbed()
-						.setTitle("⋙ ColosseBOT || Chuck Norris Joke ⋘")
-						.setURL("https://colossebot.app")
+						.setAuthor("⋙ ColosseBOT || Chuck Norris Joke ⋘", "", "https://colossebot.app")
 						.setColor(colorGreen)
-						.setDescription(`${body.value}`)
-						.setFooter(`Provided by api.chucknorris.io`, chuckThumbnail);
+						.setDescription(body.value)
+						.setFooter("Provided by api.chucknorris.io", chuckThumbnail);
 
 						return message.channel.send({embed: chuckEmbed});
 					}).catch(error => {

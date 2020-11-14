@@ -11,8 +11,7 @@ module.exports = {
 				.then(result => result.json()).then(body => {
 					if(!body) {
 						const noFactEmbed = new Discord.MessageEmbed()
-						.setTitle("⋙ ColosseBOT || Missing Fact ⋘")
-						.setURL("https://colossebot.app")
+						.setAuthor("⋙ ColosseBOT || Missing Fact ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the fact. Please try again later.")
 						.setFooter("Error Code: 27", botThumbnail)
@@ -24,11 +23,10 @@ module.exports = {
 					}
 
 					const numberFactEmbed = new Discord.MessageEmbed()
-					.setTitle("⋙ ColosseBOT || Number Fact ⋘")
-					.setURL("https://colossebot.app")
+					.setAuthor("⋙ ColosseBOT || Number Fact ⋘", "", "https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription(body.text)
-					.setFooter(`Provided by numbersapi.com`, numberFactsThumbnail);
+					.setFooter("Provided by numbersapi.com", numberFactsThumbnail);
 
 					return message.channel.send({embed: numberFactEmbed});
 				}).catch(error => {

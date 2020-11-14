@@ -24,8 +24,7 @@ module.exports = {
 
 		user.roles.add(role.id).then(() => {
 			const giveRoleSuccessEmbed = new Discord.MessageEmbed()
-	    .setTitle("⋙ ColosseBOT || GiveRole Successful ⋘")
-	    .setURL("https://colossebot.app")
+	    .setAuthor("⋙ ColosseBOT || GiveRole Successful ⋘", "", "https://colossebot.app")
 	    .setColor(colorGreen)
 	    .setDescription(`**${user.user.tag} Has Been Given ${role.name} Role!**`)
 	    .setFooter("ColosseBOT", botThumbnail)
@@ -36,8 +35,7 @@ module.exports = {
 	    });
 
 			const giveRoleReport = new Discord.MessageEmbed()
-			.setTitle("⋙ ColosseBOT || GiveRole Report ⋘")
-			.setURL("https://colossebot.app")
+			.setAuthor("⋙ ColosseBOT || GiveRole Report ⋘", "", "https://colossebot.app")
 			.setColor(colorGreen)
 			.addField("Role Assigned To:", user.user.tag)
 			.addField("Moderator:", message.author.tag)

@@ -12,8 +12,9 @@ module.exports = {
 		const searchTerm = encodeURI(input);
 
 		const googleEmbed = new Discord.MessageEmbed()
+		.setAuthor("⋙ ColosseBOT || Google ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription(`https://www.google.com/search?q=${searchTerm}`)
+		.setDescription(`https://www.google.com/search?q=${searchTerm}`);
 
 		return message.channel.send({embed: googleEmbed});
 	},

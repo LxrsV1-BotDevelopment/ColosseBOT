@@ -12,8 +12,7 @@ module.exports = {
 		const channel = message.mentions.channels.first();
 		if (!channel) {
 			const noChannelEmbed = new Discord.MessageEmbed()
-			.setTitle("⋙ ColosseBOT || No Channel Found ⋘")
-			.setURL("https://colossebot.app")
+			.setAuthor("⋙ ColosseBOT || No Channel Found ⋘", "", "https://colossebot.app")
 			.setColor(colorDarkRed)
 			.setDescription(`Couldn't find channel!\nPlease try again, ${message.author.username}!`)
 			.setFooter("Error Code: 21", botThumbnail)
@@ -26,8 +25,7 @@ module.exports = {
 		const id = channel.id;
 
 		const channelIdEmbed = new Discord.MessageEmbed()
-		.setTitle("⋙ ColosseBOT || Channel Id ⋘")
-		.setURL("https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || Channel Id ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
 		.setDescription(`ID of specified channel is ${id}.`)
 		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());

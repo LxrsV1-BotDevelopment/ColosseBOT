@@ -12,24 +12,22 @@ module.exports = {
 			.then(result => result.json()).then(body => {
 				if(!body) {
 					const noAdviceEmbed = new Discord.MessageEmbed()
-					.setTitle("⋙ ColosseBOT || Missing Advice ⋘")
-					.setURL("https://colossebot.app")
+					.setAuthor("⋙ ColosseBOT || Missing Advice ⋘", "", "https://colossebot.app")
 					.setColor(colorDarkRed)
 					.setDescription("Sorry, I couldn't get the advice. Please try again later.")
 					.setFooter("Error Code: 9", botThumbnail)
 					.setTimestamp();
 
 					return message.channel.send({embed: noAdviceEmbed}).then(m => {
-						setTimeout(() => {m.delete();}, 7000);
+						setTimeout(() => {m.delete()}, 7000);
 					});
 				}
 
 				const adviceEmbed = new Discord.MessageEmbed()
-				.setTitle("⋙ ColosseBOT || Advice Slip ⋘")
-				.setURL("https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Advice Slip ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
-				.setDescription(`${body.slip.advice}`)
-				.setFooter(`Provided by adviceslip.com`, adviceslipThumbnail);
+				.setDescription(body.slip.advice)
+				.setFooter("Provided by adviceslip.com", adviceslipThumbnail);
 
 				return message.channel.send({embed: adviceEmbed});
 			}).catch(error => {

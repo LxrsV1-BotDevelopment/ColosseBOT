@@ -10,12 +10,11 @@ module.exports = {
 		const index = Math.floor(Math.random() * (emojiBank.emojireplies.length));
 
 		const asciiEmojiEmbed = new Discord.MessageEmbed()
-		.setTitle("⋙ ColosseBOT || ASCII Emoji ⋘")
-		.setURL("https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || ASCII Emoji ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
 		.setDescription(emojiBank.emojireplies[index])
 		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 
-		message.channel.send({embed: asciiEmojiEmbed});
+		return message.channel.send({embed: asciiEmojiEmbed});
 	},
 };

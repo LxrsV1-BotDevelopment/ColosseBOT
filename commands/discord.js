@@ -7,8 +7,7 @@ module.exports = {
 	usage: "//discord",
 	execute(client, message, args) {
 		const discordEmbed = new Discord.MessageEmbed()
-		.setTitle("⋙ ColosseBOT || Discord Links ⋘")
-		.setURL("https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || Discord Links ⋘", "", "https://colossebot.app")
 		.setColor(colorDiscord)
 		.addField("Discord Help Center:", "[support.discord.com](https://support.discord.com)")
 		.addField("Discord Safety Center:", "[discord.com/safety](https://discord.com/safety)")
@@ -16,6 +15,6 @@ module.exports = {
 		.addField("Discord Privacy Policy:", "[discord.com/privacy](https://discord.com/privacy)")
 		.addField("Discord Community Guidelines:", "[discord.com/guidelines](https://discord.com/guidelines)")
 
-		message.channel.send({embed: discordEmbed});
+		return message.channel.send({embed: discordEmbed});
 	},
 };
