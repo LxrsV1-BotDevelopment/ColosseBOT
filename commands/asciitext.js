@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const embeds = require("../modules/embeds.js");
-const { colorGreen, colorDarkRed, asciiartThumbnail, botThumbnail } = require("../config.json");
+const { colorGreen, colorDarkRed, asciiartThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "asciitext",
@@ -17,9 +17,7 @@ module.exports = {
 			const inputTooLongEmbed = new Discord.MessageEmbed()
 			.setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
 			.setColor(colorDarkRed)
-			.setDescription("The input text cannot exceed 10 characters.")
-			.setFooter("Error Code: 10", botThumbnail)
-			.setTimestamp();
+			.setDescription("The input text cannot exceed 10 characters.");
 
 			return message.channel.send({embed: inputTooLongEmbed}).then(m => {
 				setTimeout(() => {m.delete()}, 7000);
@@ -35,9 +33,7 @@ module.exports = {
 						const noAsciiEmbed = new Discord.MessageEmbed()
 						.setAuthor("⋙ ColosseBOT || Missing Ascii Text ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
-						.setDescription("Sorry, I couldn't get the ascii text. Please try again later.")
-						.setFooter("Error Code: 11", botThumbnail)
-						.setTimestamp();
+						.setDescription("Sorry, I couldn't get the ascii text. Please try again later.");
 
 						return message.channel.send({embed: noAsciiEmbed}).then(m => {
 							setTimeout(() => {m.delete()}, 7000);
@@ -45,7 +41,7 @@ module.exports = {
 					}
 
 				const asciiEmbed = new Discord.MessageEmbed()
-  			.setAuthor("⋙ ColosseBOT || Ascii Text ⋘", "", "https://colossebot.app")
+  			.setAuthor("⋙ ColosseBOT || AsciiText ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.setDescription(`\`\`\`${body}\`\`\``)
 				.setFooter("Provided by artii.herokuapp.com", asciiartThumbnail);

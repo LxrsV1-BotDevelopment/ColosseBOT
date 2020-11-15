@@ -11,11 +11,10 @@ module.exports = {
 		const bigText = args.join(" ").toUpperCase();
 
 		const bigTextEmbed = new Discord.MessageEmbed()
-		.setAuthor("⋙ ColosseBOT || Big Text ⋘", "", "https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || BigText ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
 		.addField("Input:", args.join(" "))
-		.addField("Output:", bigText)
-		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+		.addField("Output:", bigText);
 
 		message.channel.send({embed: bigTextEmbed})
 	},

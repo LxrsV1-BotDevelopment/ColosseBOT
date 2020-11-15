@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorGreen, colorDarkRed, botThumbnail } = require("../config.json");
+const { colorGreen, colorDarkRed } = require("../config.json");
 const math = require("mathjs");
 
 module.exports = {
@@ -18,8 +18,7 @@ module.exports = {
 			.setAuthor("⋙ ColosseBOT || Calculator ⋘", "", "https://colossebot.app")
 			.setColor(colorGreen)
 			.addField("Expression:", `${expression}`)
-			.addField("Result:", `${result}`)
-			.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+			.addField("Result:", `${result}`);
 
 			return message.channel.send({embed: calcEmbed});
     } catch (error) {
@@ -28,9 +27,7 @@ module.exports = {
 			const calcErrorEmbed = new Discord.MessageEmbed()
 			.setAuthor("⋙ ColosseBOT || Calculator Error ⋘", "", "https://colossebot.app")
 			.setColor(colorDarkRed)
-			.setDescription("Sorry I couldn't calculate that.")
-			.setFooter("Error Code: 20", botThumbnail)
-			.setTimestamp();
+			.setDescription("Sorry I couldn't calculate that.");
 
 			return message.channel.send({embed: calcErrorEmbed}).then(m => {
 				setTimeout(() => {m.delete()}, 7000);

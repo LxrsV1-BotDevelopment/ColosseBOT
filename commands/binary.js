@@ -5,7 +5,7 @@ const embeds = require("../modules/embeds.js");
 module.exports = {
 	name: "binary",
 	description: "Decode/Encode from/to Binary.",
-	usage: "//binary <Decode/Encode> <Text>",
+	usage: "//binary <Decode/Encode> <Binary/Text>",
 	args: true,
 	argsCount: 2,
 	execute(client, message, args) {

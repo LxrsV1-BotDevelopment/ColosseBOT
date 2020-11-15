@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorGreen, colorDarkRed, botThumbnail } = require("../config.json");
+const { colorGreen, colorDarkRed } = require("../config.json");
 
 module.exports = {
 	name: "channelid",
@@ -14,9 +14,7 @@ module.exports = {
 			const noChannelEmbed = new Discord.MessageEmbed()
 			.setAuthor("⋙ ColosseBOT || No Channel Found ⋘", "", "https://colossebot.app")
 			.setColor(colorDarkRed)
-			.setDescription(`Couldn't find channel!\nPlease try again, ${message.author.username}!`)
-			.setFooter("Error Code: 21", botThumbnail)
-			.setTimestamp();
+			.setDescription(`Couldn't find channel!\nPlease try again, ${message.author.username}!`);
 
 			return message.channel.send({embed: noChannelEmbed}).then(m => {
 	      setTimeout(() => {m.delete()}, 7000);
@@ -27,8 +25,7 @@ module.exports = {
 		const channelIdEmbed = new Discord.MessageEmbed()
 		.setAuthor("⋙ ColosseBOT || Channel Id ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription(`ID of specified channel is ${id}.`)
-		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+		.setDescription(`ID of specified channel is ${id}.`);
 
 		message.channel.send({embed: channelIdEmbed});
 	},

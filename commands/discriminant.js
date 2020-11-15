@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 const math = require("mathjs");
 const embeds = require("../modules/embeds.js");
-const { colorGreen, colorDarkRed, botThumbnail } = require("../config.json");
+const { colorGreen, colorDarkRed } = require("../config.json");
 
 module.exports = {
 	name: "discriminant",
 	description: "Calculates discriminant for quadratic equation",
-	usage: "//discriminant <A = Any Number Except 0> <B = Any Number> <C = Any Number>",
+	usage: "//discriminant <a = Any Number Except 0> <b = Any Number> <c = Any Number>",
 	args: true,
 	argsCount: 3,
 	execute(client, message, args) {
@@ -28,17 +28,14 @@ module.exports = {
 				.setAuthor("⋙ ColosseBOT || Discriminant ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.addField("Expression:", "b^2 - 4ac")
-				.addField("Result:", `${result}`)
-				.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+				.addField("Result:", `${result}`);
 
 				return message.channel.send({embed: dCalcEmbed});
 			} catch (error) {
 				const dCalcErrorEmbed = new Discord.MessageEmbed()
 				.setAuthor("⋙ ColosseBOT || Discriminant Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
-				.setDescription("Sorry I couldn't calculate that.")
-				.setFooter("Error Code: 26", botThumbnail)
-				.setTimestamp();
+				.setDescription("Sorry I couldn't calculate that.");
 
 				return message.channel.send({embed: dCalcErrorEmbed});
 		}

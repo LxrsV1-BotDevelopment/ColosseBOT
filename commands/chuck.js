@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorGreen, colorDarkRed, botThumbnail, chuckThumbnail } = require("../config.json");
+const { colorGreen, colorDarkRed, chuckThumbnail } = require("../config.json");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
@@ -14,9 +14,7 @@ module.exports = {
 							const noChuckEmbed = new Discord.MessageEmbed()
 							.setAuthor("⋙ ColosseBOT || Chuck Missing ⋘", "", "https://colossebot.app")
 							.setColor(colorDarkRed)
-							.setDescription("Sorry, but I couldn't find Mr. Norris. Please try again later.")
-							.setFooter("Error Code: 22", botThumbnail)
-							.setTimestamp();
+							.setDescription("Sorry, but I couldn't find Mr. Norris. Please try again later.");
 
 							return message.channel.send({embed: noChuckEmbed}).then(m => {
 								setTimeout(() => {m.delete()}, 7000);

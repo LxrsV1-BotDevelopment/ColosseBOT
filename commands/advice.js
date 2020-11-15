@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, botThumbnail, adviceslipThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, adviceslipThumbnail } = require("../config.json");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
@@ -14,9 +14,7 @@ module.exports = {
 					const noAdviceEmbed = new Discord.MessageEmbed()
 					.setAuthor("⋙ ColosseBOT || Missing Advice ⋘", "", "https://colossebot.app")
 					.setColor(colorDarkRed)
-					.setDescription("Sorry, I couldn't get the advice. Please try again later.")
-					.setFooter("Error Code: 9", botThumbnail)
-					.setTimestamp();
+					.setDescription("Sorry, I couldn't get the advice. Please try again later.");
 
 					return message.channel.send({embed: noAdviceEmbed}).then(m => {
 						setTimeout(() => {m.delete()}, 7000);

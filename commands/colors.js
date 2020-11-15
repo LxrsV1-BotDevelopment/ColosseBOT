@@ -21,8 +21,7 @@ module.exports = {
 		.addField("RGB: ", `${convert.hex.rgb(colorCode)[0]}, ${convert.hex.rgb(colorCode)[1]}, ${convert.hex.rgb(colorCode)[2]}`)
 		.addField("CMYK: ", `${convert.hex.cmyk(colorCode)[0]}%, ${convert.hex.cmyk(colorCode)[1]}%, ${convert.hex.cmyk(colorCode)[2]}%, ${convert.hex.cmyk(colorCode)[3]}%`)
 		.addField("HSV/HSB: ", `${convert.hex.hsv(colorCode)[0]}°, ${convert.hex.hsv(colorCode)[1]}%, ${convert.hex.hsv(colorCode)[2]}%`)
-		.addField("HSL: ", `${convert.hex.hsl(colorCode)[0]}°, ${convert.hex.hsl(colorCode)[1]}%, ${convert.hex.hsl(colorCode)[2]}%`)
-		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+		.addField("HSL: ", `${convert.hex.hsl(colorCode)[0]}°, ${convert.hex.hsl(colorCode)[1]}%, ${convert.hex.hsl(colorCode)[2]}%`);
 
 		return message.channel.send({embed: colorsEmbed});
 	},

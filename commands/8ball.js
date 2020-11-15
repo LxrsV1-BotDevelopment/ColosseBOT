@@ -13,7 +13,7 @@ module.exports = {
 		const index = Math.floor(Math.random() * (ballBank.ballreplies.length));
 
 		const ballEmbed = new Discord.MessageEmbed()
-		.setAuthor("⋙ ColosseBOT || 8 Ball ⋘", "" ,"https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || 8Ball ⋘", "" ,"https://colossebot.app")
 		.setColor(colorGreen)
     .addField("Question:", question)
     .addField("Answer:", ballBank.ballreplies[index])

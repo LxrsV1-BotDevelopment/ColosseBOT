@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { devGuild, primaryLogs, colorGreen, botThumbnail } = require("../config.json");
+const { devGuild, primaryLogs, colorGreen } = require("../config.json");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
@@ -26,9 +26,7 @@ module.exports = {
 			const giveRoleSuccessEmbed = new Discord.MessageEmbed()
 	    .setAuthor("⋙ ColosseBOT || GiveRole Successful ⋘", "", "https://colossebot.app")
 	    .setColor(colorGreen)
-	    .setDescription(`**${user.user.tag} Has Been Given ${role.name} Role!**`)
-	    .setFooter("ColosseBOT", botThumbnail)
-	    .setTimestamp();
+	    .setDescription(`**${user.user.tag} Has Been Given ${role.name} Role!**`);
 
 	    message.channel.send({embed: giveRoleSuccessEmbed}).then(m => {
 	      setTimeout(() => {m.delete()}, 7000);
@@ -39,8 +37,7 @@ module.exports = {
 			.setColor(colorGreen)
 			.addField("Role Assigned To:", user.user.tag)
 			.addField("Moderator:", message.author.tag)
-			.addField("Role:", role.name)
-			.setFooter("ColosseBOT", botThumbnail);
+			.addField("Role:", role.name);
 
 			client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: giveRoleReport});
 			message.delete();

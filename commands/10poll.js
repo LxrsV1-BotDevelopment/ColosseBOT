@@ -12,7 +12,7 @@ module.exports = {
 		const question = args.join(" ");
 
 		const voteEmbed = new Discord.MessageEmbed()
-		.setAuthor("⋙ ColosseBOT || 10 Poll ⋘", "", "https://colossebot.app")
+		.setAuthor("⋙ ColosseBOT || 10Poll ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
 		.setDescription("Using provided reactions, please vote on the question below.")
 		.addField("Question:", question)

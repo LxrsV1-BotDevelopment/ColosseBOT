@@ -12,8 +12,7 @@ module.exports = {
 		const asciiEmojiEmbed = new Discord.MessageEmbed()
 		.setAuthor("⋙ ColosseBOT || ASCII Emoji ⋘", "", "https://colossebot.app")
 		.setColor(colorGreen)
-		.setDescription(emojiBank.emojireplies[index])
-		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+		.setDescription(emojiBank.emojireplies[index]);
 
 		return message.channel.send({embed: asciiEmojiEmbed});
 	},

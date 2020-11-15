@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, botThumbnail, jsphThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, jsphThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "fact",
@@ -13,9 +13,7 @@ module.exports = {
 						const noFactEmbed = new Discord.MessageEmbed()
 						.setAuthor("⋙ ColosseBOT || Missing Fact ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
-						.setDescription("Sorry, I couldn't get the fact. Please try again later.")
-						.setFooter("Error Code: 27", botThumbnail)
-						.setTimestamp();
+						.setDescription("Sorry, I couldn't get the fact. Please try again later.");
 
 						return message.channel.send({embed: noFactEmbed}).then(m => {
 							setTimeout(() => {m.delete();}, 7000);

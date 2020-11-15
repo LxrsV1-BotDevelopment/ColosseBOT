@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorDarkRed, colorGreen, botThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen } = require("../config.json");
 
 module.exports = {
 	name: "b64",
@@ -18,8 +18,7 @@ module.exports = {
 				.setAuthor("⋙ ColosseBOT || Base64 ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.addField("Input:", input)
-				.addField("Result:", b64result)
-				.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+				.addField("Result:", b64result);
 
 				return message.channel.send({embed: b64Embed});
 		} else if(choice == "decode") {
@@ -30,23 +29,18 @@ module.exports = {
 				.setAuthor("⋙ ColosseBOT || Base64 ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.addField("Input:", input)
-				.addField("Result:", b64result)
-				.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+				.addField("Result:", b64result);
 
 				return message.channel.send({embed: b64Embed});
 		} else {
 				const falseChoice = new Discord.MessageEmbed()
-				.setAuthor("⋙ ColosseBOT || Incorrect Choice ⋘", "", "https://colossebot.app")
+				.setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
-				.setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${module.exports.usage}\``)
-				.setFooter("Error Code: 12", botThumbnail)
-				.setTimestamp();
+				.setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${module.exports.usage}\``);
 
 				return message.channel.send({embed: falseChoice}).then(m => {
 					setTimeout(() => {m.delete()}, 7000);
 				});
 		}
-
-
 	},
 };

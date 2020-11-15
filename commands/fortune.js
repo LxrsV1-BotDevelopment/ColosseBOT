@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, botThumbnail, fortuneCookieThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, fortuneCookieThumbnail } = require("../config.json");
 const embeds = require("../modules/embeds.js");
 
 module.exports = {
@@ -16,9 +16,7 @@ module.exports = {
 				const noFortuneEmbed = new Discord.MessageEmbed()
 				.setAuthor("⋙ ColosseBOT || Missing Fortune ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
-				.setDescription("Sorry, I couldn't get the fortune. Please try again later.")
-				.setFooter("Error Code: 28", botThumbnail)
-				.setTimestamp();
+				.setDescription("Sorry, I couldn't get the fortune. Please try again later.");
 
 				return message.channel.send({embed: noFortuneEmbed}).then(m => {
 					setTimeout(() => {m.delete();}, 7000);

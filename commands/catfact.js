@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, botThumbnail, catFactsThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, catFactsThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "catfact",
@@ -13,9 +13,7 @@ module.exports = {
 						const noFactEmbed = new Discord.MessageEmbed()
 						.setAuthor("⋙ ColosseBOT || Missing Fact ⋘", "", "https://colossebot.app")
 						.setColor(colorDarkRed)
-						.setDescription("Sorry, I couldn't get the fact. Please try again later.")
-						.setFooter("Error Code: 27", botThumbnail)
-						.setTimestamp();
+						.setDescription("Sorry, I couldn't get the fact. Please try again later.");
 
 						return message.channel.send({embed: noFactEmbed}).then(m => {
 							setTimeout(() => {m.delete()}, 7000);
@@ -23,7 +21,7 @@ module.exports = {
 					}
 
 					const catFactEmbed = new Discord.MessageEmbed()
-					.setAuthor("⋙ ColosseBOT || Cat Fact ⋘", "", "https://colossebot.app")
+					.setAuthor("⋙ ColosseBOT || CatFact ⋘", "", "https://colossebot.app")
 					.setColor(colorGreen)
 					.setDescription(body.text)
 					.setFooter("Provided by cat-fact.herokuapp.com", catFactsThumbnail);
