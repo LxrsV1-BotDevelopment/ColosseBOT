@@ -1,19 +1,19 @@
 const Discord = require("discord.js");
-const fs = require("fs");
-const helloBank = JSON.parse(fs.readFileSync("./wordbanks/hello.json", "utf8"));
+const helloBank = require("../wordbanks/hello.json");
+const { colorGreen } = require("../config.json");
 
 module.exports = {
 	name: 'hello',
-	description: 'Returns a random greeting in random language.',
+	description: 'Returns a greeting in random language.',
 	usage: '//hello',
-	args: false,
-	argsCount: 0,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
 	execute(client, message, args) {
 		const index = Math.floor(Math.random() * (helloBank.helloreplies.length));
-    message.channel.send(helloBank.helloreplies[index]);
+
+		const helloEmbed = new Discord.MessageEmbed()
+		.setAuthor("⋙ ColosseBOT || Hello ⋘", "", "https://colossebot.app")
+		.setColor(colorGreen)
+		.setDescription(helloBank.helloreplies[index]);
+
+		return message.channel.send({embed: helloEmbed});
 	},
 };
