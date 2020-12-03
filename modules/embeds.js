@@ -429,3 +429,16 @@ module.exports.guessDice1to6 = function(message) {
 
     return message.channel.send({embed: guessDiceLoseEmbed});
 }
+
+module.exports.notHex = function(message) {
+    message.delete();
+
+    const notHexEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Not HEX ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Sorry, but this is not HEX string.\nI can't decode this.");
+
+    message.channel.send({embed: notHexEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
