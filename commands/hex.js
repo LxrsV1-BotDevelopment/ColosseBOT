@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const embeds = require("../modules/embeds.js");
 const { colorDarkRed, colorGreen } = require("../config.json");
 
 module.exports = {
@@ -22,6 +23,9 @@ module.exports = {
 
 				return message.channel.send({embed: hexEmbed});
 		} else if(choice == "decode") {
+				const hexCheck = /^[a-f0-9 ]+$/.test(input);
+				if (hexCheck != true) return embeds.notHex(message);
+
 				const buff = new Buffer.from(input, "hex");
 				const hexResult = buff.toString("ascii");
 
