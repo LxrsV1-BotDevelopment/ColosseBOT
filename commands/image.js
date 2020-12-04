@@ -36,6 +36,7 @@ module.exports = {
 				}
 				response.json().then(body => {
 					unsplash.photos.downloadPhoto(body);
+					console.log(body.user.name + body.urls.raw);
 					return embeds.unsplashImage(message, body);
 				});
 			});
