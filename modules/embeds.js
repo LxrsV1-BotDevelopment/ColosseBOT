@@ -461,7 +461,7 @@ module.exports.unsplashImage = function(message, body) {
     .setAuthor("⋙ ColosseBOT || Image ⋘", "", "https://colossebot.app")
     .setColor(colorGreen)
     .setDescription(`Photo by [${body.user.name}](${body.user.links.html}) on [Unsplash](https://unsplash.com/?utm_source=ColosseBOT&utm_medium=referral)`)
-    .setImage(body.urls.raw)
+    .setImage(body.urls.raw + ".png")
     .setFooter("Provided by Unsplash.com", unsplashThumbnail);
 
     return message.channel.send({embed: unsplashImageEmbed});
