@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorDarkRed, colorGreen, colorLightBrown, colorLightRed, colorBlack, devGuild, primaryLogs, botThumbnail } = require("../config.json");
+const { colorDarkRed, colorGreen, colorLightBrown, colorLightRed, colorBlack, devGuild, primaryLogs, botThumbnail, unsplashThumbnail } = require("../config.json");
 
 module.exports.unknownError = function(client, message, commandName, error) {
     const commandN = commandName.charAt(0).toUpperCase() + commandName.slice(1);
@@ -23,7 +23,7 @@ module.exports.unknownError = function(client, message, commandName, error) {
     .addField("Channel: ", message.channel.id)
     .addField("Error: ", `\`\`\`${error}\`\`\``);
 
-    client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: unknownErrorDevEmbed});
+    return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: unknownErrorDevEmbed});
 }
 
 module.exports.noCommand = function(message, commandName) {
@@ -34,7 +34,7 @@ module.exports.noCommand = function(message, commandName) {
       .setColor(colorDarkRed)
       .setDescription(`There is no command with name ${commandName}!`);
 
-      message.channel.send({embed: noCommandEmbed}).then(m => {
+      return message.channel.send({embed: noCommandEmbed}).then(m => {
         setTimeout(() => {m.delete()}, 7000);
       });
 };
@@ -47,7 +47,7 @@ module.exports.disabledCommand = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Sorry, but this command is currently disabled!");
 
-    message.channel.send({embed: disabledCommandEmbed}).then(m => {
+    return message.channel.send({embed: disabledCommandEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -60,7 +60,7 @@ module.exports.ownerCommand = function(message) {
     .setColor(colorDarkRed)
     .setDescription("This command is intended only for bot owner.");
 
-    message.channel.send({embed: ownerOnlyEmbed}).then(m => {
+    return message.channel.send({embed: ownerOnlyEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -73,7 +73,7 @@ module.exports.guildOnly = function(message) {
     .setColor(colorDarkRed)
     .setDescription("I can\'t execute this command inside DMs!");
 
-    message.channel.send({embed: guildOnlyEmbed}).then(m => {
+    return message.channel.send({embed: guildOnlyEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -86,7 +86,7 @@ module.exports.directOnly = function(message) {
     .setColor(colorDarkRed)
     .setDescription("I can\'t execute this command inside guilds!");
 
-    message.channel.send({embed: directOnlyEmbed}).then(m => {
+    return message.channel.send({embed: directOnlyEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -99,7 +99,7 @@ module.exports.noPerms = function(message) {
     .setColor(colorDarkRed)
     .setDescription(`You don\'t have required permissions, ${message.author.username}!\nCheck \`//perms\` for more info.`);
 
-    message.channel.send({embed: noPermsEmbed}).then(m => {
+    return message.channel.send({embed: noPermsEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -112,7 +112,7 @@ module.exports.noArgsProvided = function(message, command) {
     .setColor(colorDarkRed)
     .setDescription(`You didn't provide any arguments, ${message.author.username}!\nThe proper usage would be: \`${command.usage}\``);
 
-    message.channel.send({embed: noArgsProvidedEmbed}).then(m => {
+    return message.channel.send({embed: noArgsProvidedEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -125,7 +125,7 @@ module.exports.notEnoughArgs = function(message, command) {
     .setColor(colorDarkRed)
     .setDescription(`You didn't provide enough arguments, ${message.author.username}!\nThe proper usage would be:\n\`${command.usage}\``);
 
-    message.channel.send({embed: notEnoughArgsEmbed}).then(m => {
+    return message.channel.send({embed: notEnoughArgsEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -138,7 +138,7 @@ module.exports.cooldownActive = function(message, timeLeft) {
     .setColor(colorLightBrown)
     .setDescription(`${message.author.username}, please wait ${timeLeft.toFixed(1)} seconds before reusing this command.\nThis message will disappear when the cooldown is over.`);
 
-    message.channel.send({embed: cooldownActiveEmbed}).then(m => {
+    return message.channel.send({embed: cooldownActiveEmbed}).then(m => {
       m.react("⌛");
       setTimeout(() => {m.delete()}, timeLeft * 1000);
     });
@@ -152,7 +152,7 @@ module.exports.banNoMember = function(message) {
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find user to ban!\nPlease try again, ${message.author.username}!`);
 
-    message.channel.send({embed: banNoMemberEmbed}).then(m => {
+    return message.channel.send({embed: banNoMemberEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -165,7 +165,7 @@ module.exports.banHigherMember = function(client, message) {
     .setColor(colorDarkRed)
     .setDescription(`Don't try to ban members higher than you, ${message.author.username}!\nThis action was recorded to system!`);
 
-    message.channel.send({embed: banHigherMemberEmbed}).then(m => {
+    return message.channel.send({embed: banHigherMemberEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -179,7 +179,7 @@ module.exports.banInfraction = function(client, message) {
     .addField("Reason:", "Tried to ban higher standing member.")
     .addField("Message:", message.content);
 
-    client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: banInfractionEmbed});
+    return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: banInfractionEmbed});
 }
 
 module.exports.banImpossibleBot = function(message) {
@@ -190,7 +190,7 @@ module.exports.banImpossibleBot = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Ban was not possible, that may have been because:\n• Insufficent Bot Permissions;\n• Bannable Member Is Higher In Role Hierarchy Than Bot;\n• Bannable Member Is Guild Owner or Administrator.");
 
-    message.channel.send({embed: banImpossibleBotEmbed}).then(m => {
+    return message.channel.send({embed: banImpossibleBotEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 13000);
     });
 }
@@ -203,7 +203,7 @@ module.exports.banSuccess = function(message, banee, reason) {
     .setColor(colorDarkRed)
     .setDescription(`**${banee.user.tag} was banned from this guild!\nReason:** \`${reason}\``);
 
-    message.channel.send({embed: banSuccessEmbed}).then(m => {
+    return message.channel.send({embed: banSuccessEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -217,7 +217,7 @@ module.exports.banReport = function(client, message, banee, reason) {
     .addField("Moderator:", message.author.tag)
     .addField("Reason:", reason);
 
-    client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: banReportEmbed});
+    return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: banReportEmbed});
 }
 
 module.exports.falseChoice = function(message, usage) {
@@ -228,7 +228,7 @@ module.exports.falseChoice = function(message, usage) {
     .setColor(colorDarkRed)
     .setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${usage}\``);
 
-    message.channel.send({embed: falseChoiceEmbed}).then(m => {
+    return message.channel.send({embed: falseChoiceEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -241,7 +241,7 @@ module.exports.regexOnly01 = function(message) {
     .setColor(colorDarkRed)
     .setDescription("The input can only contain ones and zeros.");
 
-    message.channel.send({embed: regexOnly01Embed}).then(m => {
+    return message.channel.send({embed: regexOnly01Embed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -254,7 +254,7 @@ module.exports.incorrectBinary = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Incorrect binary input. Binary numbers are 8 digits long.");
 
-    message.channel.send({embed: incorrectBinaryEmbed}).then(m => {
+    return message.channel.send({embed: incorrectBinaryEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -268,7 +268,7 @@ module.exports.binaryAscii = function(message, input, result) {
     .addField("Input:", input)
     .addField("Result:", result);
 
-    message.channel.send({embed: binaryAsciiEmbed});
+    return message.channel.send({embed: binaryAsciiEmbed});
 }
 
 module.exports.regexOnlyLetters = function(message) {
@@ -279,7 +279,7 @@ module.exports.regexOnlyLetters = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Input can only contain letters and numbers.");
 
-    message.channel.send({embed: regexOnlyLettersEmbed}).then(m => {
+    return message.channel.send({embed: regexOnlyLettersEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -293,7 +293,7 @@ module.exports.asciiBinary = function(message, input, result) {
     .addField("Input:", input)
     .addField("Result:", result);
 
-    message.channel.send({embed: asciiBinaryEmbed});
+    return message.channel.send({embed: asciiBinaryEmbed});
 }
 
 module.exports.notHexColor = function(message) {
@@ -304,7 +304,7 @@ module.exports.notHexColor = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Sorry, but I don't understand this color format.\nI only accept colors in HEX format.");
 
-    message.channel.send({embed: notHexColorEmbed}).then(m => {
+    return message.channel.send({embed: notHexColorEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -317,7 +317,7 @@ module.exports.aCantBeZero = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Coefficient A cannot be zero.");
 
-    message.channel.send({embed: aCantBeZeroEmbed}).then(m => {
+    return message.channel.send({embed: aCantBeZeroEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -330,7 +330,7 @@ module.exports.inputOnlyNumbers = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Input can only contain numbers.");
 
-    message.channel.send({embed: inputOnlyNumbersEmbed}).then(m => {
+    return message.channel.send({embed: inputOnlyNumbersEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -344,7 +344,7 @@ module.exports.emojiSpeak = function(message, input, result) {
     .addField("Input:", input)
     .addField("Result:", result);
 
-    message.channel.send({embed: emojiSpeakEmbed});
+    return message.channel.send({embed: emojiSpeakEmbed});
 }
 
 module.exports.flipText = function(message, input, result) {
@@ -360,7 +360,7 @@ module.exports.flipText = function(message, input, result) {
     .addField("Input:", input)
     .addField("Result:", joinArray);
 
-    message.channel.send({embed: flipTextEmbed});
+    return message.channel.send({embed: flipTextEmbed});
 
 }
 
@@ -372,7 +372,7 @@ module.exports.roleNoMember = function(message) {
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find user!\nPlease try again, ${message.author.username}!`);
 
-    message.channel.send({embed: roleNoMemberEmbed}).then(m => {
+    return message.channel.send({embed: roleNoMemberEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -385,7 +385,7 @@ module.exports.roleNotFound = function(message) {
     .setColor(colorDarkRed)
     .setDescription(`Couldn't find role!\nPlease try again, ${message.author.username}!`);
 
-    message.channel.send({embed: roleNotFoundEmbed}).then(m => {
+    return message.channel.send({embed: roleNotFoundEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
@@ -398,7 +398,7 @@ module.exports.roleGiveImpossibleBot = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Giving role to this user isn't possible, that may be because:\n• Insufficent Bot Permissions;\n• Mentioned Member Is Higher In Role Hierarchy Than Bot;\n• Mentioned Role Is Higher In Role Hierarchy Than Bot.");
 
-    message.channel.send({embed: roleGiveImpossibleBotEmbed}).then(m => {
+    return message.channel.send({embed: roleGiveImpossibleBotEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 13000);
     });
 }
@@ -438,7 +438,31 @@ module.exports.notHex = function(message) {
     .setColor(colorDarkRed)
     .setDescription("Sorry, but this is not HEX string.\nI can't decode this.");
 
-    message.channel.send({embed: notHexEmbed}).then(m => {
+    return message.channel.send({embed: notHexEmbed}).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
+}
+
+module.exports.noImage = function(message) {
+    message.delete();
+
+    const noImageEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || No Image ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`Couldn't find a photo, please try again ${message.author.username}!`)
+
+    return message.channel.send({embed: noImageEmbed}).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.unsplashImage = function(message, body) {
+    const unsplashImageEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Image ⋘", "", "https://colossebot.app")
+    .setColor(colorGreen)
+    .setDescription(`Photo by [${body.user.name}](${body.user.links.html}) on [Unsplash](https://unsplash.com/?utm_source=ColosseBOT&utm_medium=referral)`)
+    .setImage(body.urls.raw)
+    .setFooter("Provided by Unsplash.com", unsplashThumbnail);
+
+    return message.channel.send({embed: unsplashImageEmbed});
 }
