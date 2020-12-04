@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const { devGuild, primaryLogs, colorGreen } = require("../config.json");
 const embeds = require("../modules/embeds.js");
+const { devGuild, primaryLogs, colorGreen } = require("../config.json");
 
 module.exports = {
 	name: "giverole",

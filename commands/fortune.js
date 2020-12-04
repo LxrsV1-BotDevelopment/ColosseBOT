@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, fortuneCookieThumbnail } = require("../config.json");
 const embeds = require("../modules/embeds.js");
+const { colorDarkRed, colorGreen, fortuneCookieThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "fortune",

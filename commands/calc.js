@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const { colorGreen, colorDarkRed } = require("../config.json");
 const math = require("mathjs");
+const { colorGreen, colorDarkRed } = require("../config.json");
 
 module.exports = {
 	name: "calc",

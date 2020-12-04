@@ -1,42 +1,39 @@
 const Discord = require("discord.js");
-const { colorWhite, botThumbnail } = require("../config.json");
+const { colorGreen, colorDarkRed } = require("../config.json");
 
 module.exports = {
 	name: 'inviteinfo',
 	description: 'Get info about invite code or URL.',
-	usage: '//inviteinfo <Code/URL>',
+	usage: '//inviteinfo <Invite Code/URL>',
 	args: true,
 	argsCount: 1,
-	guildOnly: false,
-	directOnly: false,
-	cooldown: 3,
-	disabled: false,
 	execute(client, message, args) {
 		const inviteCode = args[0];
 		client.fetchInvite(inviteCode)
 			.then(invite => {
-				if(invite.createdAt != null) timestamp = invite.createdAt;
+				var inviteGuild = invite.guild; if (inviteGuild == "undefined") inviteGuild = "Missing Info";
+				var invitee = invite.inviter.username; if (invitee == "undefined") invitee = "Missing Info";
+				var presenceCount = invite.presenceCount; memberCount = invite.memberCount;
+				var activeAndJoinedCount = `${memberCount} members, ${presenceCount} currently online.`;
+				if (presenceCount == "undefined" || memberCount == "undefined") activeAndJoinedCount = "Missing Info";
+
 					const inviteInfoEmbed = new Discord.MessageEmbed()
-					.setColor(colorWhite)
-					.setTitle("Invite Info | Success")
-					.setThumbnail(botThumbnail)
-					.addField("Inviter", `\`\`\`${invite.inviter.username}\`\`\``, true)
-					.addField("Guild", `\`\`\`${invite.guild}\`\`\``, true)
-					.addField("Member Count", `\`\`\`${invite.presenceCount}/${invite.memberCount}\`\`\``)
-					.addField("Time Created", `\`\`\`${invite.guild.createdAt}\`\`\``);
+					.setAuthor("⋙ ColosseBOT || Invite Info ⋘", "", "https://colossebot.app")
+					.setColor(colorGreen)
+					.addField("Invite Code:", invite.code)
+					.addField("Guild/Server Name:", inviteGuild)
+					.addField("Invited By:", invitee)
+					.addField("Members:", activeAndJoinedCount);
 
-					message.channel.send({embed: inviteInfoEmbed});
+					return message.channel.send({embed: inviteInfoEmbed});
 
-			}).catch (error => {
+			}).catch(error => {
 					const inviteInfoErrorEmbed = new Discord.MessageEmbed()
-					.setColor(colorWhite)
-					.setTitle("Invite Info | Error")
-					.setDescription("\`\`\`An error occurred while running the command.\`\`\`")
-					.setThumbnail(botThumbnail)
-					.addField("Error", "\`\`\`Couldn't get guild info from provided Code/URL\`\`\`")
-					.setFooter("Error Code: 20");
+					.setAuthor("⋙ ColosseBOT || Invite Not Found ⋘", "", "https://colossebot.app")
+					.setColor(colorDarkRed)
+					.setDescription("Couldn't find guild from invite! Please try again!")
 
-					message.channel.send({embed: inviteInfoErrorEmbed});
+					return message.channel.send({embed: inviteInfoErrorEmbed});
 			});
 	},
 };

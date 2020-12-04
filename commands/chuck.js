@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorGreen, colorDarkRed, chuckThumbnail } = require("../config.json");
 const embeds = require("../modules/embeds.js");
+const { colorGreen, colorDarkRed, chuckThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "chuck",
@@ -28,7 +28,6 @@ module.exports = {
 
 						return message.channel.send({embed: chuckEmbed});
 					}).catch(error => {
-				console.log(error.stack);
 				return embeds.unknownError(client, message, module.exports.name, error)
 			});
   },

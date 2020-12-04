@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const { colorDarkRed, colorGreen, adviceslipThumbnail } = require("../config.json");
 const embeds = require("../modules/embeds.js");
+const { colorDarkRed, colorGreen, adviceSlipThumbnail } = require("../config.json");
 
 module.exports = {
 	name: "advice",
@@ -25,7 +25,7 @@ module.exports = {
 				.setAuthor("⋙ ColosseBOT || Advice Slip ⋘", "", "https://colossebot.app")
 				.setColor(colorGreen)
 				.setDescription(body.slip.advice)
-				.setFooter("Provided by adviceslip.com", adviceslipThumbnail);
+				.setFooter("Provided by adviceslip.com", adviceSlipThumbnail);
 
 				return message.channel.send({embed: adviceEmbed});
 			}).catch(error => {
