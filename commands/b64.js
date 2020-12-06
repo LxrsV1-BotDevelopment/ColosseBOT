@@ -33,12 +33,12 @@ module.exports = {
 
 				return message.channel.send(b64Embed);
 		} else {
-				const falseChoice = new Discord.MessageEmbed()
+				const falseChoiceEmbed = new Discord.MessageEmbed()
 				.setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
 				.setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${module.exports.usage}\``);
 
-				return message.channel.send(falseChoice}).then(m => {
+				return message.channel.send(falseChoiceEmbed).then(m => {
 					setTimeout(() => {m.delete()}, 7000);
 				});
 		}
