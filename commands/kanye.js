@@ -25,7 +25,7 @@ module.exports = {
 				.setDescription(body.quote)
 				.setFooter("Provided by kanye.rest", kanyeRestThumbnail);
 
-				return message.channel.send({embed:kanyeEmbed);
+				return message.channel.send(kanyeEmbed);
 			}).catch(error => {
 				return embeds.unknownError(client, message, module.exports.name, error)
 		});
