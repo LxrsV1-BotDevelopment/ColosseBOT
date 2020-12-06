@@ -14,6 +14,6 @@ module.exports = {
 		.addField("Contact Information:", "<:CBDiscord:773331549591699486> [EEHoveckis#2408 (Bot Creator)](https://discord.gg/ftHzXuD)\n<:CBGithub:773332525497712691> [EEHoveckis](https://github.com/EEHoveckis)\n🌍 [ColosseBOT Website](https://colossebot.app)")
 		.addField("Contribute:", "📖 [Bot Translation Page](https://crowdin.com/project/colossebot)\n✏️ [Suggest or Make Changes](https://github.com/EEHoveckis/ColosseBOT)\n:coin: [Donate to Development](https://colossebot.app/donate)");
 
-		return message.channel.send({embed: botInfoEmbed});
+		return message.channel.send(botInfoEmbed);
 	},
 };

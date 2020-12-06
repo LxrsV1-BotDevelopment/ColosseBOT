@@ -15,6 +15,6 @@ module.exports = {
 		.addField("Discord Privacy Policy:", "[discord.com/privacy](https://discord.com/privacy)")
 		.addField("Discord Community Guidelines:", "[discord.com/guidelines](https://discord.com/guidelines)")
 
-		return message.channel.send({embed: discordEmbed});
+		return message.channel.send(discordEmbed);
 	},
 };

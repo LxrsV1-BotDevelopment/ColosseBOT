@@ -16,6 +16,6 @@ module.exports = {
 		.addField("Input:", args.join(" "))
 		.addField("Output:", bigText);
 
-		message.channel.send({embed: bigTextEmbed})
+		message.channel.send(bigTextEmbed)
 	},
 };

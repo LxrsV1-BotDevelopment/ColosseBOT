@@ -16,7 +16,7 @@ module.exports = {
 					.setColor(colorDarkRed)
 					.setDescription("Sorry, I couldn't get the advice. Please try again later.");
 
-					return message.channel.send({embed: noAdviceEmbed}).then(m => {
+					return message.channel.send(noAdviceEmbed).then(m => {
 						setTimeout(() => {m.delete()}, 7000);
 					});
 				}
@@ -27,7 +27,7 @@ module.exports = {
 				.setDescription(body.slip.advice)
 				.setFooter("Provided by adviceslip.com", adviceSlipThumbnail);
 
-				return message.channel.send({embed: adviceEmbed});
+				return message.channel.send(adviceEmbed);
 			}).catch(error => {
 				return embeds.unknownError(client, message, module.exports.name, error);
 		});

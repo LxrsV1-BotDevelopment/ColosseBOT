@@ -21,7 +21,7 @@ module.exports = {
 				.addField("Input:", input)
 				.addField("Result:", hexResult);
 
-				return message.channel.send({embed: hexEmbed});
+				return message.channel.send(hexEmbed);
 		} else if(choice == "decode") {
 				const hexCheck = /^[a-f0-9 ]+$/.test(input);
 				if (hexCheck != true) return embeds.notHex(message);
@@ -35,14 +35,14 @@ module.exports = {
 				.addField("Input:", input)
 				.addField("Result:", hexResult);
 
-				return message.channel.send({embed: hexEmbed});
+				return message.channel.send(hexEmbed);
 		} else {
 				const falseChoice = new Discord.MessageEmbed()
 				.setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
 				.setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${module.exports.usage}\``);
 
-				return message.channel.send({embed: falseChoice}).then(m => {
+				return message.channel.send(falseChoice}).then(m => {
 					setTimeout(() => {m.delete()}, 7000);
 				});
 		}

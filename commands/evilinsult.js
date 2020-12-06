@@ -16,7 +16,7 @@ module.exports = {
 					.setColor(colorDarkRed)
 					.setDescription("Sorry, I couldn't get the insult. Please try again later.");
 
-					return message.channel.send({embed: noInsultEmbed}).then(m => {
+					return message.channel.send(noInsultEmbed).then(m => {
 						setTimeout(() => {m.delete()}, 7000);
 					});
 				}
@@ -26,7 +26,7 @@ module.exports = {
 				.setDescription(body.insult)
 				.setFooter("Provided by evilinsult.com", evilInsultThumbnail);
 
-				return message.channel.send({embed: insultEmbed});
+				return message.channel.send(insultEmbed);
 			}).catch(error => {
 				return embeds.unknownError(client, message, module.exports.name, error);
 		});

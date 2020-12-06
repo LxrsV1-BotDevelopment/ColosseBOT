@@ -15,7 +15,7 @@ module.exports = {
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the fact. Please try again later.");
 
-						return message.channel.send({embed: noFactEmbed}).then(m => {
+						return message.channel.send(noFactEmbed).then(m => {
 							setTimeout(() => {m.delete()}, 7000);
 						});
 					}
@@ -26,7 +26,7 @@ module.exports = {
 					.setDescription(body.text)
 					.setFooter("Provided by cat-fact.herokuapp.com", catFactsThumbnail);
 
-					return message.channel.send({embed: catFactEmbed});
+					return message.channel.send(catFactEmbed);
 				}).catch(error => {
 					return embeds.unknownError(client, message, module.exports.name, error);
 			});

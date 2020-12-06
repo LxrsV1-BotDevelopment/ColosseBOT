@@ -9,9 +9,9 @@ const unsplash = new Unsplash({
 });
 
 module.exports = {
-	name: 'image',
-	description: 'Sends a random image or image from query.',
-	usage: '//image [Query]',
+	name: "image",
+	description: "Sends a random image or image from query.",
+	usage: "//image [Query]",
 	args: true,
 	argsCount: 0,
 	execute(client, message, args) {

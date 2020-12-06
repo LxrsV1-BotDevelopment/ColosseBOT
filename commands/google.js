@@ -16,6 +16,6 @@ module.exports = {
 		.setColor(colorGreen)
 		.setDescription(`https://www.google.com/search?q=${searchTerm}`);
 
-		return message.channel.send({embed: googleEmbed});
+		return message.channel.send(googleEmbed);
 	},
 };

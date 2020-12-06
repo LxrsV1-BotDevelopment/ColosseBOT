@@ -19,7 +19,7 @@ module.exports = {
 			.setColor(colorDarkRed)
 			.setDescription("The input text cannot exceed 10 characters.");
 
-			return message.channel.send({embed: inputTooLongEmbed}).then(m => {
+			return message.channel.send(inputTooLongEmbed).then(m => {
 				setTimeout(() => {m.delete()}, 7000);
 			});
 		}
@@ -35,7 +35,7 @@ module.exports = {
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the ascii text. Please try again later.");
 
-						return message.channel.send({embed: noAsciiEmbed}).then(m => {
+						return message.channel.send(noAsciiEmbed).then(m => {
 							setTimeout(() => {m.delete()}, 7000);
 						});
 					}
@@ -46,7 +46,7 @@ module.exports = {
 				.setDescription(`\`\`\`${body}\`\`\``)
 				.setFooter("Provided by artii.herokuapp.com", asciiartThumbnail);
 
-				return message.channel.send({embed: asciiEmbed});
+				return message.channel.send(asciiEmbed);
 			}).catch(error => {
 				return embeds.unknownError(client, message, module.exports.name, error);
 		});

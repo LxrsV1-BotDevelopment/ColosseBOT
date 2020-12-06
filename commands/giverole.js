@@ -28,18 +28,18 @@ module.exports = {
 	    .setColor(colorGreen)
 	    .setDescription(`**${user.user.tag} Has Been Given ${role.name} Role!**`);
 
-	    message.channel.send({embed: giveRoleSuccessEmbed}).then(m => {
+	    message.channel.send(giveRoleSuccessEmbed).then(m => {
 	      setTimeout(() => {m.delete()}, 7000);
 	    });
 
-			const giveRoleReport = new Discord.MessageEmbed()
+			const giveRoleReportEmbed = new Discord.MessageEmbed()
 			.setAuthor("⋙ ColosseBOT || GiveRole Report ⋘", "", "https://colossebot.app")
 			.setColor(colorGreen)
 			.addField("Role Assigned To:", user.user.tag)
 			.addField("Moderator:", message.author.tag)
 			.addField("Role:", role.name);
 
-			client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send({embed: giveRoleReport});
+			client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send(giveRoleReportEmbed);
 			message.delete();
 		}).catch(error => {
 				return embeds.unknownError(client, message, module.exports.name, error);

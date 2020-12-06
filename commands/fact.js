@@ -15,7 +15,7 @@ module.exports = {
 						.setColor(colorDarkRed)
 						.setDescription("Sorry, I couldn't get the fact. Please try again later.");
 
-						return message.channel.send({embed: noFactEmbed}).then(m => {
+						return message.channel.send(noFactEmbed).then(m => {
 							setTimeout(() => {m.delete();}, 7000);
 						});
 					}
@@ -26,7 +26,7 @@ module.exports = {
 					.setDescription(body.text)
 					.setFooter("Provided by uselessfacts.jsph.pl", jsphThumbnail);
 
-					return message.channel.send({embed: factEmbed});
+					return message.channel.send(factEmbed);
 				}).catch(error => {
 					return embeds.unknownError(client, message, module.exports.name, error);
 			});

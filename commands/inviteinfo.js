@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const { colorGreen, colorDarkRed } = require("../config.json");
 
 module.exports = {
-	name: 'inviteinfo',
-	description: 'Get info about invite code or URL.',
-	usage: '//inviteinfo <Invite Code/URL>',
+	name: "inviteinfo",
+	description: "Get info about invite code or URL.",
+	usage: "//inviteinfo <Invite Code/URL>",
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {
@@ -25,7 +25,7 @@ module.exports = {
 					.addField("Invited By:", invitee)
 					.addField("Members:", activeAndJoinedCount);
 
-					return message.channel.send({embed: inviteInfoEmbed});
+					return message.channel.send(inviteInfoEmbed);
 
 			}).catch(error => {
 					const inviteInfoErrorEmbed = new Discord.MessageEmbed()
@@ -33,7 +33,7 @@ module.exports = {
 					.setColor(colorDarkRed)
 					.setDescription("Couldn't find guild from invite! Please try again!")
 
-					return message.channel.send({embed: inviteInfoErrorEmbed});
+					return message.channel.send(inviteInfoErrorEmbed);
 			});
 	},
 };

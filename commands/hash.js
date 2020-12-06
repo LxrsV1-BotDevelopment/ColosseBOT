@@ -7,9 +7,9 @@ const SHA512 = new Hashes.SHA512;
 const { colorGreen } = require("../config.json");
 
 module.exports = {
-	name: 'hash',
-	description: 'Encode text to MD5, SHA1, SHA256, SHA512 hashes.',
-	usage: '//hash <text>',
+	name: "hash",
+	description: "Encode text to MD5, SHA1, SHA256, SHA512 hashes.",
+	usage: "//hash <text>",
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {
@@ -23,6 +23,6 @@ module.exports = {
     .addField("SHA256 Hash:", SHA256.hex(input))
     .addField("SHA512 Hash:", SHA512.hex(input));
 
-    return message.channel.send({embed: hashEmbed});
+    return message.channel.send(hashEmbed);
 	},
 };

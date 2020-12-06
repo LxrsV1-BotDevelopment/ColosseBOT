@@ -23,6 +23,6 @@ module.exports = {
 		.addField("HSV/HSB: ", `${convert.hex.hsv(colorCode)[0]}°, ${convert.hex.hsv(colorCode)[1]}%, ${convert.hex.hsv(colorCode)[2]}%`)
 		.addField("HSL: ", `${convert.hex.hsl(colorCode)[0]}°, ${convert.hex.hsl(colorCode)[1]}%, ${convert.hex.hsl(colorCode)[2]}%`);
 
-		return message.channel.send({embed: colorsEmbed});
+		return message.channel.send(colorsEmbed);
 	},
 };

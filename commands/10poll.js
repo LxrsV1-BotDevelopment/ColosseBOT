@@ -18,7 +18,7 @@ module.exports = {
 		.addField("Question:", question)
 		.setFooter(`Asked by ${message.author.tag}`, message.author.displayAvatarURL());
 
-		return message.channel.send({embed: voteEmbed}).then(embedMessage => {
+		return message.channel.send(voteEmbed).then(embedMessage => {
 				embedMessage.react("1️⃣").then(() => embedMessage.react("2️⃣")).then(() => embedMessage.react("3️⃣")).then(() => embedMessage.react("4️⃣")).then(() => embedMessage.react("5️⃣")).then(() => embedMessage.react("6️⃣")).then(() => embedMessage.react("7️⃣")).then(() => embedMessage.react("8️⃣")).then(() => embedMessage.react("9️⃣")).then(() => embedMessage.react("🔟"))
 		});
 	},

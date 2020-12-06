@@ -16,7 +16,7 @@ module.exports = {
 							.setColor(colorDarkRed)
 							.setDescription("Sorry, but I couldn't find Mr. Norris. Please try again later.");
 
-							return message.channel.send({embed: noChuckEmbed}).then(m => {
+							return message.channel.send(noChuckEmbed).then(m => {
 								setTimeout(() => {m.delete()}, 7000);
 							});
 						}
@@ -26,7 +26,7 @@ module.exports = {
 						.setDescription(body.value)
 						.setFooter("Provided by api.chucknorris.io", chuckThumbnail);
 
-						return message.channel.send({embed: chuckEmbed});
+						return message.channel.send(chuckEmbed);
 					}).catch(error => {
 				return embeds.unknownError(client, message, module.exports.name, error)
 			});

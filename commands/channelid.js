@@ -16,7 +16,7 @@ module.exports = {
 			.setColor(colorDarkRed)
 			.setDescription(`Couldn't find channel!\nPlease try again, ${message.author.username}!`);
 
-			return message.channel.send({embed: noChannelEmbed}).then(m => {
+			return message.channel.send(noChannelEmbed).then(m => {
 	      setTimeout(() => {m.delete()}, 7000);
 	    });
 		}
@@ -27,6 +27,6 @@ module.exports = {
 		.setColor(colorGreen)
 		.setDescription(`ID of specified channel is ${id}.`);
 
-		message.channel.send({embed: channelIdEmbed});
+		message.channel.send(channelIdEmbed);
 	},
 };

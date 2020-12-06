@@ -20,7 +20,7 @@ module.exports = {
 			.addField("Expression:", `${expression}`)
 			.addField("Result:", `${result}`);
 
-			return message.channel.send({embed: calcEmbed});
+			return message.channel.send(calcEmbed);
     } catch (error) {
 			message.delete();
 
@@ -29,7 +29,7 @@ module.exports = {
 			.setColor(colorDarkRed)
 			.setDescription("Sorry I couldn't calculate that.");
 
-			return message.channel.send({embed: calcErrorEmbed}).then(m => {
+			return message.channel.send(calcErrorEmbed).then(m => {
 				setTimeout(() => {m.delete()}, 7000);
 			});
     }

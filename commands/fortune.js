@@ -18,7 +18,7 @@ module.exports = {
 				.setColor(colorDarkRed)
 				.setDescription("Sorry, I couldn't get the fortune. Please try again later.");
 
-				return message.channel.send({embed: noFortuneEmbed}).then(m => {
+				return message.channel.send(noFortuneEmbed).then(m => {
 					setTimeout(() => {m.delete();}, 7000);
 				});
 			}
@@ -29,7 +29,7 @@ module.exports = {
 			.setDescription(body[0].message)
 			.setFooter("Provided by fortunecookieapi.herokuapp.com", fortuneCookieThumbnail);
 
-			return message.channel.send({embed: fortuneEmbed});
+			return message.channel.send(fortuneEmbed);
 		}).catch(error => {
 			return embeds.unknownError(client, message, module.exports.name, error);
 		});

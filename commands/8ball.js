@@ -19,6 +19,6 @@ module.exports = {
     .addField("Answer:", ballBank.ballreplies[index])
 		.setFooter("Provided by ColosseBOT", eightBallThumbnail);
 
-    return message.channel.send({embed: ballEmbed});
+    return message.channel.send(ballEmbed);
 	},
 };

@@ -30,14 +30,14 @@ module.exports = {
 				.addField("Expression:", "b^2 - 4ac")
 				.addField("Result:", `${result}`);
 
-				return message.channel.send({embed: dCalcEmbed});
+				return message.channel.send(dCalcEmbed);
 			} catch (error) {
 				const dCalcErrorEmbed = new Discord.MessageEmbed()
 				.setAuthor("⋙ ColosseBOT || Discriminant Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
 				.setDescription("Sorry I couldn't calculate that.");
 
-				return message.channel.send({embed: dCalcErrorEmbed});
+				return message.channel.send(dCalcErrorEmbed);
 		}
 	},
 };

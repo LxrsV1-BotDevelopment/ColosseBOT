@@ -1,13 +1,12 @@
 const Discord = require("discord.js");
-const { prefix, ownerID } = require("./config.json");
-const embeds = require("./modules/embeds.js");
 const fs = require("fs");
+const embeds = require("./modules/embeds.js");
+const { version } = require("./package.json");
+const { prefix, ownerID } = require("./config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
-
-console.log("\n _______  _______  ___      _______  _______  _______  _______  _______  _______  _______ \n|   ____||       ||   |    |       ||       ||       ||       ||  _    ||       ||       |\n|  |     |   _   ||   |    |   _   ||  _____||  _____||    ___|| |_|   ||   _   ||_     _|\n|  |     |  | |  ||   |    |  | |  || |_____ | |_____ |   |___ |      _||  | |  |  |   |  \n|  |     |  |_|  ||   |___ |  |_|  ||_____  ||_____  ||    ___||  _  |_ |  |_|  |  |   |  \n|  |____ |       ||       ||       | _____| | _____| ||   |___ | |_|   ||       |  |   |  \n|_______||_______||_______||_______||_______||_______||_______||_______||_______|  |___|  \n\t\t\t  =The Ultimate Human Assistant Chatbot=\n\t\t\t\t      Starting Up...")
 
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
@@ -17,7 +16,7 @@ for (const file of commandFiles) {
 }
 
 client.once("ready", () => {
-    console.log("\t\t\t      Bot Is Ready! - Version: 0.0.1");
+    console.log(`ColosseBOT - The Ultimate Discord Bot\nBot Is Ready! - Version: ${version}`);
 });
 
 client.on("message", message => {
@@ -56,7 +55,6 @@ client.on("message", message => {
     try {
         command.execute(client, message, args);
     } catch (error) {
-        console.log(error);
         return embeds.unknownError(client, message, commandName, error)
     }
 });

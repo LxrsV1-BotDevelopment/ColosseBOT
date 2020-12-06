@@ -14,6 +14,6 @@ module.exports = {
 		.setColor(colorGreen)
 		.setDescription(emojiBank.emojireplies[index]);
 
-		return message.channel.send({embed: asciiEmojiEmbed});
+		return message.channel.send(asciiEmojiEmbed);
 	},
 };

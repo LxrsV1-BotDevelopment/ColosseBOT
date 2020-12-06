@@ -12,6 +12,6 @@ module.exports = {
 			.addField("Mandatory Arguments:", "Mandatory arguments are required to run the command.\nThese will always be marked with angle brackets.\nExample of command:\n\`//test <Argument1> <Argument2>\`")
 			.addField("Non-Mandatory Arguments:", "Non-Mandatory arguments are not required to run the command,\nso you can even leave them out, if you wish.\nThese will always be marked with square brackets.\nExample of command:\n\`//test [Argument1] [Argument2]\`");
 
-			return message.channel.send({embed: argsInfoEmbed});
+			return message.channel.send(argsInfoEmbed);
 	},
 };

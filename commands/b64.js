@@ -20,7 +20,7 @@ module.exports = {
 				.addField("Input:", input)
 				.addField("Result:", b64result);
 
-				return message.channel.send({embed: b64Embed});
+				return message.channel.send(b64Embed);
 		} else if(choice == "decode") {
 				const buff = new Buffer.from(input, "base64");
 				const b64result = buff.toString("ascii");
@@ -31,14 +31,14 @@ module.exports = {
 				.addField("Input:", input)
 				.addField("Result:", b64result);
 
-				return message.channel.send({embed: b64Embed});
+				return message.channel.send(b64Embed);
 		} else {
 				const falseChoice = new Discord.MessageEmbed()
 				.setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
 				.setColor(colorDarkRed)
 				.setDescription(`Sorry, I couldn't understand your input.\nYour input should look like this:\n\`${module.exports.usage}\``);
 
-				return message.channel.send({embed: falseChoice}).then(m => {
+				return message.channel.send(falseChoice}).then(m => {
 					setTimeout(() => {m.delete()}, 7000);
 				});
 		}
