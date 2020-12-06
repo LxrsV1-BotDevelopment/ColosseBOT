@@ -8,7 +8,7 @@
 [• Features](#-features)  
 [• Usage](#-usage)  
 [• Contribution](#-contribution)  
-[• License](#-license)
+[• License](#%EF%B8%8F-license)
 
 ## 📝 Description
 ColosseBOT - An ultra-modern, customizable bot made, to be the ultimate bot.\nColosseBOT is built to always serve and help the user with lots of amazing commands and cool-looking dashboard. It has commands that usually require other bots or that others don't even have.
