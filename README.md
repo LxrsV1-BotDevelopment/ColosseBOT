@@ -1,11 +1,8 @@
 <p align="center">
     <img src="https://i.imgur.com/5vwdUAO.png" width="150px" height="150px">
 </p>
-
 <h1 align="center">ColosseBOT</h1>
 <p align="center">The Ultimate Discord Bot</p>
-<br>
-
 ##
 
 [• Description](#-description)  
@@ -42,7 +39,7 @@ Current Status - Not Ready For Release
 ColosseBOT is really easy to use. The default prefix is '//'. You can change it if you'd like a different one.
 ColosseBOT also will execute commands if you mention it at the start of message.
 
-For a full list of commands, their usage and a description what they are for, take a look at the [wiki](https://github.com/survanetwork/Worlds/wiki/Commands).
+For a full list of commands, their usage and a description what they are for, take a look at the [wiki](https://colossebot.app/wiki).
 
 ## 👷‍ Contribution
 Feel free to contribute if you have ideas or found an issue.
