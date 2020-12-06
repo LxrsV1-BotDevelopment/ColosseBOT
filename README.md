@@ -3,7 +3,6 @@
 </p>
 <h1 align="center">ColosseBOT</h1>
 <p align="center">The Ultimate Discord Bot</p>
-##
 
 [• Description](#-description)  
 [• Features](#-features)  
