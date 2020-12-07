@@ -3,7 +3,7 @@ const { colorGreen } = require("../config.json");
 
 module.exports = {
 	name: "10poll",
-	description: "Sends a poll with 1️⃣-🔟 images as vote options.",
+	description: "Sends a poll with 10 vote options.",
 	usage: "//10poll <question>",
 	args: true,
 	argsCount: 1,
