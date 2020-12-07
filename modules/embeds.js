@@ -283,7 +283,7 @@ module.exports.binaryAscii = function(message, input, result) {
     return message.channel.send(binaryAsciiEmbed);
 }
 
-module.exports.regexAllowedSymbols = function(message) {
+module.exports.regexOnlyAllowedSymbols = function(message) {
     message.delete();
 
     const regexAllowedSymbolsEmbed = new Discord.MessageEmbed()
