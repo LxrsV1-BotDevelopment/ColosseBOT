@@ -11,6 +11,7 @@ module.exports = {
 	execute(client, message, args) {
 		message.guild.fetchBans().then(bans => {
 			if (bans.size < 1) {
+				 message.delete();
 				 const noBansEmbed = new Discord.MessageEmbed()
 				 .setAuthor("⋙ ColosseBOT || No Bans ⋘", "", "https://colossebot.app")
 				 .setColor(colorDarkRed)
