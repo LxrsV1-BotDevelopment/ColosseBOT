@@ -9,6 +9,7 @@ module.exports = {
 	argsCount: 1,
 	execute(client, message, args) {
 		const input = args.join(" ");
+		if (input.length > 20) return embeds.emojiSpeakTooLong(message);
 		const regTest = /^[0-9A-Z?!.,;:()\[\]\{\}'"\-\u0020]*$/igm.test(input);
 		if (regTest != true) return embeds.regexOnlyAllowedSymbols(message);
 

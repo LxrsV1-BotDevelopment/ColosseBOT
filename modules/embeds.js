@@ -296,6 +296,19 @@ module.exports.regexAllowedSymbols = function(message) {
     });
 }
 
+module.exports.emojiSpeakTooLong = function(message) {
+    message.delete();
+
+    const emojiSpeakTooLongEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Input Too Long ⋘")
+    .setColor(colorDarkRed)
+    .setDescription("I'm sorry, but the input cannot exceed 20 characters.");
+
+    return message.channel.send(emojiSpeakTooLongEmbed).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
 module.exports.asciiBinary = function(message, input, result) {
     message.delete();
 
