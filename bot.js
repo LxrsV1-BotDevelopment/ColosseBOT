@@ -16,7 +16,7 @@ for (const file of commandFiles) {
 }
 
 client.once("ready", () => {
-    console.log(`ColosseBOT - The Ultimate Discord Bot\nBot Is Ready! - Version: ${version}`);
+    console.log(`\nColosseBOT - The Ultimate Discord Bot\nBot Is Ready! - Version: ${version}`);
 });
 
 client.on("message", message => {

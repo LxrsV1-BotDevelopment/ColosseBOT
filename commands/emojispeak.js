@@ -8,9 +8,9 @@ module.exports = {
 	args: true,
 	argsCount: 1,
 	execute(client, message, args) {
-		const input = args.join(" ").toUpperCase();
-		const regTest = /^[0-9A-Z\u0020]*$/gm.test(input);
-		if (regTest != true) return embeds.regexOnlyLetters(message);
+		const input = args.join(" ");
+		const regTest = /^[0-9A-Z?!.,;:()\[\]\{\}'"\-\u0020]*$/igm.test(input);
+		if (regTest != true) return embeds.regexOnlyAllowedSymbols(message);
 
 		function emojiString(input) {
 			var result = new Array(input.length)

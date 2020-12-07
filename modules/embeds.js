@@ -283,15 +283,15 @@ module.exports.binaryAscii = function(message, input, result) {
     return message.channel.send(binaryAsciiEmbed);
 }
 
-module.exports.regexOnlyLetters = function(message) {
+module.exports.regexAllowedSymbols = function(message) {
     message.delete();
 
-    const regexOnlyLettersEmbed = new Discord.MessageEmbed()
+    const regexAllowedSymbolsEmbed = new Discord.MessageEmbed()
     .setAuthor("⋙ ColosseBOT || Input Error ⋘", "", "https://colossebot.app")
     .setColor(colorDarkRed)
-    .setDescription("I'm sorry, but I couldn't understand your input.\nThe input can only contain letters and numbers.");
+    .setDescription("I'm sorry, but I couldn't understand your input.\nThe input can only contain letters, numbers and punctuation marks.");
 
-    return message.channel.send(regexOnlyLettersEmbed).then(m => {
+    return message.channel.send(regexAllowedSymbolsEmbed).then(m => {
       setTimeout(() => {m.delete()}, 7000);
     });
 }
