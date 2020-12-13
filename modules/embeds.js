@@ -232,6 +232,82 @@ module.exports.banReport = function(client, message, banee, reason) {
     return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send(banReportEmbed);
 }
 
+module.exports.kickNoMember = function(message) {
+    message.delete();
+
+    const kickNoMemberEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Member Not Found ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`I'm sorry, but I couldn't find the user!\nPlease try again, ${message.author.username}!`);
+
+    return message.channel.send(kickNoMemberEmbed).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.kickHigherMember = function(client, message) {
+    message.delete();
+
+    const kickHigherMemberEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Infraction Protect ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`Don't try to kick members higher than you, ${message.author.username}!\nThis action was recorded to system!`);
+
+    return message.channel.send(kickHigherMemberEmbed).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.kickInfraction = function(client, message) {
+    const kickInfractionEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Infraction Report ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Automatic server protection was trigered.")
+    .addField("Trigered By:", message.author.tag)
+    .addField("Reason:", "Tried to kick higher standing member.")
+    .addField("Message:", message.content);
+
+    return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send(kickInfractionEmbed);
+}
+
+module.exports.kickImpossibleBot = function(message) {
+    message.delete();
+
+    const kickImpossibleBotEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Kick Impossible ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription("Kick was not possible, that may have been because:\n• Insufficent Bot Permissions;\n• Kickable Member Is Higher In Role Hierarchy Than Bot;\n• Kickable Member Is Guild Owner or Administrator.");
+
+    return message.channel.send(kickImpossibleBotEmbed).then(m => {
+      setTimeout(() => {m.delete()}, 13000);
+    });
+}
+
+module.exports.kickSuccess = function(message, kickee, reason) {
+    message.delete();
+
+    const kickSuccessEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || Kick Successful ⋘", "", "https://colossebot.app")
+    .setColor(colorDarkRed)
+    .setDescription(`**${kickee.user.tag} was kicked from this guild!\nReason:** \`${reason}\``);
+
+    return message.channel.send(kickSuccessEmbed).then(m => {
+      setTimeout(() => {m.delete()}, 7000);
+    });
+}
+
+module.exports.kickReport = function(client, message, kickee, reason) {
+    const kickReportEmbed = new Discord.MessageEmbed()
+    .setAuthor("⋙ ColosseBOT || kick Report ⋘", "", "https://colossebot.app")
+    .setColor(colorBlack)
+    .addField("Kicked Member:", kickee.user.tag)
+    .addField("Kicked Member ID:", kickee.user.id)
+    .addField("Moderator:", message.author.tag)
+    .addField("Reason:", reason);
+
+    return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send(kickeeReportEmbed);
+}
+
 module.exports.falseChoice = function(message, usage) {
     message.delete();
 
