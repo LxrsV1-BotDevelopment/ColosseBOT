@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const ballBank = require("../wordbanks/8ball.json");
-const { colorGreen, eightBallThumbnail } = require("../config.json");
+const successEmbeds = require("../modules/embeds/successEmbeds.js");
+const ballBank = require("../modules/wordbanks/8ball.json");
 
 module.exports = {
 	name: "8ball",
@@ -11,14 +11,7 @@ module.exports = {
 	execute(client, message, args) {
 		const question = args.join(" ");
 		const index = Math.floor(Math.random() * (ballBank.ballreplies.length));
-
-		const ballEmbed = new Discord.MessageEmbed()
-		.setAuthor("⋙ ColosseBOT || 8Ball ⋘", "" ,"https://colossebot.app")
-		.setColor(colorGreen)
-    .addField("Question:", question)
-    .addField("Answer:", ballBank.ballreplies[index])
-		.setFooter("Provided by ColosseBOT", eightBallThumbnail);
-
-    return message.channel.send(ballEmbed);
+		const reply = ballBank.ballreplies[index];
+		return successEmbeds.eightBall(message, question, reply);
 	},
 };

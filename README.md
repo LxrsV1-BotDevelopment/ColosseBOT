@@ -1,14 +1,8 @@
 <p align="center">
-    <img src="https://i.imgur.com/5vwdUAO.png" width="150px" height="150px">
+    <img src="https://i.imgur.com/5vwdUAO.png" width="100px" height="100px">
 </p>
 <h1 align="center">ColosseBOT</h1>
 <p align="center">The Ultimate Discord Bot</p>
-
-[• Description](#-description)  
-[• Features](#-features)  
-[• Usage](#-usage)  
-[• Contribution](#-contribution)  
-[• License](#%EF%B8%8F-license)
 
 ## 📝 Description
 ColosseBOT - An ultra-modern, customizable bot made, to be the ultimate bot.\nColosseBOT is built to always serve and help the user with lots of amazing commands and cool-looking dashboard. It has commands that usually require other bots or that others don't even have.
@@ -38,7 +32,10 @@ Current Status - Not Ready For Release
 ColosseBOT is really easy to use. The default prefix is '//'. You can change it if you'd like a different one.
 ColosseBOT also will execute commands if you mention it at the start of message.
 
-For a full list of commands, their usage and a description what they are for, take a look at the [wiki](https://colossebot.app/wiki).
+For a full list of commands, their usage and a description what they are for, take a look at the [wiki](https://colossebot.app/commands).
+
+## 🔧 Setup
+If you want to, you can setup the bot on your own device. To get started visit the [setup page](https://colossebot.app/setup).
 
 ## 👷‍ Contribution
 Feel free to contribute if you have ideas or found an issue.
@@ -50,6 +47,6 @@ You can:
 Big thanks in advance for support to all contributors!
 
 ## 👨‍⚖️ License
-[![MIT License](https://upload.wikimedia.org/wikipedia/commons/f/f8/License_icon-mit-88x31-2.svg)](https://choosealicense.com/licenses/mit/)
+[![MIT License](https://i.creativecommons.org/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
 
-[ColosseBOT](https://github.com/EEHoveckis/ColosseBOT) by [EEHoveckis](https://github.com/EEHoveckis) is licensed under a [MIT License](https://choosealicense.com/licenses/mit/). Permissions beyond the scope of this license may be available on request.
+[ColosseBOT](https://github.com/EEHoveckis/ColosseBOT) by [EEHoveckis](https://github.com/EEHoveckis) is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Permissions beyond the scope of this license may be available on request.
