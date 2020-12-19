@@ -1,12 +1,12 @@
 {
   "prefix" : "//",
   "maintenance" : false,
-  "ownerID" : "500582432064667670",
+  "ownerID" : "Your Discord ID Goes Here",
 
-  "DISCORD_TOKEN": "",
-  "RAPIDAPI_KEY": "",
-  "UNSPLASH_ACCESS": "",
-  "UNSPASH_SECRET": "",
+  "discord_token": "Your Discord Token Goes Here.",
+  "rapidapi_key": "Your RapidAPI Key Goes Here.",
+  "unsplash_access": "Your Unsplash Access Key Goes Here.",
+  "unsplash_secret": "Your Unsplash Secret Key Goes Here.",
 
   "adviceSlipThumbnail" : "https://i.imgur.com/sNZ11bF.png",
   "asciiartThumbnail" : "https://i.imgur.com/Z0rJBdT.png",
@@ -18,11 +18,11 @@
   "eightBallThumbnail" : "https://i.imgur.com/rmS3D7G.png",
   "unsplashThumbnail" : "https://i.imgur.com/ksOYhmu.png",
   "evilInsultThumbnail" : "https://i.imgur.com/cgdLOqJ.png",
-  "kanyeRestThumbnail" : "https://kanye.rest/static/favicon-32x32.png",
+  "kanyeRestThumbnail" : "https://i.imgur.com/fEoxxEi.png",
 
-  "devGuild" : "763195799151837195",
-  "primaryLogs" : "763199289404555326",
-  "secondaryLogs" : "763199869484793886",
+  "devGuild" : "123456789123456789",
+  "primaryLogs" : "123456789123456789",
+  "secondaryLogs" : "123456789123456789",
 
   "antiSpamActive" : false,
   "antiLangActive" : false,
