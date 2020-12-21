@@ -2,21 +2,16 @@
   "name": "colossebot",
   "version": "0.0.1",
   "description": "ColosseBOT - The Ultimate Human Assistant Chatbot",
-  "main": "bot.js",
-  "engines": {
-    "node": "^12.16.2",
-    "npm": "*"
-  },
+  "main": "client.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-  "type" : "git",
-  "url" : "https://github.com/EEHoveckis/ColosseBOT.git"
+    "type" : "git",
+    "url" : "https://github.com/EEHoveckis/ColosseBOT.git"
   },
   "author": "EEHoveckis",
-  "license": "MIT",
+  "license": "CC BY 4.0",
   "dependencies": {
     "canvas" : "^2.6.1",
     "color-convert" : "^2.0.1",

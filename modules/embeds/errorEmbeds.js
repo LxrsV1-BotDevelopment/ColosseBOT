@@ -51,7 +51,7 @@ module.exports.noCommand = function(client, message, commandName) {
       });
 };
 
-module.exports.maintenanceActive = function(message) {
+module.exports.maintenanceActive = function(cient, message) {
     if(message.channel.type == "text") message.delete();
 
     const maintenanceActiveEmbed = new Discord.MessageEmbed()
@@ -64,7 +64,7 @@ module.exports.maintenanceActive = function(message) {
     });
 }
 
-module.exports.disabledCommand = function(message) {
+module.exports.disabledCommand = function(client, message) {
     if(message.channel.type == "text") message.delete();
 
     const disabledCommandEmbed = new Discord.MessageEmbed()
@@ -77,7 +77,7 @@ module.exports.disabledCommand = function(message) {
     });
 }
 
-module.exports.ownerOnly = function(message) {
+module.exports.ownerOnly = function(client, message) {
     if(message.channel.type == "text") message.delete();
 
     const ownerOnlyEmbed = new Discord.MessageEmbed()
@@ -91,7 +91,7 @@ module.exports.ownerOnly = function(message) {
 }
 
 
-module.exports.guildOnly = function(message) {
+module.exports.guildOnly = function(client, message) {
     const guildOnlyEmbed = new Discord.MessageEmbed()
     .setAuthor(`⋙ ColosseBOT || Guild Only Command ⋘`, "", "https://colossebot.app")
     .setColor(colorDarkRed)
@@ -102,7 +102,7 @@ module.exports.guildOnly = function(message) {
     });
 }
 
-module.exports.directOnly = function(message) {
+module.exports.directOnly = function(client, message) {
     if(message.channel.type == "text") message.delete();
 
     const directOnlyEmbed = new Discord.MessageEmbed()
@@ -115,7 +115,7 @@ module.exports.directOnly = function(message) {
     });
 }
 
-module.exports.guildOwnerOnly = function(message) {
+module.exports.guildOwnerOnly = function(client, message) {
     if(message.channel.type == "text") message.delete();
 
     const guildOwnerOnlyEmbed = new Discord.MessageEmbed()
@@ -128,7 +128,7 @@ module.exports.guildOwnerOnly = function(message) {
     });
 }
 
-module.exports.noPerms = function(message) {
+module.exports.noPerms = function(client, message) {
     if(message.channel.type == "text") message.delete();
 
     const noPermsEmbed = new Discord.MessageEmbed()
@@ -141,7 +141,7 @@ module.exports.noPerms = function(message) {
     });
 }
 
-module.exports.noArgsProvided = function(message, command) {
+module.exports.noArgsProvided = function(client, message, command) {
     if(message.channel.type == "text") message.delete();
 
     const noArgsProvidedEmbed = new Discord.MessageEmbed()
@@ -154,7 +154,7 @@ module.exports.noArgsProvided = function(message, command) {
     });
 }
 
-module.exports.notEnoughArgs = function(message, command) {
+module.exports.notEnoughArgs = function(client, message, command) {
     if(message.channel.type == "text") message.delete();
 
     const notEnoughArgsEmbed = new Discord.MessageEmbed()
@@ -167,7 +167,7 @@ module.exports.notEnoughArgs = function(message, command) {
     });
 }
 
-module.exports.cooldownActive = function(message, timeLeft) {
+module.exports.cooldownActive = function(client, message, timeLeft) {
     if(message.channel.type == "text") message.delete();
 
     const cooldownActiveEmbed = new Discord.MessageEmbed()

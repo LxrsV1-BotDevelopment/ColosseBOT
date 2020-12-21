@@ -12,6 +12,6 @@ module.exports = {
 		const question = args.join(" ");
 		const index = Math.floor(Math.random() * (ballBank.ballreplies.length));
 		const reply = ballBank.ballreplies[index];
-		return successEmbeds.eightBall(message, question, reply);
+		return successEmbeds.eightBall(client, message, question, reply);
 	},
 };

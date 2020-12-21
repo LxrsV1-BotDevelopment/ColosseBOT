@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const { colorGreen, eightBallThumbnail } = require("../etc/config.json");
 
-module.exports.eightBall = function(message, question, reply) {
+module.exports.eightBall = function(client, message, question, reply) {
   const ballEmbed = new Discord.MessageEmbed()
-  .setAuthor("⋙ ColosseBOT || 8Ball ⋘", "" ,"https://colossebot.app")
+  .setAuthor(`⋙ ${client.user.username} || 8Ball ⋘`, "" ,"https://colossebot.app")
   .setColor(colorGreen)
   .addField("Question:", question)
   .addField("Answer:", reply)

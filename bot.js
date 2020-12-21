@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const commandCheck = require("./modules/commandCheck.js");
-const { version } = require("./modules/etc/package.json");
+const antiLang = require("./modules/events/antiLang.js");
+const checkCommand = require("./modules/events/checkCommand.js");
+const { version } = require("./package.json");
 const { discord_token } = require("./modules/etc/config.json");
 
 const client = new Discord.Client();
@@ -18,7 +19,8 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
-    commandCheck.cChecker(client, message);
+    //antiLang(client, message);
+    checkCommand(client, message);
 });
 
 client.login(discord_token);
