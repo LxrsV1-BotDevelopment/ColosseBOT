@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const errorEmbeds = require("../embeds/errorEmbeds.js");
-const { prefix, maintenance, ownerID } = require("../etc/config.json");
+const { prefix, maintenance, ownerID } = require("../../config.js");
 
 module.exports = function(client, message) {
     const cooldowns = new Discord.Collection();
@@ -11,8 +11,8 @@ module.exports = function(client, message) {
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aka && cmd.aka.includes(commandName));
     if(!command) return errorEmbeds.noCommand(client, message, commandName);
 
-    if(maintenance) return errorEmbeds.maintenanceActive(client, message);
-    if(command.disabled) return errorEmbeds.disabledCommand(client, message);
+    if(maintenance && message.author.id != ownerID) return errorEmbeds.maintenanceActive(client, message);
+    if(command.disabled && message.author.id != ownerID) return errorEmbeds.disabledCommand(client, message);
     if(command.ownerOnly && message.author.id != ownerID) return errorEmbeds.ownerOnly(client, message);
     if(command.guildOnly && message.channel.type !== "text") return errorEmbeds.guildOnly(client, message);
     if(command.directOnly && message.channel.type !== "dm") return errorEmbeds.directOnly(client, message);

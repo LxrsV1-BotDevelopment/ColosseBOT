@@ -1,6 +1,3 @@
-<p align="center">
-    <img src="https://i.imgur.com/5vwdUAO.png" width="100px" height="100px">
-</p>
 <h1 align="center">ColosseBOT</h1>
 <p align="center">The Ultimate Discord Bot</p>
 
@@ -15,10 +12,11 @@ Current Status - Not Ready For Release
 - [ ] All Embed Responses
 - [ ] Music System
 - [ ] New Interesting Commands
-- [ ] Antilang module
-- [ ] Antispam module
-- [ ] Antiraid module
-- [ ] Unified Economy System
+- [ ] AntiLang Module
+- [ ] AntiSpam Module
+- [ ] AntiRaid Module
+- [ ] Economy System
+- [ ] Amazing Dashboard
 
 ## 📄 Features
 - **AMAZING COMMANDS** Loads of commands, that usually require other bots!
