@@ -10,6 +10,7 @@ module.exports = {
   rapidapi_key : "Your RapidAPI Key Goes Here.",  // Your RapidAPI Token. Needed for some API commands.
   unsplash_access : "Your Unsplash Access Key Goes Here.",  // Your Unsplash Access Token. Needed for image command.
   unsplash_secret : "Your Unsplash Secret Key Goes Here.",  // Your Unsplash Secret Token. Needed for image command.
+  mongoURI : "Your MongoDB URI goes here.", // Your MongoDB URI. Needed for databases.
 
   // Images for api embeds. Should not be changed.
   adviceSlipThumbnail : "https://i.imgur.com/sNZ11bF.png",

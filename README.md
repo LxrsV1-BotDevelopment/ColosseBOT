@@ -2,7 +2,8 @@
 <p align="center">The Ultimate Discord Bot</p>
 
 ## 📝 Description
-ColosseBOT - An ultra-modern, customizable bot made, to be the ultimate bot.\nColosseBOT is built to always serve and help the user with lots of amazing commands and cool-looking dashboard. It has commands that usually require other bots or that others don't even have.
+ColosseBOT - An ultra-modern, customizable bot made, to be the ultimate bot.
+ColosseBOT is built to always serve and help the user with lots of amazing commands and cool-looking dashboard. It has commands that usually require other bots or that others don't even have.
 
 If you want to help or you have ideas to make the bot better, feel free to make a commit or open an issue.
 Please report bugs on the issues page on GitHub.
@@ -11,12 +12,13 @@ Please keep in mind that bot is under construction so not all features are avail
 Current Status - Not Ready For Release
 - [ ] All Embed Responses
 - [ ] Music System
-- [ ] New Interesting Commands
-- [ ] AntiLang Module
+- [ ] Custom Commands
+- [x] AntiLang Module (Might have bugs)
 - [ ] AntiSpam Module
 - [ ] AntiRaid Module
 - [ ] Economy System
 - [ ] Amazing Dashboard
+- [ ] Guild & User Translations
 
 ## 📄 Features
 - **AMAZING COMMANDS** Loads of commands, that usually require other bots!

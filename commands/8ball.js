@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const successEmbeds = require("../modules/embeds/successEmbeds.js");
+const { eightBall } = require("../modules/embeds/commandEmbeds.js");
 const ballBank = require("../modules/wordbanks/8ball.json");
 
 module.exports = {
@@ -12,6 +12,6 @@ module.exports = {
 		const question = args.join(" ");
 		const index = Math.floor(Math.random() * (ballBank.ballreplies.length));
 		const reply = ballBank.ballreplies[index];
-		return successEmbeds.eightBall(client, message, question, reply);
+		return eightBall(client, message, question, reply);
 	},
 };
