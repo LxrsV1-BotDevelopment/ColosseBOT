@@ -1,4 +1,4 @@
-module.exports = async function(database, guildData, message) {
+module.exports = async function(database, guildData) {
   try {
     const antiLangCollection = database.collection('antiLang');
     const activeTime = guildData.activeHours * 1000 * 60 * 60;

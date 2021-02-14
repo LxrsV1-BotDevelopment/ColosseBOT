@@ -1,8 +1,8 @@
-module.exports = async function(database, message) {
+module.exports = async function(database, guildID) {
   try {
     const collection = database.collection('guilds');
 
-    const cursor = await collection.findOne({ guild: message.guild.id });
+    const cursor = await collection.findOne({ guild: guildID });
     const guildData = {
       antiLang: cursor.antiLang,
       antiLangLevel: cursor.antiLangLevel,

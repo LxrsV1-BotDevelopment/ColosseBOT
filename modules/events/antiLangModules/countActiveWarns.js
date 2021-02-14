@@ -1,7 +1,7 @@
-module.exports = async function(database, message) {
+module.exports = async function(database, memberID, guildID) {
   try {
     const antiLangCollection = database.collection('antiLang');
-    const cursor = await antiLangCollection.find({ user: message.author.id, guild: message.guild.id });
+    const cursor = await antiLangCollection.find({ user: memberID, guild: guildID });
 
     warnCount = await cursor.count();
     if (warnCount < 1) {
