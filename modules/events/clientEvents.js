@@ -21,12 +21,16 @@ module.exports = function(client, database) {
     });
   });
 
-  // message
+  // Client joins guild
+  client.on("guildCreate", (guild) => {
+    getGuildData(database, guild.id);
+  });
+
+  // Message
   client.on("message", (message) => {
     getGuildData(database, message.guild.id).then(guildData => {
       if(guildData.antiLang == true) antiLang(client, database, guildData, message);
     });
     checkCommand(client, message);
   });
-
 };

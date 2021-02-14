@@ -24,10 +24,10 @@ module.exports = function(client, database, guildData, message) {
         break;
       case 2:   //Mutes user after 3 infractions in X hours
         countActiveWarns(database, message.author.id, message.guild.id).then(activeWarns => {
-          if(activeWarns < 3) {
+          if(activeWarns < 2) {
             addWarn(database, message);
-            warnUserNF(client, guildData, message, activeWarns);
-          } else if(activeWarns == 3) {
+            warnUserNF(client, guildData, message, activeWarns + 1);
+          } else if(activeWarns == 2) {
             addWarn(database, message);
             warnUserF(client, guildData, message);
           } else {
@@ -40,10 +40,10 @@ module.exports = function(client, database, guildData, message) {
         break;
       case 3:   //Kicks user after 3 infractions in X hours
         countActiveWarns(database, message.author.id, message.guild.id).then(activeWarns => {
-          if(activeWarns < 3) {
+          if(activeWarns < 2) {
             addWarn(database, message);
-            warnUserNF(client, guildData, message, activeWarns);
-          } else if(activeWarns == 3) {
+            warnUserNF(client, guildData, message, activeWarns + 1);
+          } else if(activeWarns == 2) {
             addWarn(database, message);
             warnUserF(client, guildData, message);
           } else {
@@ -56,10 +56,10 @@ module.exports = function(client, database, guildData, message) {
         break;
       case 4:   //Ban user after 3 infractions in X hours
         countActiveWarns(database, message.author.id, message.guild.id).then(activeWarns => {
-          if(activeWarns < 3) {
+          if(activeWarns < 2) {
             addWarn(database, message);
-            warnUserNF(client, guildData, message, activeWarns);
-          } else if(activeWarns == 3) {
+            warnUserNF(client, guildData, message, activeWarns + 1);
+          } else if(activeWarns == 2) {
             addWarn(database, message);
             warnUserF(client, guildData, message);
           } else {
