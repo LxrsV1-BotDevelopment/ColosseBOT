@@ -13,17 +13,17 @@ Current Status - Not Ready For Release
 - [ ] All Embed Responses
 - [ ] Music System
 - [ ] Custom Commands
-- [x] AntiLang Module (Still needs setup command)
+- [x] AntiLang Module (Still needs setup command & Some fixes)
 - [ ] AntiSpam Module
 - [ ] AntiRaid Module
 - [ ] Economy System
 - [ ] Amazing Dashboard
-- [ ] Guild & User Translations
+- [x] Guild & User String Translations (Partial implementation. Not working fully yet.)
 
 ## 📄 Features
 - **AMAZING COMMANDS** Loads of commands, that usually require other bots!
 - **COOL-LOOKING DASHBOARD** Customize your discord server to the fullest!
-- **UNIFIED ECONOMY** One, Discord-wide economy system!
+- **WONDERFUL ECONOMY** Economy system with many ways to earn/spend resources!
 - **POWERFUL MODERATION** Moderate your server: catch spammers, language abusers and other bad-guys!
 - **CUSTOM COMMANDS** Make your own commands for your servers.
 - **EMBEDS ONLY** Attractive embed-only messages. Perfect for all platforms.
@@ -38,7 +38,7 @@ For a full list of commands, their usage and a description what they are for, ta
 If you want to, you can setup the bot on your own device. To get started visit the [setup page](https://colossebot.app/setup).
 
 ## 👷‍ Contribution
-Feel free to contribute if you have ideas or found an issue.
+Feel free to contribute if you have ideas and/or found an issue.
 
 You can:
 - [Open an issue](https://github.com/EEHoveckis/ColosseBOT/issues) (Problems, bugs or feature requests);

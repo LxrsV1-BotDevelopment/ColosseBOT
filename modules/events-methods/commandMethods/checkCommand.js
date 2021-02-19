@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
-const errorEmbeds = require("../embeds/errorEmbeds.js");
-const { prefix, maintenance, ownerID } = require("../../config.js");
+const errorEmbeds = require("../../embeds/errorEmbeds.js");
+const antiLang = require("../antiLang/antiLang.js");
+const { prefix, maintenance, ownerID } = require("../../files/config.js");
 
-module.exports = function(client, message) {
+module.exports = function(client, message, data, database) {
     const cooldowns = new Discord.Collection();
 
     if(!message.content.startsWith(prefix) || message.author.bot) return;

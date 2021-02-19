@@ -1,6 +1,6 @@
 module.exports = {
   // Basic Settings
-  prefix : "//",  // Prefix for commands.
+  prefix : "//",  // Default Prefix for commands.
   maintenance : false,  // Maintenance mode: No requests are accepted from anyone but owner.
   ownerID : "Your Discord ID Goes Here",  // Your Discord ID. Needed for ownerOnly && maintenance commands.
   botWebsite : "https://YourSite.com",  // Website link that will be inserted in every embed.
@@ -24,22 +24,6 @@ module.exports = {
   unsplashThumbnail : "https://i.imgur.com/ksOYhmu.png",
   evilInsultThumbnail : "https://i.imgur.com/cgdLOqJ.png",
   kanyeRestThumbnail : "https://i.imgur.com/fEoxxEi.png",
-
-  // Guild & Channel ID's for development logs.
-  // Assign to where you wish to recieve logs.
-  devGuild : "123456789123456789",
-  primaryLogs : "123456789123456789",
-  secondaryLogs : "123456789123456789",
-
-  // antiSpam settings.
-  // antiSpamLevel must be [1, 2, 3, 4].
-  antiSpamActive : false,
-  antiSpamLevel : 1,
-
-  // antiLang settings.
-  // antiSpamLevel must be [1, 2, 3, 4].
-  antiLangActive : false,
-  antiLangLevel : 1,
 
   // Colors for Embeds.
   colorWhite : "#fffffe",

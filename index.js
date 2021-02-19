@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
-const loadCommands = require("./modules/events/loadCommands.js");
-const connectMongo = require("./modules/events/connectMongo.js");
-const clientEvents = require("./modules/events/clientEvents.js");
-const { discord_token } = require("./config.js");
+const loadCommands = require("./modules/events-methods/commandMethods/loadCommands.js");
+const connectMongo = require("./modules/events-methods/dataMethods/connectMongo.js");
+const clientEvents = require("./modules/events-methods/clientEvents/clientEvents.js");
+const { discord_token } = require("./modules/files/config.js");
 
 const client = new Discord.Client();
 loadCommands(client);

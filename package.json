@@ -7,22 +7,22 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/EEHoveckis/ColosseBOT.git"
+    "type": "git",
+    "url": "https://github.com/EEHoveckis/ColosseBOT.git"
   },
   "author": "EEHoveckis",
   "license": "CC-BY-4.0",
   "dependencies": {
-    "canvas" : "^2.6.1",
-    "chemymass" : "^1.0.1",
-    "color-convert" : "^2.0.1",
-    "discord.js" : "^12.2.0",
-    "jshashes" : "^1.0.8",
-    "mathjs" : "^7.1.0",
-    "node-fetch" : "^2.0.6",
-    "mongodb" : "^3.6.4",
-    "random-puppy" : "^1.1.0",
-    "unsplash-js" : "^6.0.0",
-    "urban-dictionary" : "^2.2.1"
+    "canvas": "^2.6.1",
+    "chemymass": "^1.0.1",
+    "color-convert": "^2.0.1",
+    "discord.js": "^12.2.0",
+    "jshashes": "^1.0.8",
+    "mathjs": "^7.1.0",
+    "mongodb": "^3.6.4",
+    "node-fetch": "^2.0.6",
+    "random-puppy": "^1.1.0",
+    "unsplash-js": "^6.0.0",
+    "urban-dictionary": "^2.2.1"
   }
 }

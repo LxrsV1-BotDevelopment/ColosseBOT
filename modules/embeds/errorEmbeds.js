@@ -31,7 +31,6 @@ module.exports.unknownError = function(client, message, commandName, error) {
       .setColor(colorDarkRed)
       .setDescription("An error occured while running command.")
       .addField("Author Name: ", message.author.tag)
-      .addField("Channel: ", message.author.id)
       .addField("Error: ", error);
 
       return client.guilds.resolve(devGuild).channels.resolve(primaryLogs).send(unknownErrorDmEmbed);

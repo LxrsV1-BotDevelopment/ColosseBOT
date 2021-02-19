@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorGreen, eightBallThumbnail, botWebsite } = require("../../config.js");
+const { colorGreen, eightBallThumbnail, botWebsite } = require("../files/config.js");
 
 module.exports.eightBall = function(client, message, question, reply) {
   const ballEmbed = new Discord.MessageEmbed()

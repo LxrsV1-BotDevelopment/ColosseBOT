@@ -23,6 +23,7 @@ module.exports = async function(database, guildID) {
       botCommandsChannel: String("None"),
       welcomeLogs: Boolean(false),
       welcomeLogsChannel: String("None"),
+      welcomeType: String("EMBED"),
       stats: Boolean(false)
     };
     const result = await guildCollection.insertOne(doc);

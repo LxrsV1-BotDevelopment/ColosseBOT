@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { colorYellow, colorOrange, colorRed, colorBlack, botWebsite } = require("../../config.js");
+const { colorYellow, colorOrange, colorRed, colorBlack, botWebsite } = require("../files/config.js");
 
 module.exports.warnUser = function(client, message) {
   const warnUserEmbed = new Discord.MessageEmbed()
